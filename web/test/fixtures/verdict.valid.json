@@ -1,0 +1,22 @@
+{
+  "category": "FLAKY_TIMING",
+  "headline": "Most failed attempts pass when the test is retried.",
+  "rootCause": {
+    "statement": "The payment button is not consistently ready when the test clicks it.",
+    "citedEvidence": ["E1", "E6"]
+  },
+  "reasoning": [
+    { "step": "The execution history alternates between pass and fail.", "citedEvidence": ["E1"] },
+    { "step": "Retry recovery is observed in most failed runs.", "citedEvidence": ["E6"] }
+  ],
+  "contradictingEvidence": [],
+  "confidenceBand": "HIGH",
+  "confidenceRationale": "Two independent signals agree on intermittent timing.",
+  "recommendedAction": {
+    "owner": "QA_TEAM",
+    "action": "Replace the fixed wait with an assertion-based wait on the confirm button.",
+    "urgency": "P2",
+    "ticketDraft": "Stabilize the declined-card checkout test by waiting for the confirm button to be enabled."
+  },
+  "evidenceGaps": []
+}

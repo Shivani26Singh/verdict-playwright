@@ -1,0 +1,93 @@
+[
+  {
+    "id": "flaky-checkout",
+    "title": "Checkout — declined card retry",
+    "description": "A payment confirmation test that fails, then passes when retried.",
+    "classification": "flaky",
+    "category": "Locator",
+    "runCount": 20,
+    "failedCount": 7,
+    "transitions": 14,
+    "history": [
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "passed"
+    ],
+    "expected": {
+      "classification": "flaky"
+    }
+  },
+  {
+    "id": "product-invoice-500",
+    "title": "Billing — monthly invoice generation",
+    "description": "An invoice test that fails on every run with a server error.",
+    "classification": "stable_failure",
+    "category": "Network",
+    "runCount": 20,
+    "failedCount": 20,
+    "transitions": 0,
+    "history": [
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed"
+    ],
+    "expected": {
+      "classification": "stable_failure",
+      "category": "Network",
+      "ruleCode": "RC-018"
+    }
+  },
+  {
+    "id": "insufficient-evidence",
+    "title": "Settings — theme preference",
+    "description": "A test that failed recently, with very little evidence captured.",
+    "classification": "newly_failed",
+    "category": "Unknown",
+    "runCount": 2,
+    "failedCount": 1,
+    "transitions": 1,
+    "history": [
+      "passed",
+      "failed"
+    ],
+    "expected": {
+      "classification": "newly_failed",
+      "ruleCode": "RC-007",
+      "runCount": 2
+    }
+  }
+]

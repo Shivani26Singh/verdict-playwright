@@ -1,0 +1,119 @@
+{
+  "verdict": {
+    "category": "FLAKY_TIMING",
+    "headline": "The checkout failure is intermittent and usually recovers when the test is retried.",
+    "rootCause": {
+      "statement": "The payment confirmation button is not reliably ready when the test attempts to click it, and the failure tends to resolve on retry.",
+      "citedEvidence": [
+        "E1",
+        "E6",
+        "E2"
+      ]
+    },
+    "reasoning": [
+      {
+        "step": "The test fails in some runs and passes in others, which points to timing rather than a permanently broken flow.",
+        "citedEvidence": [
+          "E1"
+        ]
+      },
+      {
+        "step": "Most failed attempts recover when the test is retried.",
+        "citedEvidence": [
+          "E6"
+        ]
+      },
+      {
+        "step": "The detected cause is that the payment button was not ready for interaction.",
+        "citedEvidence": [
+          "E2"
+        ]
+      }
+    ],
+    "contradictingEvidence": [
+      {
+        "point": "The error text resembles a product UI state, but the intermittent history argues against a stable product defect.",
+        "citedEvidence": [
+          "E4"
+        ]
+      }
+    ],
+    "confidenceBand": "HIGH",
+    "confidenceRationale": "Execution history and retry recovery both agree on an intermittent timing cause.",
+    "recommendedAction": {
+      "owner": "QA_TEAM",
+      "action": "Replace the fixed wait with an assertion-based wait on the confirm button.",
+      "urgency": "P2",
+      "ticketDraft": "Stabilize the declined-card checkout test by waiting for the confirm button to be enabled before clicking."
+    },
+    "evidenceGaps": []
+  },
+  "guard": {
+    "verdict": {
+      "category": "FLAKY_TIMING",
+      "headline": "The checkout failure is intermittent and usually recovers when the test is retried.",
+      "rootCause": {
+        "statement": "The payment confirmation button is not reliably ready when the test attempts to click it, and the failure tends to resolve on retry.",
+        "citedEvidence": [
+          "E1",
+          "E6",
+          "E2"
+        ]
+      },
+      "reasoning": [
+        {
+          "step": "The test fails in some runs and passes in others, which points to timing rather than a permanently broken flow.",
+          "citedEvidence": [
+            "E1"
+          ]
+        },
+        {
+          "step": "Most failed attempts recover when the test is retried.",
+          "citedEvidence": [
+            "E6"
+          ]
+        },
+        {
+          "step": "The detected cause is that the payment button was not ready for interaction.",
+          "citedEvidence": [
+            "E2"
+          ]
+        }
+      ],
+      "contradictingEvidence": [
+        {
+          "point": "The error text resembles a product UI state, but the intermittent history argues against a stable product defect.",
+          "citedEvidence": [
+            "E4"
+          ]
+        }
+      ],
+      "confidenceBand": "HIGH",
+      "confidenceRationale": "Execution history and retry recovery both agree on an intermittent timing cause.",
+      "recommendedAction": {
+        "owner": "QA_TEAM",
+        "action": "Replace the fixed wait with an assertion-based wait on the confirm button.",
+        "urgency": "P2",
+        "ticketDraft": "Stabilize the declined-card checkout test by waiting for the confirm button to be enabled before clicking."
+      },
+      "evidenceGaps": []
+    },
+    "passed": true,
+    "forcedInsufficient": false,
+    "categoryCoherence": "SUPPORTED",
+    "strippedCitations": [],
+    "violations": [],
+    "agreement": {
+      "deterministicConfidence": 82,
+      "deterministicBand": "HIGH",
+      "aiBand": "HIGH",
+      "status": "AGREE",
+      "humanReviewRecommended": false
+    }
+  },
+  "provenance": {
+    "mode": "cached",
+    "reason": "Deterministic build-time verdict",
+    "generatedAt": "2026-08-16T09:00:56.712Z"
+  }
+}

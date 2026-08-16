@@ -1,0 +1,84 @@
+{
+  "verdict": {
+    "category": "INSUFFICIENT_EVIDENCE",
+    "headline": "There is not enough evidence to determine the cause of this failure.",
+    "rootCause": {
+      "statement": "The available evidence does not distinguish between product, test, and environment causes.",
+      "citedEvidence": []
+    },
+    "reasoning": [],
+    "contradictingEvidence": [],
+    "confidenceBand": "LOW",
+    "confidenceRationale": "Insufficient evidence was available to support a reliable attribution.",
+    "recommendedAction": {
+      "owner": "NEEDS_TRIAGE",
+      "action": "Re-run this test with tracing enabled, then investigate again.",
+      "urgency": "P3",
+      "ticketDraft": "Re-run the failing test with screenshots, tracing, and video enabled to collect more evidence."
+    },
+    "evidenceGaps": [
+      "Failure type",
+      "Error",
+      "Code location",
+      "Retry behaviour"
+    ],
+    "forcedInsufficient": true
+  },
+  "guard": {
+    "verdict": {
+      "category": "INSUFFICIENT_EVIDENCE",
+      "headline": "There is not enough evidence to determine the cause of this failure.",
+      "rootCause": {
+        "statement": "The available evidence does not distinguish between product, test, and environment causes.",
+        "citedEvidence": []
+      },
+      "reasoning": [],
+      "contradictingEvidence": [],
+      "confidenceBand": "LOW",
+      "confidenceRationale": "Insufficient evidence was available to support a reliable attribution.",
+      "recommendedAction": {
+        "owner": "NEEDS_TRIAGE",
+        "action": "Re-run this test with tracing enabled, then investigate again.",
+        "urgency": "P3",
+        "ticketDraft": "Re-run the failing test with screenshots, tracing, and video enabled to collect more evidence."
+      },
+      "evidenceGaps": [
+        "Failure type",
+        "Error",
+        "Code location",
+        "Retry behaviour"
+      ],
+      "forcedInsufficient": true
+    },
+    "passed": false,
+    "forcedInsufficient": true,
+    "categoryCoherence": "SUPPORTED",
+    "strippedCitations": [],
+    "violations": [
+      {
+        "code": "G4",
+        "severity": "FATAL",
+        "message": "Root cause has no valid supporting citations; forced INSUFFICIENT_EVIDENCE.",
+        "detail": "All root-cause citations were stripped or missing."
+      },
+      {
+        "code": "G5",
+        "severity": "HIGH",
+        "message": "Reasoning step with no valid citations dropped.",
+        "detail": "Only a limited execution history is available for this failure."
+      }
+    ],
+    "agreement": {
+      "deterministicConfidence": 22,
+      "deterministicBand": "LOW",
+      "aiBand": "LOW",
+      "status": "AGREE",
+      "humanReviewRecommended": false
+    }
+  },
+  "provenance": {
+    "mode": "cached",
+    "reason": "Deterministic build-time verdict",
+    "generatedAt": "2026-08-16T09:00:56.904Z"
+  }
+}

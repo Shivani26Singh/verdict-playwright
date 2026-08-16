@@ -1,0 +1,34 @@
+{
+  "testName": "renders the header when the profile payload is partial",
+  "file": "tests/dashboard.spec.js",
+  "browser": "chromium",
+  "classification": "newly_failed",
+  "history": ["passed", "failed"],
+  "retriesPerRun": [0, null],
+  "runCount": 2,
+  "passedOnRetry": false,
+  "retriesToPass": 0,
+  "firstSeenRun": 0,
+  "lastSeenRun": 1,
+  "matchedRuleCode": "RC-007",
+  "matchedRule": "generic-failure",
+  "category": "Unknown",
+  "likelyCause": "Could not confidently determine a specific root cause",
+  "explanation": "This test failed with an error that doesn't match any known Playwright pattern.",
+  "confidence": 22,
+  "severity": "medium",
+  "fingerprint": "FP-353356",
+  "fingerprintGroupCount": 0,
+  "classificationReasons": ["Failed in latest run (Run 2)", "Passed in previous run (Run 1)"],
+  "confidenceExplain": {
+    "baseConfidence": 20,
+    "adjustments": [
+      { "code": "A3", "delta": 3, "reason": "Mixed results — recovered on retry in at least one run" },
+      { "code": "A8", "delta": -5, "reason": "Only 2 run(s) analyzed (limited data)" }
+    ],
+    "adjustmentTotal": -2,
+    "finalConfidence": 22,
+    "clamped": false
+  },
+  "evidence": null
+}

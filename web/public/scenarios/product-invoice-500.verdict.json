@@ -1,0 +1,105 @@
+{
+  "verdict": {
+    "category": "PRODUCT_DEFECT",
+    "headline": "The invoice generation fails consistently with a server error.",
+    "rootCause": {
+      "statement": "The billing API returns HTTP 500 on every run, pointing to a backend defect in the invoice endpoint.",
+      "citedEvidence": [
+        "E1",
+        "E4",
+        "E2"
+      ]
+    },
+    "reasoning": [
+      {
+        "step": "Every analyzed run failed, so this is a consistent defect rather than intermittent flakiness.",
+        "citedEvidence": [
+          "E1"
+        ]
+      },
+      {
+        "step": "The error reports an HTTP 500 from the invoice endpoint.",
+        "citedEvidence": [
+          "E4"
+        ]
+      },
+      {
+        "step": "The deterministic rule identifies a backend/API failure.",
+        "citedEvidence": [
+          "E2"
+        ]
+      }
+    ],
+    "contradictingEvidence": [],
+    "confidenceBand": "HIGH",
+    "confidenceRationale": "A consistent failure history and an explicit server error agree.",
+    "recommendedAction": {
+      "owner": "DEV_TEAM",
+      "action": "Investigate the invoice endpoint for the HTTP 500 response and fix the underlying backend error.",
+      "urgency": "P1",
+      "ticketDraft": "Investigate and fix the HTTP 500 returned by the monthly invoice endpoint."
+    },
+    "evidenceGaps": []
+  },
+  "guard": {
+    "verdict": {
+      "category": "PRODUCT_DEFECT",
+      "headline": "The invoice generation fails consistently with a server error.",
+      "rootCause": {
+        "statement": "The billing API returns HTTP 500 on every run, pointing to a backend defect in the invoice endpoint.",
+        "citedEvidence": [
+          "E1",
+          "E4",
+          "E2"
+        ]
+      },
+      "reasoning": [
+        {
+          "step": "Every analyzed run failed, so this is a consistent defect rather than intermittent flakiness.",
+          "citedEvidence": [
+            "E1"
+          ]
+        },
+        {
+          "step": "The error reports an HTTP 500 from the invoice endpoint.",
+          "citedEvidence": [
+            "E4"
+          ]
+        },
+        {
+          "step": "The deterministic rule identifies a backend/API failure.",
+          "citedEvidence": [
+            "E2"
+          ]
+        }
+      ],
+      "contradictingEvidence": [],
+      "confidenceBand": "HIGH",
+      "confidenceRationale": "A consistent failure history and an explicit server error agree.",
+      "recommendedAction": {
+        "owner": "DEV_TEAM",
+        "action": "Investigate the invoice endpoint for the HTTP 500 response and fix the underlying backend error.",
+        "urgency": "P1",
+        "ticketDraft": "Investigate and fix the HTTP 500 returned by the monthly invoice endpoint."
+      },
+      "evidenceGaps": []
+    },
+    "passed": true,
+    "forcedInsufficient": false,
+    "categoryCoherence": "SUPPORTED",
+    "strippedCitations": [],
+    "violations": [],
+    "agreement": {
+      "deterministicConfidence": 94,
+      "deterministicBand": "HIGH",
+      "aiBand": "HIGH",
+      "status": "AGREE",
+      "humanReviewRecommended": false
+    }
+  },
+  "provenance": {
+    "mode": "cached",
+    "reason": "Deterministic build-time verdict",
+    "generatedAt": "2026-08-16T09:00:56.874Z"
+  }
+}

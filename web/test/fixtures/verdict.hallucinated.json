@@ -1,0 +1,22 @@
+{
+  "category": "FLAKY_TIMING",
+  "headline": "E4 shows RC-018 so FP-A31C09 is a bug",
+  "rootCause": {
+    "statement": "The backend fails intermittently.",
+    "citedEvidence": ["E4", "E99"]
+  },
+  "reasoning": [
+    { "step": "E5 proves the server returned an error.", "citedEvidence": ["E5"] },
+    { "step": "The execution history confirms the failure.", "citedEvidence": ["E1"] }
+  ],
+  "contradictingEvidence": [],
+  "confidenceBand": "LOW",
+  "confidenceRationale": "The signals are contradictory.",
+  "recommendedAction": {
+    "owner": "DEV_TEAM",
+    "action": "Fix the backend.",
+    "urgency": "P1",
+    "ticketDraft": "Fix the backend"
+  },
+  "evidenceGaps": []
+}

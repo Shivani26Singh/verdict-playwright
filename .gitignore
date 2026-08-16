@@ -20,6 +20,8 @@ $null
 $*
 dist/
 .vercel/
+web/.next/
+web/.env.local
 coverage/
 .vscode/
 .idea/
