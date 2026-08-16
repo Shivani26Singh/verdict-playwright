@@ -204,7 +204,7 @@ Additional trust properties:
 
 No installation, no API key, no setup. Roughly five minutes:
 
-1. **Open the live demo** (URL below) — it lands on **Overview**.
+1. **Open** https://verdict-playwright.vercel.app — it lands on **Overview**.
 2. **Read the suite state**: health score, 20 runs, 231 tests, 4,620 executions,
    flaky / failing / newly-failing counts.
 3. **Scan Failure Intelligence** — the deterministic signals found across all
@@ -234,7 +234,7 @@ defect, and *not enough evidence*.
 
 **Hosted demo — no API key required.**
 
-> **Deployed app:** _<!-- TODO: paste the Vercel URL here before submitting -->_
+> **Live demo:** https://verdict-playwright.vercel.app
 > **Repository:** https://github.com/Shivani26Singh/verdict-playwright
 
 The deployed application is configured with a provider key as a **server-side**
