@@ -1,6 +1,6 @@
 import { buildEvidencePack, synthesizedInsufficientEvidence } from "@/lib/evidence-pack.js";
 import { guardVerdict } from "@/lib/verdict-guard.js";
-import { investigateWithAI, providerFailureInfo } from "@/lib/ai-provider.js";
+import { investigateWithAI, providerFailureInfo, resolveProvider } from "@/lib/ai-provider.js";
 import { PROMPT_VERSION, PACK_VERSION } from "@/lib/constants.js";
 
 export const runtime = "nodejs";
@@ -23,6 +23,7 @@ function unavailableResponse(pack, err) {
       },
       provenance: {
         mode: "unavailable",
+        provider: resolveProvider(),
         reason,
       },
     },
@@ -78,16 +79,16 @@ export async function POST(request) {
       return cachedResponse(pack, fallback.verdict, fallback);
     }
 
-    let raw;
+    let result;
+    const callStarted = performance.now();
     try {
-      raw = await investigateWithAI(pack);
+      result = await investigateWithAI(pack);
     } catch (err) {
       return unavailableResponse(pack, err);
     }
+    const latencyMs = Math.round(performance.now() - callStarted);
 
-    const started = performance.now();
-    const guard = guardVerdict(raw, pack);
-    const latencyMs = Math.round(performance.now() - started);
+    const guard = guardVerdict(result.verdict, pack);
 
     return Response.json(
       {
@@ -97,7 +98,8 @@ export async function POST(request) {
         guard,
         provenance: {
           mode: "live",
-          model: process.env.VERDICT_MODEL || "claude-opus-5",
+          provider: result.provider,
+          model: result.model,
           promptVersion: PROMPT_VERSION,
           packVersion: PACK_VERSION,
           generatedAt: new Date().toISOString(),

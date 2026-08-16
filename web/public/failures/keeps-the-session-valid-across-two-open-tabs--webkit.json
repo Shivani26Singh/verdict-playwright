@@ -1,0 +1,389 @@
+{
+  "id": "keeps-the-session-valid-across-two-open-tabs--webkit",
+  "investigation": {
+    "testName": "keeps the session valid across two open tabs",
+    "file": "tests/authentication.spec.js",
+    "browser": "webkit",
+    "classification": "flaky",
+    "history": [
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "passed"
+    ],
+    "retriesPerRun": [
+      0,
+      null,
+      0,
+      1,
+      null,
+      1,
+      null,
+      1,
+      0,
+      null,
+      0,
+      1,
+      null,
+      1,
+      null,
+      1,
+      0,
+      null,
+      0,
+      1
+    ],
+    "runCount": 20,
+    "passedOnRetry": true,
+    "retriesToPass": 1,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-015",
+    "matchedRule": "http-401",
+    "category": "Authentication",
+    "likelyCause": "Authentication required — the request was not authenticated",
+    "explanation": "The server rejected the request as unauthenticated. The test's authentication state (tokens, cookies, storageState) may have expired or not been set up correctly.",
+    "confidence": 86,
+    "severity": "high",
+    "fingerprint": "FP-A61BC0",
+    "fingerprintGroupCount": 5,
+    "classificationReasons": [
+      "14 transitions between pass and fail across 20 runs",
+      "Outcome alternates across runs — no stable pattern detected"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 85,
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "14 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A5",
+          "delta": 8,
+          "reason": "5 other tests share this exact failure fingerprint (corroborated)"
+        }
+      ],
+      "adjustmentTotal": 1,
+      "finalConfidence": 86,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at tests/authentication.spec.js:188:40",
+      "screenshots": [
+        "/demo-assets/screenshots/session-expired.png"
+      ],
+      "trace": "/demo-assets/screenshots/session-expired.trace.zip",
+      "parsedError": {
+        "header": "APIRequestContext.get: 401 Unauthorized (GET /api/v2/session) — access token expired mid-test",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - the 15-minute access token lapsed before the silent refresh completed"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "keeps the session valid across two open tabs",
+      "file": "tests/authentication.spec.js",
+      "browser": "webkit",
+      "classification": "flaky",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 7 of 20 runs, with 14 pass/fail transitions, passing intermittently",
+        "raw": {
+          "history": [
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "passed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "Authentication required — the request was not authenticated. The server rejected the request as unauthenticated. The test's authentication state (tokens, cookies, storageState) may have expired or not been set up correctly.",
+        "raw": {
+          "matchedRuleCode": "RC-015",
+          "likelyCause": "Authentication required — the request was not authenticated",
+          "explanation": "The server rejected the request as unauthenticated. The test's authentication state (tokens, cookies, storageState) may have expired or not been set up correctly."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Authentication",
+        "raw": {
+          "category": "Authentication"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "APIRequestContext.get: 401 Unauthorized (GET /api/v2/session) — access token expired mid-test — Call log:   - the 15-minute access token lapsed before the silent refresh completed",
+        "raw": {
+          "header": "APIRequestContext.get: 401 Unauthorized (GET /api/v2/session) — access token expired mid-test",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - the 15-minute access token lapsed before the silent refresh completed"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at tests/authentication.spec.js:188:40",
+        "raw": {
+          "stackTrace": "Error: \n    at tests/authentication.spec.js:188:40",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": true,
+        "value": "Recovered on retry in 7 of 7 failed runs",
+        "raw": {
+          "retriesPerRun": [
+            0,
+            null,
+            0,
+            1,
+            null,
+            1,
+            null,
+            1,
+            0,
+            null,
+            0,
+            1,
+            null,
+            1,
+            null,
+            1,
+            0,
+            null,
+            0,
+            1
+          ],
+          "passedOnRetry": true,
+          "retriesToPass": 1
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "5 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-A61BC0",
+          "fingerprintGroupCount": 5
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": true,
+        "value": "webkit — also analysed on chromium, firefox",
+        "raw": {
+          "browser": "webkit",
+          "siblingBrowsers": [
+            "chromium",
+            "firefox"
+          ]
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 85%. 14 pass/fail transitions in history (high noise) · Mixed results — recovered on retry in at least one run · 5 other tests share this exact failure fingerprint (corroborated)",
+        "raw": {
+          "baseConfidence": 85,
+          "adjustments": [
+            {
+              "code": "A2",
+              "delta": -10,
+              "reason": "14 pass/fail transitions in history (high noise)"
+            },
+            {
+              "code": "A3",
+              "delta": 3,
+              "reason": "Mixed results — recovered on retry in at least one run"
+            },
+            {
+              "code": "A5",
+              "delta": 8,
+              "reason": "5 other tests share this exact failure fingerprint (corroborated)"
+            }
+          ],
+          "adjustmentTotal": 1,
+          "finalConfidence": 86,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "14 transitions between pass and fail across 20 runs · Outcome alternates across runs — no stable pattern detected",
+        "raw": {
+          "classificationReasons": [
+            "14 transitions between pass and fail across 20 runs",
+            "Outcome alternates across runs — no stable pattern detected"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/session-expired.png"
+          ],
+          "trace": "/demo-assets/screenshots/session-expired.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [],
+    "deterministic": {
+      "confidence": 86,
+      "band": "HIGH",
+      "ruleCode": "RC-015",
+      "ruleId": "http-401",
+      "category": "Authentication",
+      "classification": "flaky",
+      "fingerprint": "FP-A61BC0",
+      "fingerprintGroupCount": 5,
+      "severity": "high",
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "14 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A5",
+          "delta": 8,
+          "reason": "5 other tests share this exact failure fingerprint (corroborated)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 85,
+        "adjustments": [
+          {
+            "code": "A2",
+            "delta": -10,
+            "reason": "14 pass/fail transitions in history (high noise)"
+          },
+          {
+            "code": "A3",
+            "delta": 3,
+            "reason": "Mixed results — recovered on retry in at least one run"
+          },
+          {
+            "code": "A5",
+            "delta": 8,
+            "reason": "5 other tests share this exact failure fingerprint (corroborated)"
+          }
+        ],
+        "adjustmentTotal": 1,
+        "finalConfidence": 86,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

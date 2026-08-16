@@ -1,35 +1,226 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
-import HowItWorks from "@/components/home/HowItWorks.jsx";
-import ScenarioCard from "@/components/home/ScenarioCard.jsx";
+import Section from "@/components/ui/Section.jsx";
+import StatTile from "@/components/ui/StatTile.jsx";
+import TrendChart from "@/components/charts/TrendChart.jsx";
+import ScopedBarSection from "@/components/charts/ScopedBarSection.jsx";
+import SuiteHeader from "@/components/dashboard/SuiteHeader.jsx";
+import SuiteSummary from "@/components/dashboard/SuiteSummary.jsx";
+import StabilityPanel from "@/components/dashboard/StabilityPanel.jsx";
+import FailureIntelligence from "@/components/dashboard/FailureIntelligence.jsx";
+import RunHighlights from "@/components/dashboard/RunHighlights.jsx";
+import FeaturedInvestigations from "@/components/dashboard/FeaturedInvestigations.jsx";
+import Recommendations from "@/components/dashboard/Recommendations.jsx";
+import OfflineAnalyzerCta from "@/components/dashboard/OfflineAnalyzerCta.jsx";
+import { loadDashboard, loadFailureIndex } from "@/lib/suite.js";
 
-export default async function HomePage() {
-  let scenarios = [];
-  try {
-    const raw = await readFile(path.join(process.cwd(), "public", "scenarios", "index.json"), "utf8");
-    scenarios = JSON.parse(raw);
-  } catch {
-    scenarios = [];
-  }
+export const metadata = {
+  title: "Overview — VERDICT",
+  description:
+    "Suite health across the analysed Playwright run window, computed by the deterministic analyzer.",
+};
+
+function MissingData() {
+  return (
+    <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center">
+      <h1 className="text-lg font-semibold text-slate-900">Suite data has not been built</h1>
+      <p className="mx-auto mt-2 max-w-md text-sm text-slate-500">
+        Run{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs">
+          node scripts/build-suite-data.js
+        </code>{" "}
+        from the repository root to generate it from the Playwright result files.
+      </p>
+    </div>
+  );
+}
+
+/**
+ * The Overview follows a QA engineer's decision journey, not a widget
+ * inventory: how healthy is the suite → what is the distribution → is
+ * stability degrading → what is the trend → what is recommended → what should
+ * I know about the runs → what did the rules detect → how does AI investigate
+ * → supporting diagnostics → what if AI is unavailable.
+ */
+export default async function OverviewPage() {
+  const [dashboard, failures] = await Promise.all([loadDashboard(), loadFailureIndex()]);
+  if (!dashboard) return <MissingData />;
+
+  const { rules, retry, dataset } = dashboard;
+  const failureCount = (failures && failures.total) || rules.investigations;
+
+  const categoryRows = (dashboard.categories || []).slice(0, 6).map((c) => ({
+    label: c.label,
+    value: c.count,
+    note: `${c.pct}%`,
+    color: "var(--viz-fixed)",
+  }));
+
+  const categoryRowsLatest = (dashboard.categoriesLatest || []).slice(0, 6).map((c) => ({
+    label: c.label,
+    value: c.count,
+    note: `${c.pct}%`,
+    color: "var(--viz-fixed)",
+  }));
+
+  const browserRows = (dashboard.browsers || []).map((b) => ({
+    label: b.browser,
+    value: b.failRate,
+    note: `${b.failures} of ${b.executions}`,
+    color: "var(--viz-fail)",
+  }));
+
+  const browserRowsLatest = (dashboard.browsers || []).map((b) => ({
+    label: b.browser,
+    value: b.latestFailRate,
+    note: `${b.latestFailures} of ${b.latestTests}`,
+    color: "var(--viz-fail)",
+  }));
+
 
   return (
-    <div>
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold">Investigate CI failures with AI</h1>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          VERDICT turns Playwright CI history into grounded, human-readable failure attribution —
-          separating product defects from flaky tests and environmental problems.
-        </p>
+    <div className="space-y-6">
+      {/* 1 — How healthy is my suite, and what is the distribution? */}
+      <SuiteHeader dashboard={dashboard} />
+
+      <Section
+        title="Suite summary"
+        description={`Every one of the ${dataset.tests} tracked tests, by how it behaves across ${dataset.runs} runs.`}
+        accent="neutral"
+      >
+        <SuiteSummary dashboard={dashboard} />
+      </Section>
+
+      {/* 2 — Is stability getting worse? */}
+      <StabilityPanel stability={dashboard.stability} />
+
+      {/* 3 — What is the pass-rate trend, and what is recommended? */}
+      <div className="grid gap-6 lg:grid-cols-5">
+        <Section
+          className="lg:col-span-3"
+          title="Pass rate over the run window"
+          description="Every analysed run, oldest first. Hover for that run's figures."
+          accent="fixed"
+        >
+          <TrendChart trend={dashboard.trend} />
+        </Section>
+
+        <Section
+          className="lg:col-span-2"
+          title="What the analyzer recommends"
+          description="Generated by the deterministic engine, in its own words."
+          accent="flaky"
+        >
+          <Recommendations recommendations={dashboard.recommendations} />
+        </Section>
       </div>
 
-      <HowItWorks />
+      {/* 4 — What run facts should I know? */}
+      <Section
+        title="Run highlights"
+        description="The facts behind the numbers above."
+        accent="skip"
+      >
+        <RunHighlights highlights={dashboard.highlights} />
+      </Section>
 
-      <h2 className="mb-4 text-lg font-semibold">Demo scenarios</h2>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {scenarios.map((scenario) => (
-          <ScenarioCard key={scenario.id} scenario={scenario} />
-        ))}
+      {/* 5 — What did the deterministic rules detect? */}
+      <Section
+        title="Failure intelligence"
+        description="20 deterministic rules analyze failure patterns before AI investigation."
+        accent="fail"
+      >
+        <FailureIntelligence groups={dashboard.failureIntelligence} total={failureCount} />
+      </Section>
+
+      {/* 6 — How does AI investigate, and on what? */}
+      <Section
+        title="Featured investigations"
+        description="Three failures showing three different investigation outcomes."
+        accent="ai"
+      >
+        <FeaturedInvestigations featured={dashboard.featured} />
+      </Section>
+
+      {/* 7 — Supporting diagnostics, after the main story. */}
+      <div className="grid gap-6 lg:grid-cols-3">
+        <Section
+          title="Deterministic analysis"
+          description="Runs before the AI, on every failure."
+          accent="pass"
+        >
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-3">
+              <StatTile label="Rules fired" value={`${rules.matched}/${rules.total}`} tone="pass" />
+              <StatTile
+                label="Failures analysed"
+                value={rules.investigations}
+                tone="neutral"
+              />
+            </div>
+            <ul className="space-y-2 text-sm text-slate-600">
+              <li className="flex justify-between gap-3">
+                <span>Distinct failure signatures</span>
+                <span className="font-semibold tabular-nums text-slate-900">
+                  {rules.uniqueFingerprints}
+                </span>
+              </li>
+              <li className="flex justify-between gap-3">
+                <span>Escalated to human review</span>
+                <span className="font-semibold tabular-nums text-slate-900">
+                  {rules.humanReview}
+                </span>
+              </li>
+              <li className="flex justify-between gap-3">
+                <span>Most common category</span>
+                <span className="font-semibold text-slate-900">{rules.topCategory}</span>
+              </li>
+            </ul>
+            <a
+              href="/rules"
+              className="inline-block text-sm font-medium text-sky-700 underline-offset-4 hover:underline"
+            >
+              See all {rules.total} detection rules →
+            </a>
+          </div>
+        </Section>
+
+        <ScopedBarSection
+          title="Failure categories"
+          description="How failures classify."
+          accent="fixed"
+          allRuns={categoryRows}
+          latestRun={categoryRowsLatest}
+          emptyLabel="No classified failures in this run."
+        />
+
+        <ScopedBarSection
+          title="Failure rate by browser"
+          description="Share of executions that failed."
+          accent="failSoft"
+          allRuns={browserRows}
+          latestRun={browserRowsLatest}
+          valueSuffix="%"
+          emptyLabel="No failures in this run."
+          footer={
+            <div className="mt-4 border-t border-slate-100 pt-3 text-xs text-slate-500">
+              <div className="flex justify-between">
+                <span>Retries recorded</span>
+                <span className="font-semibold tabular-nums text-slate-700">
+                  {retry.totalRetries.toLocaleString("en-GB")}
+                </span>
+              </div>
+              <div className="mt-1 flex justify-between">
+                <span>Recovered on retry</span>
+                <span className="font-semibold tabular-nums text-slate-700">
+                  {retry.recoveredTests} tests
+                </span>
+              </div>
+            </div>
+          }
+        />
       </div>
+
+      {/* 8 — What can I use if AI is unavailable? */}
+      <OfflineAnalyzerCta />
     </div>
   );
 }

@@ -1,12 +1,22 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { notFound } from "next/navigation";
-import ObservedPanel from "@/components/investigate/ObservedPanel.jsx";
-import InvestigateClient from "@/components/investigate/InvestigateClient.jsx";
-import { buildSafeObserved } from "@/lib/humanize.js";
+import InvestigationView from "@/components/investigate/InvestigationView.jsx";
+import { loadRules } from "@/lib/suite.js";
 
-export default async function InvestigationPage({ params }) {
+const TABS = new Set(["analysis", "ai", "evidence", "rules"]);
+
+/**
+ * One of the three curated demo scenarios. Identical experience to any other
+ * failure — the only difference is that a real model verdict is already
+ * committed for it, so the demo path is instant even without a live API call.
+ */
+export default async function InvestigationPage({ params, searchParams }) {
   const { scenarioId } = await params;
+  const query = (await searchParams) || {};
+
+  if (!/^[a-z0-9-]+$/.test(scenarioId)) notFound();
+
   let pack;
   try {
     const raw = await readFile(
@@ -18,25 +28,28 @@ export default async function InvestigationPage({ params }) {
     notFound();
   }
 
-  const observed = buildSafeObserved(pack);
+  const ruleData = await loadRules();
+  const ruleCode = pack.deterministic && pack.deterministic.ruleCode;
+  const rule =
+    ruleData && ruleCode ? ruleData.rules.find((r) => r.code === ruleCode) || null : null;
+
+  const requestedTab = typeof query.tab === "string" ? query.tab : null;
 
   return (
-    <div>
-      <a href="/" className="mb-6 inline-block text-sm text-sky-600 hover:underline">
-        ← All scenarios
-      </a>
-
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold">{pack.subject.testName}</h1>
-        <p className="mt-1 text-sm text-slate-500">
-          {pack.subject.file} · {pack.subject.browser} · {pack.subject.runCount} runs
-        </p>
-      </div>
-
-      <div className="space-y-6">
-        <ObservedPanel observed={observed} />
-        <InvestigateClient scenarioId={scenarioId} />
-      </div>
-    </div>
+    <InvestigationView
+      pack={pack}
+      rule={rule}
+      backHref="/"
+      backLabel="Overview"
+      initialTab={requestedTab && TABS.has(requestedTab) ? requestedTab : "analysis"}
+      autoRun={query.run === "1"}
+      source={{
+        kind: "scenario",
+        investigationUrl: `/scenarios/${scenarioId}.investigation.json`,
+        investigationKey: null,
+        verdictUrl: `/scenarios/${scenarioId}.verdict.json`,
+        packUrl: `/scenarios/${scenarioId}.pack.json`,
+      }}
+    />
   );
 }

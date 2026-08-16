@@ -1,0 +1,407 @@
+{
+  "id": "opens-the-date-range-picker-in-the-audit-log--webkit",
+  "investigation": {
+    "testName": "opens the date-range picker in the audit log",
+    "file": "tests/admin.spec.js",
+    "browser": "webkit",
+    "classification": "stable_failure",
+    "history": [
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-002",
+    "matchedRule": "locator-not-found",
+    "category": "Locator",
+    "likelyCause": "The locator did not match any element in the DOM",
+    "explanation": "The element may load asynchronously, be conditionally rendered, or have a dynamic selector that changed between test runs.",
+    "confidence": 87,
+    "severity": "high",
+    "fingerprint": "FP-98FB9F",
+    "fingerprintGroupCount": 0,
+    "classificationReasons": [
+      "All 20 runs failed",
+      "Failure reproduced consistently — not flaky"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 85,
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A7",
+          "delta": -3,
+          "reason": "No other test shares this failure fingerprint (isolated)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "adjustmentTotal": 2,
+      "finalConfidence": 87,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at tests/admin.spec.js:151:37",
+      "screenshots": [
+        "/demo-assets/screenshots/session-expired.png"
+      ],
+      "trace": "/demo-assets/screenshots/session-expired.trace.zip",
+      "parsedError": {
+        "header": "locator.click: Error: no such element: could not find getByRole('button', { name: 'Choose date' })",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - WebKit rendered the native date input instead of the custom picker, so the trigger button is absent"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "opens the date-range picker in the audit log",
+      "file": "tests/admin.spec.js",
+      "browser": "webkit",
+      "classification": "stable_failure",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 20 of 20 runs, consistently failing",
+        "raw": {
+          "history": [
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "The locator did not match any element in the DOM. The element may load asynchronously, be conditionally rendered, or have a dynamic selector that changed between test runs.",
+        "raw": {
+          "matchedRuleCode": "RC-002",
+          "likelyCause": "The locator did not match any element in the DOM",
+          "explanation": "The element may load asynchronously, be conditionally rendered, or have a dynamic selector that changed between test runs."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Locator",
+        "raw": {
+          "category": "Locator"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "locator.click: Error: no such element: could not find getByRole('button', { name: 'Choose date' }) — Call log:   - WebKit rendered the native date input instead of the custom picker, so the trigger button is absent",
+        "raw": {
+          "header": "locator.click: Error: no such element: could not find getByRole('button', { name: 'Choose date' })",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - WebKit rendered the native date input instead of the custom picker, so the trigger button is absent"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at tests/admin.spec.js:151:37",
+        "raw": {
+          "stackTrace": "Error: \n    at tests/admin.spec.js:151:37",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "No other test show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-98FB9F",
+          "fingerprintGroupCount": 0
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": false,
+        "value": "NOT AVAILABLE — only one browser was analysed",
+        "raw": {
+          "browser": "webkit",
+          "siblingBrowsers": []
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 85%. History is fully consistent — every run had the same outcome · Every run failed — no recovery observed · No other test shares this failure fingerprint (isolated) · 20+ runs analyzed with a consistent pattern (strong statistical basis)",
+        "raw": {
+          "baseConfidence": 85,
+          "adjustments": [
+            {
+              "code": "A1",
+              "delta": 5,
+              "reason": "History is fully consistent — every run had the same outcome"
+            },
+            {
+              "code": "A4",
+              "delta": -5,
+              "reason": "Every run failed — no recovery observed"
+            },
+            {
+              "code": "A7",
+              "delta": -3,
+              "reason": "No other test shares this failure fingerprint (isolated)"
+            },
+            {
+              "code": "A9",
+              "delta": 5,
+              "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+            }
+          ],
+          "adjustmentTotal": 2,
+          "finalConfidence": 87,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "All 20 runs failed · Failure reproduced consistently — not flaky",
+        "raw": {
+          "classificationReasons": [
+            "All 20 runs failed",
+            "Failure reproduced consistently — not flaky"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/session-expired.png"
+          ],
+          "trace": "/demo-assets/screenshots/session-expired.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6",
+      "E8"
+    ],
+    "deterministic": {
+      "confidence": 87,
+      "band": "HIGH",
+      "ruleCode": "RC-002",
+      "ruleId": "locator-not-found",
+      "category": "Locator",
+      "classification": "stable_failure",
+      "fingerprint": "FP-98FB9F",
+      "fingerprintGroupCount": 0,
+      "severity": "high",
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A7",
+          "delta": -3,
+          "reason": "No other test shares this failure fingerprint (isolated)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 85,
+        "adjustments": [
+          {
+            "code": "A1",
+            "delta": 5,
+            "reason": "History is fully consistent — every run had the same outcome"
+          },
+          {
+            "code": "A4",
+            "delta": -5,
+            "reason": "Every run failed — no recovery observed"
+          },
+          {
+            "code": "A7",
+            "delta": -3,
+            "reason": "No other test shares this failure fingerprint (isolated)"
+          },
+          {
+            "code": "A9",
+            "delta": 5,
+            "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+          }
+        ],
+        "adjustmentTotal": 2,
+        "finalConfidence": 87,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

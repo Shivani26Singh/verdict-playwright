@@ -1,73 +1,132 @@
 {
   "verdict": {
     "category": "INSUFFICIENT_EVIDENCE",
-    "headline": "There is not enough evidence to determine the cause of this failure.",
+    "headline": "Inconclusive failure analysis due to limited evidence",
     "rootCause": {
-      "statement": "The available evidence does not distinguish between product, test, and environment causes.",
-      "citedEvidence": []
+      "statement": "The failure cannot be attributed to a specific cause with confidence",
+      "citedEvidence": [
+        "E1",
+        "E2",
+        "E7",
+        "E9"
+      ]
     },
-    "reasoning": [],
-    "contradictingEvidence": [],
+    "reasoning": [
+      {
+        "step": "The test failed in only one of two runs, indicating potential flakiness or non-determinism",
+        "citedEvidence": [
+          "E1"
+        ]
+      },
+      {
+        "step": "The matched deterministic rule could not confidently determine a specific root cause, suggesting the need for manual investigation",
+        "citedEvidence": [
+          "E2"
+        ]
+      },
+      {
+        "step": "The presence of similar failure patterns in other tests provides some corroboration but is not conclusive",
+        "citedEvidence": [
+          "E7"
+        ]
+      },
+      {
+        "step": "The confidence explanation highlights mixed results, limited data, and some corroboration, but overall confidence remains low",
+        "citedEvidence": [
+          "E9"
+        ]
+      }
+    ],
+    "contradictingEvidence": [
+      {
+        "point": "The failure might be due to a product defect, but there is not enough evidence to support this claim",
+        "citedEvidence": [
+          "E10"
+        ]
+      }
+    ],
     "confidenceBand": "LOW",
-    "confidenceRationale": "Insufficient evidence was available to support a reliable attribution.",
+    "confidenceRationale": "The analysis is based on limited data, and the confidence explanation highlights mixed results and low overall confidence",
     "recommendedAction": {
       "owner": "NEEDS_TRIAGE",
-      "action": "Re-run this test with tracing enabled, then investigate again.",
+      "action": "Manually investigate the failure with traces and screenshots to determine the root cause",
       "urgency": "P3",
-      "ticketDraft": "Re-run the failing test with screenshots, tracing, and video enabled to collect more evidence."
+      "ticketDraft": "Investigate intermittent failure in dashboard test"
     },
     "evidenceGaps": [
-      "Failure type",
-      "Error",
-      "Code location",
-      "Retry behaviour"
-    ],
-    "forcedInsufficient": true
+      "E3",
+      "E4",
+      "E5",
+      "E6"
+    ]
   },
   "guard": {
     "verdict": {
       "category": "INSUFFICIENT_EVIDENCE",
-      "headline": "There is not enough evidence to determine the cause of this failure.",
+      "headline": "Inconclusive failure analysis due to limited evidence",
       "rootCause": {
-        "statement": "The available evidence does not distinguish between product, test, and environment causes.",
-        "citedEvidence": []
+        "statement": "The failure cannot be attributed to a specific cause with confidence",
+        "citedEvidence": [
+          "E1",
+          "E2",
+          "E7",
+          "E9"
+        ]
       },
-      "reasoning": [],
-      "contradictingEvidence": [],
+      "reasoning": [
+        {
+          "step": "The test failed in only one of two runs, indicating potential flakiness or non-determinism",
+          "citedEvidence": [
+            "E1"
+          ]
+        },
+        {
+          "step": "The matched deterministic rule could not confidently determine a specific root cause, suggesting the need for manual investigation",
+          "citedEvidence": [
+            "E2"
+          ]
+        },
+        {
+          "step": "The presence of similar failure patterns in other tests provides some corroboration but is not conclusive",
+          "citedEvidence": [
+            "E7"
+          ]
+        },
+        {
+          "step": "The confidence explanation highlights mixed results, limited data, and some corroboration, but overall confidence remains low",
+          "citedEvidence": [
+            "E9"
+          ]
+        }
+      ],
+      "contradictingEvidence": [
+        {
+          "point": "The failure might be due to a product defect, but there is not enough evidence to support this claim",
+          "citedEvidence": [
+            "E10"
+          ]
+        }
+      ],
       "confidenceBand": "LOW",
-      "confidenceRationale": "Insufficient evidence was available to support a reliable attribution.",
+      "confidenceRationale": "The analysis is based on limited data, and the confidence explanation highlights mixed results and low overall confidence",
       "recommendedAction": {
         "owner": "NEEDS_TRIAGE",
-        "action": "Re-run this test with tracing enabled, then investigate again.",
+        "action": "Manually investigate the failure with traces and screenshots to determine the root cause",
         "urgency": "P3",
-        "ticketDraft": "Re-run the failing test with screenshots, tracing, and video enabled to collect more evidence."
+        "ticketDraft": "Investigate intermittent failure in dashboard test"
       },
       "evidenceGaps": [
-        "Failure type",
-        "Error",
-        "Code location",
-        "Retry behaviour"
-      ],
-      "forcedInsufficient": true
+        "E3",
+        "E4",
+        "E5",
+        "E6"
+      ]
     },
-    "passed": false,
-    "forcedInsufficient": true,
+    "passed": true,
+    "forcedInsufficient": false,
     "categoryCoherence": "SUPPORTED",
     "strippedCitations": [],
-    "violations": [
-      {
-        "code": "G4",
-        "severity": "FATAL",
-        "message": "Root cause has no valid supporting citations; forced INSUFFICIENT_EVIDENCE.",
-        "detail": "All root-cause citations were stripped or missing."
-      },
-      {
-        "code": "G5",
-        "severity": "HIGH",
-        "message": "Reasoning step with no valid citations dropped.",
-        "detail": "Only a limited execution history is available for this failure."
-      }
-    ],
+    "violations": [],
     "agreement": {
       "deterministicConfidence": 22,
       "deterministicBand": "LOW",
@@ -78,7 +137,12 @@
   },
   "provenance": {
     "mode": "cached",
-    "reason": "Deterministic build-time verdict",
-    "generatedAt": "2026-08-16T09:00:56.904Z"
+    "reason": "Real model output captured by scripts/refresh-ai-cache.mjs",
+    "provider": "groq",
+    "model": "llama-3.3-70b-versatile",
+    "promptVersion": "1.1.0",
+    "packVersion": "1.0.0",
+    "generatedAt": "2026-08-16T11:24:40.126Z",
+    "latencyMs": 2111
   }
 }

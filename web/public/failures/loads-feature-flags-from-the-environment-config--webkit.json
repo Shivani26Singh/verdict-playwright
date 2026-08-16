@@ -1,0 +1,404 @@
+{
+  "id": "loads-feature-flags-from-the-environment-config--webkit",
+  "investigation": {
+    "testName": "loads feature flags from the environment config",
+    "file": "tests/settings.spec.js",
+    "browser": "webkit",
+    "classification": "stable_failure",
+    "history": [
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-005",
+    "matchedRule": "always-fails",
+    "category": "Stability",
+    "likelyCause": "Test is consistently broken — not flaky, genuinely failing",
+    "explanation": "This test fails in almost every run. It is not flaky — it has a real, consistent bug or the test itself is broken.",
+    "confidence": 99,
+    "severity": "critical",
+    "fingerprint": "FP-6D2D18",
+    "fingerprintGroupCount": 2,
+    "classificationReasons": [
+      "All 20 runs failed",
+      "Failure reproduced consistently — not flaky"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 95,
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "adjustmentTotal": 9,
+      "finalConfidence": 99,
+      "clamped": true
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at loadFlags (tests/settings.spec.js:29:11)\n    at tests/settings.spec.js:24:5",
+      "parsedError": {
+        "header": "Error: required environment variable MERIDIAN_FLAGS_URL is not set; the feature-flag client fell back to about:blank",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - the staging runner was provisioned without the flags secret after the vault rotation"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "loads feature flags from the environment config",
+      "file": "tests/settings.spec.js",
+      "browser": "webkit",
+      "classification": "stable_failure",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 20 of 20 runs, consistently failing",
+        "raw": {
+          "history": [
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "Test is consistently broken — not flaky, genuinely failing. This test fails in almost every run. It is not flaky — it has a real, consistent bug or the test itself is broken.",
+        "raw": {
+          "matchedRuleCode": "RC-005",
+          "likelyCause": "Test is consistently broken — not flaky, genuinely failing",
+          "explanation": "This test fails in almost every run. It is not flaky — it has a real, consistent bug or the test itself is broken."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Stability",
+        "raw": {
+          "category": "Stability"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "Error: required environment variable MERIDIAN_FLAGS_URL is not set; the feature-flag client fell back to about:blank — Call log:   - the staging runner was provisioned without the flags secret after the vault rotation",
+        "raw": {
+          "header": "Error: required environment variable MERIDIAN_FLAGS_URL is not set; the feature-flag client fell back to about:blank",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - the staging runner was provisioned without the flags secret after the vault rotation"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at loadFlags (tests/settings.spec.js:29:11)\n    at tests/settings.spec.js:24:5",
+        "raw": {
+          "stackTrace": "Error: \n    at loadFlags (tests/settings.spec.js:29:11)\n    at tests/settings.spec.js:24:5",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "2 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-6D2D18",
+          "fingerprintGroupCount": 2
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": true,
+        "value": "webkit — also analysed on chromium, firefox",
+        "raw": {
+          "browser": "webkit",
+          "siblingBrowsers": [
+            "chromium",
+            "firefox"
+          ]
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 95%. History is fully consistent — every run had the same outcome · Every run failed — no recovery observed · 2 other test(s) share this failure fingerprint (some corroboration) · 20+ runs analyzed with a consistent pattern (strong statistical basis)",
+        "raw": {
+          "baseConfidence": 95,
+          "adjustments": [
+            {
+              "code": "A1",
+              "delta": 5,
+              "reason": "History is fully consistent — every run had the same outcome"
+            },
+            {
+              "code": "A4",
+              "delta": -5,
+              "reason": "Every run failed — no recovery observed"
+            },
+            {
+              "code": "A6",
+              "delta": 4,
+              "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+            },
+            {
+              "code": "A9",
+              "delta": 5,
+              "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+            }
+          ],
+          "adjustmentTotal": 9,
+          "finalConfidence": 99,
+          "clamped": true
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "All 20 runs failed · Failure reproduced consistently — not flaky",
+        "raw": {
+          "classificationReasons": [
+            "All 20 runs failed",
+            "Failure reproduced consistently — not flaky"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: not captured | Trace: not captured | Video: not captured",
+        "raw": {
+          "screenshots": [],
+          "trace": null,
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6"
+    ],
+    "deterministic": {
+      "confidence": 99,
+      "band": "HIGH",
+      "ruleCode": "RC-005",
+      "ruleId": "always-fails",
+      "category": "Stability",
+      "classification": "stable_failure",
+      "fingerprint": "FP-6D2D18",
+      "fingerprintGroupCount": 2,
+      "severity": "critical",
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 95,
+        "adjustments": [
+          {
+            "code": "A1",
+            "delta": 5,
+            "reason": "History is fully consistent — every run had the same outcome"
+          },
+          {
+            "code": "A4",
+            "delta": -5,
+            "reason": "Every run failed — no recovery observed"
+          },
+          {
+            "code": "A6",
+            "delta": 4,
+            "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+          },
+          {
+            "code": "A9",
+            "delta": 5,
+            "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+          }
+        ],
+        "adjustmentTotal": 9,
+        "finalConfidence": 99,
+        "clamped": true
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

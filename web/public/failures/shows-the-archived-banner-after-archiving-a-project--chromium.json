@@ -1,0 +1,390 @@
+{
+  "id": "shows-the-archived-banner-after-archiving-a-project--chromium",
+  "investigation": {
+    "testName": "shows the archived banner after archiving a project",
+    "file": "tests/projects.spec.js",
+    "browser": "chromium",
+    "classification": "flaky",
+    "history": [
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "passed"
+    ],
+    "retriesPerRun": [
+      0,
+      null,
+      0,
+      0,
+      null,
+      0,
+      null,
+      0,
+      0,
+      null,
+      0,
+      0,
+      null,
+      0,
+      null,
+      0,
+      0,
+      null,
+      0,
+      0
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-008",
+    "matchedRule": "element-not-visible",
+    "category": "Locator",
+    "likelyCause": "Element exists in the DOM but is not visible — timing or rendering issue",
+    "explanation": "Playwright located the element in the DOM but it was hidden (display:none, visibility:hidden, zero dimensions, or outside viewport). This is typically a timing issue where the element hasn't finished rendering.",
+    "confidence": 77,
+    "severity": "medium",
+    "fingerprint": "FP-60AB38",
+    "fingerprintGroupCount": 2,
+    "classificationReasons": [
+      "14 transitions between pass and fail across 20 runs",
+      "Outcome alternates across runs — no stable pattern detected"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 80,
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "14 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "adjustmentTotal": -3,
+      "finalConfidence": 77,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at tests/projects.spec.js:201:44",
+      "screenshots": [
+        "/demo-assets/screenshots/archive-hidden.png"
+      ],
+      "trace": "/demo-assets/screenshots/archive-hidden.trace.zip",
+      "parsedError": {
+        "header": "expect(locator).toBeVisible() failed: element is not visible",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - locator getByRole('status', { name: 'Project archived' })\n  - element is present in the DOM but has 'opacity: 0' from an unfinished transition"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "shows the archived banner after archiving a project",
+      "file": "tests/projects.spec.js",
+      "browser": "chromium",
+      "classification": "flaky",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 7 of 20 runs, with 14 pass/fail transitions, passing intermittently",
+        "raw": {
+          "history": [
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "passed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "Element exists in the DOM but is not visible — timing or rendering issue. Playwright located the element in the DOM but it was hidden (display:none, visibility:hidden, zero dimensions, or outside viewport). This is typically a timing issue where the element hasn't finished rendering.",
+        "raw": {
+          "matchedRuleCode": "RC-008",
+          "likelyCause": "Element exists in the DOM but is not visible — timing or rendering issue",
+          "explanation": "Playwright located the element in the DOM but it was hidden (display:none, visibility:hidden, zero dimensions, or outside viewport). This is typically a timing issue where the element hasn't finished rendering."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Locator",
+        "raw": {
+          "category": "Locator"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "expect(locator).toBeVisible() failed: element is not visible — Call log:   - locator getByRole('status', { name: 'Project archived' })\n  - element is present in the DOM but has 'opacity: 0' from an unfinished transition",
+        "raw": {
+          "header": "expect(locator).toBeVisible() failed: element is not visible",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - locator getByRole('status', { name: 'Project archived' })\n  - element is present in the DOM but has 'opacity: 0' from an unfinished transition"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at tests/projects.spec.js:201:44",
+        "raw": {
+          "stackTrace": "Error: \n    at tests/projects.spec.js:201:44",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            0,
+            null,
+            0,
+            0,
+            null,
+            0,
+            null,
+            0,
+            0,
+            null,
+            0,
+            0,
+            null,
+            0,
+            null,
+            0,
+            0,
+            null,
+            0,
+            0
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "2 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-60AB38",
+          "fingerprintGroupCount": 2
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": true,
+        "value": "chromium — also analysed on firefox, webkit",
+        "raw": {
+          "browser": "chromium",
+          "siblingBrowsers": [
+            "firefox",
+            "webkit"
+          ]
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 80%. 14 pass/fail transitions in history (high noise) · Mixed results — recovered on retry in at least one run · 2 other test(s) share this failure fingerprint (some corroboration)",
+        "raw": {
+          "baseConfidence": 80,
+          "adjustments": [
+            {
+              "code": "A2",
+              "delta": -10,
+              "reason": "14 pass/fail transitions in history (high noise)"
+            },
+            {
+              "code": "A3",
+              "delta": 3,
+              "reason": "Mixed results — recovered on retry in at least one run"
+            },
+            {
+              "code": "A6",
+              "delta": 4,
+              "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+            }
+          ],
+          "adjustmentTotal": -3,
+          "finalConfidence": 77,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "14 transitions between pass and fail across 20 runs · Outcome alternates across runs — no stable pattern detected",
+        "raw": {
+          "classificationReasons": [
+            "14 transitions between pass and fail across 20 runs",
+            "Outcome alternates across runs — no stable pattern detected"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/archive-hidden.png"
+          ],
+          "trace": "/demo-assets/screenshots/archive-hidden.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6"
+    ],
+    "deterministic": {
+      "confidence": 77,
+      "band": "MEDIUM",
+      "ruleCode": "RC-008",
+      "ruleId": "element-not-visible",
+      "category": "Locator",
+      "classification": "flaky",
+      "fingerprint": "FP-60AB38",
+      "fingerprintGroupCount": 2,
+      "severity": "medium",
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "14 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 80,
+        "adjustments": [
+          {
+            "code": "A2",
+            "delta": -10,
+            "reason": "14 pass/fail transitions in history (high noise)"
+          },
+          {
+            "code": "A3",
+            "delta": 3,
+            "reason": "Mixed results — recovered on retry in at least one run"
+          },
+          {
+            "code": "A6",
+            "delta": 4,
+            "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+          }
+        ],
+        "adjustmentTotal": -3,
+        "finalConfidence": 77,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

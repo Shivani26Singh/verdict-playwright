@@ -1,0 +1,404 @@
+{
+  "id": "loads-the-third-party-benchmark-feed--firefox",
+  "investigation": {
+    "testName": "loads the third-party benchmark feed",
+    "file": "tests/analytics.spec.js",
+    "browser": "firefox",
+    "classification": "stable_failure",
+    "history": [
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-004",
+    "matchedRule": "network-error",
+    "category": "Network",
+    "likelyCause": "A network request failed — API unreachable, timeout, or DNS failure",
+    "explanation": "A network call failed during the test. This could be a transient infrastructure issue, rate limiting, or the target service being unavailable.",
+    "confidence": 84,
+    "severity": "medium",
+    "fingerprint": "FP-CC37FE",
+    "fingerprintGroupCount": 2,
+    "classificationReasons": [
+      "All 20 runs failed",
+      "Failure reproduced consistently — not flaky"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 75,
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "adjustmentTotal": 9,
+      "finalConfidence": 84,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at tests/analytics.spec.js:206:16",
+      "parsedError": {
+        "header": "page.goto: getaddrinfo ENOTFOUND benchmarks.partner-cdn.io",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - the partner CDN hostname stopped resolving after their DNS migration"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "loads the third-party benchmark feed",
+      "file": "tests/analytics.spec.js",
+      "browser": "firefox",
+      "classification": "stable_failure",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 20 of 20 runs, consistently failing",
+        "raw": {
+          "history": [
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "A network request failed — API unreachable, timeout, or DNS failure. A network call failed during the test. This could be a transient infrastructure issue, rate limiting, or the target service being unavailable.",
+        "raw": {
+          "matchedRuleCode": "RC-004",
+          "likelyCause": "A network request failed — API unreachable, timeout, or DNS failure",
+          "explanation": "A network call failed during the test. This could be a transient infrastructure issue, rate limiting, or the target service being unavailable."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Network",
+        "raw": {
+          "category": "Network"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "page.goto: getaddrinfo ENOTFOUND benchmarks.partner-cdn.io — Call log:   - the partner CDN hostname stopped resolving after their DNS migration",
+        "raw": {
+          "header": "page.goto: getaddrinfo ENOTFOUND benchmarks.partner-cdn.io",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - the partner CDN hostname stopped resolving after their DNS migration"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at tests/analytics.spec.js:206:16",
+        "raw": {
+          "stackTrace": "Error: \n    at tests/analytics.spec.js:206:16",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "2 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-CC37FE",
+          "fingerprintGroupCount": 2
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": true,
+        "value": "firefox — also analysed on chromium, webkit",
+        "raw": {
+          "browser": "firefox",
+          "siblingBrowsers": [
+            "chromium",
+            "webkit"
+          ]
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 75%. History is fully consistent — every run had the same outcome · Every run failed — no recovery observed · 2 other test(s) share this failure fingerprint (some corroboration) · 20+ runs analyzed with a consistent pattern (strong statistical basis)",
+        "raw": {
+          "baseConfidence": 75,
+          "adjustments": [
+            {
+              "code": "A1",
+              "delta": 5,
+              "reason": "History is fully consistent — every run had the same outcome"
+            },
+            {
+              "code": "A4",
+              "delta": -5,
+              "reason": "Every run failed — no recovery observed"
+            },
+            {
+              "code": "A6",
+              "delta": 4,
+              "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+            },
+            {
+              "code": "A9",
+              "delta": 5,
+              "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+            }
+          ],
+          "adjustmentTotal": 9,
+          "finalConfidence": 84,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "All 20 runs failed · Failure reproduced consistently — not flaky",
+        "raw": {
+          "classificationReasons": [
+            "All 20 runs failed",
+            "Failure reproduced consistently — not flaky"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: not captured | Trace: not captured | Video: not captured",
+        "raw": {
+          "screenshots": [],
+          "trace": null,
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6"
+    ],
+    "deterministic": {
+      "confidence": 84,
+      "band": "HIGH",
+      "ruleCode": "RC-004",
+      "ruleId": "network-error",
+      "category": "Network",
+      "classification": "stable_failure",
+      "fingerprint": "FP-CC37FE",
+      "fingerprintGroupCount": 2,
+      "severity": "medium",
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 75,
+        "adjustments": [
+          {
+            "code": "A1",
+            "delta": 5,
+            "reason": "History is fully consistent — every run had the same outcome"
+          },
+          {
+            "code": "A4",
+            "delta": -5,
+            "reason": "Every run failed — no recovery observed"
+          },
+          {
+            "code": "A6",
+            "delta": 4,
+            "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+          },
+          {
+            "code": "A9",
+            "delta": 5,
+            "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+          }
+        ],
+        "adjustmentTotal": 9,
+        "finalConfidence": 84,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

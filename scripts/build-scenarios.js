@@ -199,6 +199,29 @@ function assertInvariants(scenario, pack, humanize) {
   }
 }
 
+/**
+ * True when the scenario already has a verdict captured from a real model run
+ * by scripts/refresh-ai-cache.mjs. Those must never be overwritten by the
+ * hand-written placeholder below — a heuristic verdict presented as AI output
+ * would be a lie about what the product does.
+ */
+function hasRealAiVerdict(scenarioId) {
+  const file = path.join(OUT_DIR, `${scenarioId}.verdict.json`);
+  if (!fs.existsSync(file)) return false;
+  try {
+    const existing = JSON.parse(fs.readFileSync(file, "utf8"));
+    const provenance = existing && existing.provenance;
+    return !!(provenance && provenance.provider && provenance.model);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * A hand-written stand-in used only to bootstrap a scenario before any model
+ * has been called. It is NOT AI output and is never labelled as such — run
+ * scripts/refresh-ai-cache.mjs to replace it with a genuine verdict.
+ */
 function heuristicVerdict(pack, scenarioId) {
   const items = pack.items || [];
   const byId = {};
@@ -354,27 +377,38 @@ async function main() {
 
     assertInvariants(scenario, pack, humanize);
 
-    let rawVerdict = heuristicVerdict(pack, scenario.id);
-    if (scenario.id === "insufficient-evidence") {
-      rawVerdict = synthesizedInsufficientEvidence(pack);
-    }
-
-    const guard = guardVerdict(rawVerdict, pack);
-    const cached = {
-      verdict: guard.verdict,
-      guard,
-      provenance: {
-        mode: "cached",
-        reason: "Deterministic build-time verdict",
-        generatedAt: new Date().toISOString(),
-      },
-    };
-
     const copied = copyAssets(pack);
 
     fs.writeFileSync(path.join(OUT_DIR, `${scenario.id}.investigation.json`), JSON.stringify(investigation, null, 2));
     fs.writeFileSync(path.join(OUT_DIR, `${scenario.id}.pack.json`), JSON.stringify(pack, null, 2));
-    fs.writeFileSync(path.join(OUT_DIR, `${scenario.id}.verdict.json`), JSON.stringify(cached, null, 2));
+
+    if (hasRealAiVerdict(scenario.id)) {
+      console.log(`  ${scenario.id}: kept the existing model-generated verdict.`);
+    } else {
+      let rawVerdict = heuristicVerdict(pack, scenario.id);
+      if (scenario.id === "insufficient-evidence") {
+        rawVerdict = synthesizedInsufficientEvidence(pack);
+      }
+
+      const guard = guardVerdict(rawVerdict, pack);
+      const placeholder = {
+        verdict: guard.verdict,
+        guard,
+        provenance: {
+          mode: "cached",
+          reason:
+            "Placeholder — NOT model output. Run scripts/refresh-ai-cache.mjs for a real verdict.",
+          generatedAt: new Date().toISOString(),
+        },
+      };
+      fs.writeFileSync(
+        path.join(OUT_DIR, `${scenario.id}.verdict.json`),
+        JSON.stringify(placeholder, null, 2)
+      );
+      console.log(
+        `  ${scenario.id}: wrote a PLACEHOLDER verdict — run scripts/refresh-ai-cache.mjs.`
+      );
+    }
 
     const history = investigation.history || [];
     const failed = history.filter((h) => h === "failed").length;

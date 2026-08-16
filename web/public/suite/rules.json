@@ -1,0 +1,1051 @@
+{
+  "generatedAt": "2026-08-16T15:23:23.497Z",
+  "analyzerVersion": "1.0.3",
+  "suite": {
+    "totalRules": 20,
+    "matchedRules": 20,
+    "totalInvestigations": 78,
+    "humanReviewRules": 2,
+    "humanReviewMatches": 18,
+    "totalChecks": 100
+  },
+  "categories": [
+    {
+      "name": "Network",
+      "ruleCount": 5,
+      "matchCount": 21
+    },
+    {
+      "name": "Locator",
+      "ruleCount": 5,
+      "matchCount": 16
+    },
+    {
+      "name": "Authentication",
+      "ruleCount": 2,
+      "matchCount": 9
+    },
+    {
+      "name": "Stability",
+      "ruleCount": 2,
+      "matchCount": 9
+    },
+    {
+      "name": "Unknown",
+      "ruleCount": 1,
+      "matchCount": 9
+    },
+    {
+      "name": "Assertion",
+      "ruleCount": 3,
+      "matchCount": 7
+    },
+    {
+      "name": "Timeout",
+      "ruleCount": 1,
+      "matchCount": 4
+    },
+    {
+      "name": "Environment",
+      "ruleCount": 1,
+      "matchCount": 3
+    }
+  ],
+  "rules": [
+    {
+      "code": "RC-007",
+      "id": "generic-failure",
+      "name": "Could not confidently determine a specific root cause — this failure needs a manual look",
+      "category": "Unknown",
+      "severity": "medium",
+      "baseConfidence": 20,
+      "pattern": "Unknown",
+      "explanation": "This test failed with an error that doesn't match any known Playwright pattern. Manual investigation with traces and screenshots is the best next step.",
+      "evidence": "Test failed but did not match any specific Playwright failure pattern",
+      "suggestedChecks": [
+        "Review the complete stack trace for clues about the failure origin",
+        "Inspect the Playwright trace for the failing run",
+        "Review screenshots captured during the failure",
+        "Check the test runner logs for warnings or errors before the failure",
+        "Compare the passing and failing runs side by side"
+      ],
+      "requiresHumanReview": true,
+      "matches": {
+        "count": 9,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 27,
+        "examples": [
+          {
+            "testName": "persists the selected theme across a reload",
+            "browser": "chromium",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 27
+          },
+          {
+            "testName": "renders the header when the profile payload is partial",
+            "browser": "chromium",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 27
+          },
+          {
+            "testName": "persists the selected theme across a reload",
+            "browser": "firefox",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 27
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-004",
+      "id": "network-error",
+      "name": "A network request failed — API unreachable, timeout, or DNS failure",
+      "category": "Network",
+      "severity": "medium",
+      "baseConfidence": 75,
+      "pattern": "network",
+      "explanation": "A network call failed during the test. This could be a transient infrastructure issue, rate limiting, or the target service being unavailable.",
+      "evidence": "One or more network-level errors detected in Playwright output",
+      "suggestedChecks": [
+        "Verify the API or service is reachable from the test environment",
+        "Check for rate limiting or throttling on the endpoint",
+        "Add retry logic with exponential backoff for flaky network calls",
+        "Verify DNS resolution and network routing from the CI environment",
+        "Check if the endpoint requires authentication or has IP restrictions"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 6,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 78,
+        "examples": [
+          {
+            "testName": "loads the third-party benchmark feed",
+            "browser": "chromium",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 84
+          },
+          {
+            "testName": "loads the third-party benchmark feed",
+            "browser": "firefox",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 84
+          },
+          {
+            "testName": "loads the third-party benchmark feed",
+            "browser": "webkit",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 84
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-005",
+      "id": "always-fails",
+      "name": "Test is consistently broken — not flaky, genuinely failing",
+      "category": "Stability",
+      "severity": "critical",
+      "baseConfidence": 95,
+      "pattern": "consistent failure",
+      "explanation": "This test fails in almost every run. It is not flaky — it has a real, consistent bug or the test itself is broken.",
+      "evidence": "Test fails in 90% or more of runs — this is a real failure, not instability",
+      "suggestedChecks": [
+        "Investigate the root cause — this is not flakiness, it's a deterministic failure",
+        "Review recent code changes in the feature or shared dependencies",
+        "Run the test locally with Playwright trace viewer to inspect the failure",
+        "Check if the test environment is misconfigured (wrong URL, missing services)",
+        "Verify the test data setup — the data the test depends on may no longer exist"
+      ],
+      "requiresHumanReview": true,
+      "matches": {
+        "count": 6,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 99,
+        "examples": [
+          {
+            "testName": "loads the subscription summary card",
+            "browser": "chromium",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 99
+          },
+          {
+            "testName": "loads feature flags from the environment config",
+            "browser": "chromium",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 99
+          },
+          {
+            "testName": "loads the subscription summary card",
+            "browser": "firefox",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 99
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-014",
+      "id": "net-err",
+      "name": "Network request failed at the protocol level — unreachable host, DNS failure, or TLS error",
+      "category": "Network",
+      "severity": "high",
+      "baseConfidence": 85,
+      "pattern": "net::ERR_",
+      "explanation": "net::ERR_ errors indicate the browser could not establish or complete a network connection. This is typically an infrastructure issue rather than an application bug.",
+      "evidence": "A network-level error (net::ERR_) was detected — the browser could not complete the request",
+      "suggestedChecks": [
+        "Verify connectivity from the test environment to the target host",
+        "Check if the endpoint URL is correct and accessible",
+        "Review server logs for connection refusals or TLS handshake failures",
+        "Verify DNS resolution for the target domain from the CI environment",
+        "Check if a proxy or firewall is blocking the connection"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 6,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 98,
+        "examples": [
+          {
+            "testName": "streams the CSV export from the CDN edge",
+            "browser": "chromium",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 98
+          },
+          {
+            "testName": "downloads the signed audit report over TLS",
+            "browser": "chromium",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 98
+          },
+          {
+            "testName": "streams the CSV export from the CDN edge",
+            "browser": "firefox",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 98
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-015",
+      "id": "http-401",
+      "name": "Authentication required — the request was not authenticated",
+      "category": "Authentication",
+      "severity": "high",
+      "baseConfidence": 85,
+      "pattern": "401",
+      "explanation": "The server rejected the request as unauthenticated. The test's authentication state (tokens, cookies, storageState) may have expired or not been set up correctly.",
+      "evidence": "Server returned HTTP 401 Unauthorized",
+      "suggestedChecks": [
+        "Verify the login flow completed successfully before this request",
+        "Check if the auth token or session cookie is valid and not expired",
+        "Verify that the test's authentication setup (beforeEach, storageState) is working",
+        "Check if the token refresh mechanism is functioning correctly",
+        "Review the auth service logs for failed authentication attempts"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 6,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 86,
+        "examples": [
+          {
+            "testName": "keeps the session valid across two open tabs",
+            "browser": "chromium",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 86
+          },
+          {
+            "testName": "exports the audit log as the workspace owner",
+            "browser": "chromium",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 86
+          },
+          {
+            "testName": "keeps the session valid across two open tabs",
+            "browser": "firefox",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 86
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-001",
+      "id": "timeout-error",
+      "name": "Page or API response too slow",
+      "category": "Timeout",
+      "severity": "high",
+      "baseConfidence": 90,
+      "pattern": "TimeoutError",
+      "explanation": "Playwright timed out waiting for a condition — the page, element, or network request did not complete within the configured timeout.",
+      "evidence": "TimeoutError detected in Playwright error output",
+      "suggestedChecks": [
+        "Check backend response time for the failing operation",
+        "Verify timeout configuration in playwright.config.js",
+        "Review network latency between test runner and application",
+        "Check if the element relies on an async API call before rendering",
+        "Inspect Playwright trace for the exact operation that timed out"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 4,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 88,
+        "examples": [
+          {
+            "testName": "animates the KPI counters on first paint",
+            "browser": "webkit",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 92
+          },
+          {
+            "testName": "delivers the PDF export within the 30s SLA",
+            "browser": "chromium",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 87
+          },
+          {
+            "testName": "delivers the PDF export within the 30s SLA",
+            "browser": "firefox",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 87
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-002",
+      "id": "locator-not-found",
+      "name": "The locator did not match any element in the DOM",
+      "category": "Locator",
+      "severity": "high",
+      "baseConfidence": 85,
+      "pattern": "locator",
+      "explanation": "The element may load asynchronously, be conditionally rendered, or have a dynamic selector that changed between test runs.",
+      "evidence": "One or more locator errors detected — the target element could not be found",
+      "suggestedChecks": [
+        "Verify the selector is correct and matches an element in the current page state",
+        "Add explicit waitForSelector before interacting with dynamic elements",
+        "Check if the element is rendered conditionally (e.g., after an API call completes)",
+        "Use data-testid attributes for stable, framework-agnostic selectors",
+        "Inspect a Playwright trace to see the DOM state when the locator was evaluated"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 4,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 91,
+        "examples": [
+          {
+            "testName": "opens the date-range picker in the audit log",
+            "browser": "webkit",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 87
+          },
+          {
+            "testName": "opens the invite dialog from the members toolbar",
+            "browser": "chromium",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 92
+          },
+          {
+            "testName": "opens the invite dialog from the members toolbar",
+            "browser": "firefox",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 92
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-008",
+      "id": "element-not-visible",
+      "name": "Element exists in the DOM but is not visible — timing or rendering issue",
+      "category": "Locator",
+      "severity": "medium",
+      "baseConfidence": 80,
+      "pattern": "element is not visible",
+      "explanation": "Playwright located the element in the DOM but it was hidden (display:none, visibility:hidden, zero dimensions, or outside viewport). This is typically a timing issue where the element hasn't finished rendering.",
+      "evidence": "Playwright found the element but it was not visible when the test tried to interact with it",
+      "suggestedChecks": [
+        "Verify the element's visibility before interaction (waitForSelector with visible:true)",
+        "Review CSS animations or transitions that delay visibility",
+        "Check if the element is inside a hidden parent container",
+        "Use Playwright's auto-waiting — ensure assertions use locator-based methods",
+        "Consider using toBeVisible() assertion before interaction"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 4,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 78,
+        "examples": [
+          {
+            "testName": "keeps the export toolbar pinned while scrolling",
+            "browser": "webkit",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 82
+          },
+          {
+            "testName": "shows the archived banner after archiving a project",
+            "browser": "chromium",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 77
+          },
+          {
+            "testName": "shows the archived banner after archiving a project",
+            "browser": "firefox",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 77
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-003",
+      "id": "assertion-failure",
+      "name": "Expected value did not match actual value — test assertion failed",
+      "category": "Assertion",
+      "severity": "medium",
+      "baseConfidence": 80,
+      "pattern": "assertion",
+      "explanation": "The test assertion failed. The application produced different output than expected — this could be a real application change or a timing issue where the value wasn't settled yet.",
+      "evidence": "One or more assertion errors detected in Playwright test output",
+      "suggestedChecks": [
+        "Verify the expected value matches the current application behavior",
+        "Check if the application state changed between the action and the assertion",
+        "Add a wait condition before the assertion if the value depends on async operations",
+        "Review recent application changes that may have altered the expected output",
+        "Use Playwright's expect().toPass() for retry-able assertions on async values"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 3,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 87,
+        "examples": [
+          {
+            "testName": "keeps cohort retention stable after a data backfill",
+            "browser": "chromium",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 87
+          },
+          {
+            "testName": "keeps cohort retention stable after a data backfill",
+            "browser": "firefox",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 87
+          },
+          {
+            "testName": "keeps cohort retention stable after a data backfill",
+            "browser": "webkit",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 87
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-006",
+      "id": "rapid-alternation",
+      "name": "Race condition or async timing issue — the test outcome depends on execution order",
+      "category": "Stability",
+      "severity": "high",
+      "baseConfidence": 70,
+      "pattern": "rapid alternation",
+      "explanation": "When a test flips between PASS and FAIL with no discernible pattern, the most common cause is a race condition between the test's actions and the application's async behavior.",
+      "evidence": "Test alternates between PASS and FAIL across runs with no stable period (3+ transitions)",
+      "suggestedChecks": [
+        "Add explicit waitForSelector before interacting with elements that may load asynchronously",
+        "Use expect().toPass() for assertions on values that may take time to settle",
+        "Check for unhandled promise rejections or floating promises in the test code",
+        "Verify test isolation — this test may depend on state from a previous test",
+        "Run the test in isolation 20 times to establish the true failure rate"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 3,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 67,
+        "examples": [
+          {
+            "testName": "updates the live metrics widget on each tick",
+            "browser": "chromium",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 67
+          },
+          {
+            "testName": "updates the live metrics widget on each tick",
+            "browser": "firefox",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 67
+          },
+          {
+            "testName": "updates the live metrics widget on each tick",
+            "browser": "webkit",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 67
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-009",
+      "id": "click-timeout",
+      "name": "Element was present but not ready for interaction when clicked",
+      "category": "Locator",
+      "severity": "high",
+      "baseConfidence": 85,
+      "pattern": "locator.click timeout",
+      "explanation": "Playwright auto-waits for elements to be stable, visible, enabled, and not covered. The click timed out because one of these conditions was not met within the timeout.",
+      "evidence": "Playwright timed out waiting for the element to become actionable before clicking",
+      "suggestedChecks": [
+        "Wait for the element to be enabled before clicking (locator.isEnabled)",
+        "Review loading indicators or spinners that block interaction",
+        "Check if the element is covered by another element (overlay, modal, toast)",
+        "Verify the element is not animating when the click is attempted",
+        "Use { force: true } temporarily to diagnose if an overlay is blocking"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 3,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 82,
+        "examples": [
+          {
+            "testName": "confirms a declined card after the customer re-enters CVC",
+            "browser": "chromium",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 82
+          },
+          {
+            "testName": "confirms a declined card after the customer re-enters CVC",
+            "browser": "firefox",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 82
+          },
+          {
+            "testName": "confirms a declined card after the customer re-enters CVC",
+            "browser": "webkit",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 82
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-011",
+      "id": "strict-mode-violation",
+      "name": "The locator matched multiple elements — Playwright's strict mode requires a single match",
+      "category": "Locator",
+      "severity": "medium",
+      "baseConfidence": 90,
+      "pattern": "strict mode violation",
+      "explanation": "Playwright's strict mode requires locators to resolve to exactly one element. When multiple elements match, it throws this error to prevent accidental interaction with the wrong element.",
+      "evidence": "Playwright's strict mode rejected the locator because it resolved to more than one element",
+      "suggestedChecks": [
+        "Use a more specific locator that uniquely identifies the target element",
+        "Prefer getByRole, getByLabel, or getByTestId over generic text/CSS selectors",
+        "Use .first() or .nth() if multiple matches are expected but only one should be targeted",
+        "Check if the page conditionally renders duplicate elements (e.g. mobile + desktop versions)",
+        "Verify the locator string for typos or overly broad selectors"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 3,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 99,
+        "examples": [
+          {
+            "testName": "opens the editor for a single selected row",
+            "browser": "chromium",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 99
+          },
+          {
+            "testName": "opens the editor for a single selected row",
+            "browser": "firefox",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 99
+          },
+          {
+            "testName": "opens the editor for a single selected row",
+            "browser": "webkit",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 99
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-013",
+      "id": "to-have-title",
+      "name": "Expected title does not match actual page title",
+      "category": "Assertion",
+      "severity": "medium",
+      "baseConfidence": 85,
+      "pattern": "toHaveTitle",
+      "explanation": "The browser's page title did not match what the test expected. This can happen after redirects, SPA navigation, or when the title is set asynchronously.",
+      "evidence": "toHaveTitle assertion failed — the page title did not match the expected value",
+      "suggestedChecks": [
+        "Verify the expected title against the current page",
+        "Review the application's document.title or <title> tag",
+        "Check if a redirect changed the page before the title assertion",
+        "Verify the title after navigation completes (use waitForURL first)",
+        "Confirm no client-side routing changed the page title dynamically"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 3,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 92,
+        "examples": [
+          {
+            "testName": "lands on the workspace after the SSO callback",
+            "browser": "chromium",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 92
+          },
+          {
+            "testName": "lands on the workspace after the SSO callback",
+            "browser": "firefox",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 92
+          },
+          {
+            "testName": "lands on the workspace after the SSO callback",
+            "browser": "webkit",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 92
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-016",
+      "id": "http-403",
+      "name": "Authorization denied — the authenticated user lacks required permissions",
+      "category": "Authentication",
+      "severity": "high",
+      "baseConfidence": 85,
+      "pattern": "403",
+      "explanation": "The server accepted the authentication but denied access. The test user has insufficient permissions or the resource has access controls that the test does not satisfy.",
+      "evidence": "Server returned HTTP 403 Forbidden",
+      "suggestedChecks": [
+        "Verify the test user has the required role/permissions for this endpoint",
+        "Check if permissions were recently changed or the user was deactivated",
+        "Review the authorization middleware or RBAC configuration",
+        "Verify the correct test user is being used (not a lower-privilege account)",
+        "Check if multi-factor authentication is required for this action"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 3,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 94,
+        "examples": [
+          {
+            "testName": "blocks a non-admin from opening the admin console",
+            "browser": "chromium",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 94
+          },
+          {
+            "testName": "blocks a non-admin from opening the admin console",
+            "browser": "firefox",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 94
+          },
+          {
+            "testName": "blocks a non-admin from opening the admin console",
+            "browser": "webkit",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 94
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-017",
+      "id": "http-404",
+      "name": "The requested endpoint or page was not found",
+      "category": "Network",
+      "severity": "medium",
+      "baseConfidence": 85,
+      "pattern": "404",
+      "explanation": "The server could not find the requested resource. This could be a broken URL, a removed endpoint, or a resource that doesn't exist in the test data.",
+      "evidence": "Server returned HTTP 404 Not Found",
+      "suggestedChecks": [
+        "Verify the URL or API endpoint is correct",
+        "Check if the resource was removed or renamed in a recent deployment",
+        "Verify that the route exists in the application's routing configuration",
+        "Check if the resource ID in the URL is valid and exists in the database",
+        "Confirm the deployment includes the expected route/endpoint"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 3,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 94,
+        "examples": [
+          {
+            "testName": "shows a friendly page for a deleted project deep link",
+            "browser": "chromium",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 94
+          },
+          {
+            "testName": "shows a friendly page for a deleted project deep link",
+            "browser": "firefox",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 94
+          },
+          {
+            "testName": "shows a friendly page for a deleted project deep link",
+            "browser": "webkit",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 94
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-018",
+      "id": "http-500",
+      "name": "Internal server error — the backend encountered an unexpected condition",
+      "category": "Network",
+      "severity": "high",
+      "baseConfidence": 85,
+      "pattern": "500",
+      "explanation": "The backend server threw an unhandled error. This is a server-side issue that requires investigation of backend logs and service health.",
+      "evidence": "Server returned HTTP 500 Internal Server Error",
+      "suggestedChecks": [
+        "Review backend logs for the error stack trace",
+        "Verify the service is running and healthy in the target environment",
+        "Check if a recent deployment introduced a regression",
+        "Verify database connectivity and query performance",
+        "Check downstream service dependencies that may have failed"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 3,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 94,
+        "examples": [
+          {
+            "testName": "generates the monthly invoice for an enterprise plan",
+            "browser": "chromium",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 94
+          },
+          {
+            "testName": "generates the monthly invoice for an enterprise plan",
+            "browser": "firefox",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 94
+          },
+          {
+            "testName": "generates the monthly invoice for an enterprise plan",
+            "browser": "webkit",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 94
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-019",
+      "id": "econnreset",
+      "name": "The network connection was abruptly terminated by the server or network",
+      "category": "Network",
+      "severity": "medium",
+      "baseConfidence": 80,
+      "pattern": "ECONNRESET",
+      "explanation": "The TCP connection was forcibly closed by the remote host. This is usually a transient network issue or the server terminating the connection unexpectedly.",
+      "evidence": "TCP connection was reset (ECONNRESET) — the server or network forcibly closed the connection",
+      "suggestedChecks": [
+        "Review network stability in the CI environment",
+        "Retry the test execution — ECONNRESET is often transient",
+        "Check if the server enforces connection limits or timeouts",
+        "Verify that no firewall or load balancer is dropping idle connections",
+        "Check if keep-alive connections are being prematurely closed"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 3,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 77,
+        "examples": [
+          {
+            "testName": "keeps the realtime metrics stream connected",
+            "browser": "chromium",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 77
+          },
+          {
+            "testName": "keeps the realtime metrics stream connected",
+            "browser": "firefox",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 77
+          },
+          {
+            "testName": "keeps the realtime metrics stream connected",
+            "browser": "webkit",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 77
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-020",
+      "id": "target-closed",
+      "name": "The browser or page was unexpectedly closed during test execution",
+      "category": "Environment",
+      "severity": "high",
+      "baseConfidence": 80,
+      "pattern": "Target closed",
+      "explanation": "The browser page or context was closed before Playwright finished interacting with it. This can happen due to memory pressure, crashes, or incorrect test cleanup.",
+      "evidence": "Playwright detected that the browser target was closed before the test completed",
+      "suggestedChecks": [
+        "Review browser crash logs or console output for the run",
+        "Check CI runner memory usage — low memory can force browser termination",
+        "Verify that no test code explicitly calls page.close() or browser.close() prematurely",
+        "Check if tests running in parallel are interfering with each other's browser contexts",
+        "Review for uncaught exceptions in page event handlers that might crash the page"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 3,
+        "browsers": [
+          "chromium",
+          "firefox",
+          "webkit"
+        ],
+        "avgConfidence": 89,
+        "examples": [
+          {
+            "testName": "renders a 50k-row report without crashing the tab",
+            "browser": "chromium",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 89
+          },
+          {
+            "testName": "renders a 50k-row report without crashing the tab",
+            "browser": "firefox",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 89
+          },
+          {
+            "testName": "renders a 50k-row report without crashing the tab",
+            "browser": "webkit",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 89
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-010",
+      "id": "element-detached",
+      "name": "The element was removed from the DOM and re-rendered between location and interaction",
+      "category": "Locator",
+      "severity": "medium",
+      "baseConfidence": 85,
+      "pattern": "element detached",
+      "explanation": "The element was found in the DOM but a framework re-render replaced it before Playwright could complete the action. The element reference became stale.",
+      "evidence": "Playwright found the element but it was removed from the DOM before the action completed",
+      "suggestedChecks": [
+        "Re-locate the element after DOM updates before interacting",
+        "Check if React/Vue/Svelte is re-rendering the component during the test",
+        "Use locator-based queries instead of element handles (elementHandle is stale after re-render)",
+        "Add a waitForSelector after actions that trigger DOM updates",
+        "Verify that state changes (loading → loaded) don't replace the target element"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 2,
+        "browsers": [
+          "webkit"
+        ],
+        "avgConfidence": 81,
+        "examples": [
+          {
+            "testName": "expands a nested subtask row",
+            "browser": "webkit",
+            "classification": "stable_failure",
+            "classificationLabel": "Consistently Failing",
+            "confidence": 87
+          },
+          {
+            "testName": "reorders a task via drag and drop",
+            "browser": "webkit",
+            "classification": "flaky",
+            "classificationLabel": "Flaky",
+            "confidence": 75
+          }
+        ]
+      }
+    },
+    {
+      "code": "RC-012",
+      "id": "to-have-text",
+      "name": "Expected text does not match actual text on the page",
+      "category": "Assertion",
+      "severity": "medium",
+      "baseConfidence": 85,
+      "pattern": "toHaveText",
+      "explanation": "The test expected specific text content but the element contained different text. This is often a UI update that wasn't reflected in the test.",
+      "evidence": "toHaveText assertion failed — the element's text content did not match the expected value",
+      "suggestedChecks": [
+        "Verify the expected text matches the current UI",
+        "Confirm the application data that populates the element",
+        "Check if localization or i18n changed the rendered text",
+        "Review recent UI changes that may have updated labels or content",
+        "Use getByRole or getByTestId for more resilient text assertions"
+      ],
+      "requiresHumanReview": false,
+      "matches": {
+        "count": 1,
+        "browsers": [
+          "firefox"
+        ],
+        "avgConfidence": 85,
+        "examples": [
+          {
+            "testName": "formats the revenue tile as localized currency",
+            "browser": "firefox",
+            "classification": "newly_failed",
+            "classificationLabel": "Newly Failing",
+            "confidence": 85
+          }
+        ]
+      }
+    }
+  ]
+}

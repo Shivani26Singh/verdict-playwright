@@ -1,0 +1,1688 @@
+{
+  "generatedAt": "2026-08-16T15:23:23.497Z",
+  "analyzerVersion": "1.0.3",
+  "schemaVersion": "1.0.0",
+  "dataset": {
+    "runs": 20,
+    "tests": 231,
+    "executions": 4620,
+    "browsers": 3,
+    "firstRunAt": "2026-01-19T06:00:00.000Z",
+    "lastRunAt": "2026-02-07T06:00:00.000Z"
+  },
+  "health": {
+    "score": 62,
+    "passRate": 78.2,
+    "failRate": 20.5,
+    "flakyRate": 12.1,
+    "avgDurationMs": 4713
+  },
+  "headline": {
+    "total": 231,
+    "passing": 144,
+    "passingOnRetry": 3,
+    "flaky": 28,
+    "failing": 50,
+    "newlyFailing": 16,
+    "consistentlyFailing": 34,
+    "fixed": 3,
+    "skipped": 6
+  },
+  "composition": [
+    {
+      "key": "stable",
+      "label": "Passing consistently",
+      "tone": "emerald",
+      "count": 144,
+      "pct": 62.3
+    },
+    {
+      "key": "flaky",
+      "label": "Flaky",
+      "tone": "amber",
+      "count": 28,
+      "pct": 12.1
+    },
+    {
+      "key": "stableFail",
+      "label": "Consistently failing",
+      "tone": "rose",
+      "count": 34,
+      "pct": 14.7
+    },
+    {
+      "key": "newlyFailed",
+      "label": "Newly failing",
+      "tone": "orange",
+      "count": 16,
+      "pct": 6.9
+    },
+    {
+      "key": "fixed",
+      "label": "Recently fixed",
+      "tone": "sky",
+      "count": 3,
+      "pct": 1.3
+    },
+    {
+      "key": "skipped",
+      "label": "Skipped",
+      "tone": "slate",
+      "count": 6,
+      "pct": 2.6
+    }
+  ],
+  "latestRun": {
+    "label": "Run 20",
+    "index": 20,
+    "generatedAt": "2026-02-07T06:00:00.000Z",
+    "total": 231,
+    "passed": 171,
+    "failed": 54,
+    "skipped": 6,
+    "passRate": 74
+  },
+  "trend": [
+    {
+      "index": 1,
+      "label": "Run 1",
+      "generatedAt": "2026-01-19T06:00:00.000Z",
+      "total": 231,
+      "passed": 188,
+      "failed": 40,
+      "skipped": 3,
+      "passRate": 81.4,
+      "failRate": 17.3,
+      "flaky": 0,
+      "retries": 25,
+      "durationMs": 919336
+    },
+    {
+      "index": 2,
+      "label": "Run 2",
+      "generatedAt": "2026-01-20T06:00:00.000Z",
+      "total": 231,
+      "passed": 166,
+      "failed": 62,
+      "skipped": 3,
+      "passRate": 71.9,
+      "failRate": 26.8,
+      "flaky": 0,
+      "retries": 50,
+      "durationMs": 1345319
+    },
+    {
+      "index": 3,
+      "label": "Run 3",
+      "generatedAt": "2026-01-21T06:00:00.000Z",
+      "total": 231,
+      "passed": 191,
+      "failed": 37,
+      "skipped": 3,
+      "passRate": 82.7,
+      "failRate": 16,
+      "flaky": 25,
+      "retries": 25,
+      "durationMs": 912407
+    },
+    {
+      "index": 4,
+      "label": "Run 4",
+      "generatedAt": "2026-01-22T06:00:00.000Z",
+      "total": 231,
+      "passed": 187,
+      "failed": 41,
+      "skipped": 3,
+      "passRate": 81,
+      "failRate": 17.8,
+      "flaky": 25,
+      "retries": 47,
+      "durationMs": 990321
+    },
+    {
+      "index": 5,
+      "label": "Run 5",
+      "generatedAt": "2026-01-23T06:00:00.000Z",
+      "total": 231,
+      "passed": 170,
+      "failed": 58,
+      "skipped": 3,
+      "passRate": 73.6,
+      "failRate": 25.1,
+      "flaky": 25,
+      "retries": 46,
+      "durationMs": 1282213
+    },
+    {
+      "index": 6,
+      "label": "Run 6",
+      "generatedAt": "2026-01-24T06:00:00.000Z",
+      "total": 231,
+      "passed": 187,
+      "failed": 41,
+      "skipped": 3,
+      "passRate": 81,
+      "failRate": 17.8,
+      "flaky": 25,
+      "retries": 47,
+      "durationMs": 1022160
+    },
+    {
+      "index": 7,
+      "label": "Run 7",
+      "generatedAt": "2026-01-25T06:00:00.000Z",
+      "total": 231,
+      "passed": 170,
+      "failed": 58,
+      "skipped": 3,
+      "passRate": 73.6,
+      "failRate": 25.1,
+      "flaky": 25,
+      "retries": 46,
+      "durationMs": 1295188
+    },
+    {
+      "index": 8,
+      "label": "Run 8",
+      "generatedAt": "2026-01-26T06:00:00.000Z",
+      "total": 231,
+      "passed": 187,
+      "failed": 41,
+      "skipped": 3,
+      "passRate": 81,
+      "failRate": 17.8,
+      "flaky": 25,
+      "retries": 47,
+      "durationMs": 995822
+    },
+    {
+      "index": 9,
+      "label": "Run 9",
+      "generatedAt": "2026-01-27T06:00:00.000Z",
+      "total": 231,
+      "passed": 191,
+      "failed": 37,
+      "skipped": 3,
+      "passRate": 82.7,
+      "failRate": 16,
+      "flaky": 25,
+      "retries": 25,
+      "durationMs": 925523
+    },
+    {
+      "index": 10,
+      "label": "Run 10",
+      "generatedAt": "2026-01-28T06:00:00.000Z",
+      "total": 231,
+      "passed": 166,
+      "failed": 62,
+      "skipped": 3,
+      "passRate": 71.9,
+      "failRate": 26.8,
+      "flaky": 25,
+      "retries": 50,
+      "durationMs": 1371879
+    },
+    {
+      "index": 11,
+      "label": "Run 11",
+      "generatedAt": "2026-01-29T06:00:00.000Z",
+      "total": 231,
+      "passed": 191,
+      "failed": 37,
+      "skipped": 3,
+      "passRate": 82.7,
+      "failRate": 16,
+      "flaky": 25,
+      "retries": 25,
+      "durationMs": 913866
+    },
+    {
+      "index": 12,
+      "label": "Run 12",
+      "generatedAt": "2026-01-30T06:00:00.000Z",
+      "total": 231,
+      "passed": 187,
+      "failed": 41,
+      "skipped": 3,
+      "passRate": 81,
+      "failRate": 17.8,
+      "flaky": 25,
+      "retries": 47,
+      "durationMs": 988161
+    },
+    {
+      "index": 13,
+      "label": "Run 13",
+      "generatedAt": "2026-01-31T06:00:00.000Z",
+      "total": 231,
+      "passed": 170,
+      "failed": 58,
+      "skipped": 3,
+      "passRate": 73.6,
+      "failRate": 25.1,
+      "flaky": 25,
+      "retries": 46,
+      "durationMs": 1283536
+    },
+    {
+      "index": 14,
+      "label": "Run 14",
+      "generatedAt": "2026-02-01T06:00:00.000Z",
+      "total": 231,
+      "passed": 187,
+      "failed": 41,
+      "skipped": 3,
+      "passRate": 81,
+      "failRate": 17.8,
+      "flaky": 25,
+      "retries": 47,
+      "durationMs": 998678
+    },
+    {
+      "index": 15,
+      "label": "Run 15",
+      "generatedAt": "2026-02-02T06:00:00.000Z",
+      "total": 231,
+      "passed": 170,
+      "failed": 58,
+      "skipped": 3,
+      "passRate": 73.6,
+      "failRate": 25.1,
+      "flaky": 25,
+      "retries": 46,
+      "durationMs": 1303484
+    },
+    {
+      "index": 16,
+      "label": "Run 16",
+      "generatedAt": "2026-02-03T06:00:00.000Z",
+      "total": 231,
+      "passed": 187,
+      "failed": 41,
+      "skipped": 3,
+      "passRate": 81,
+      "failRate": 17.8,
+      "flaky": 25,
+      "retries": 47,
+      "durationMs": 1009835
+    },
+    {
+      "index": 17,
+      "label": "Run 17",
+      "generatedAt": "2026-02-04T06:00:00.000Z",
+      "total": 231,
+      "passed": 191,
+      "failed": 37,
+      "skipped": 3,
+      "passRate": 82.7,
+      "failRate": 16,
+      "flaky": 25,
+      "retries": 25,
+      "durationMs": 888111
+    },
+    {
+      "index": 18,
+      "label": "Run 18",
+      "generatedAt": "2026-02-05T06:00:00.000Z",
+      "total": 231,
+      "passed": 163,
+      "failed": 65,
+      "skipped": 3,
+      "passRate": 70.6,
+      "failRate": 28.1,
+      "flaky": 25,
+      "retries": 56,
+      "durationMs": 1383150
+    },
+    {
+      "index": 19,
+      "label": "Run 19",
+      "generatedAt": "2026-02-06T06:00:00.000Z",
+      "total": 231,
+      "passed": 191,
+      "failed": 37,
+      "skipped": 3,
+      "passRate": 82.7,
+      "failRate": 16,
+      "flaky": 28,
+      "retries": 25,
+      "durationMs": 889822
+    },
+    {
+      "index": 20,
+      "label": "Run 20",
+      "generatedAt": "2026-02-07T06:00:00.000Z",
+      "total": 231,
+      "passed": 171,
+      "failed": 54,
+      "skipped": 6,
+      "passRate": 74,
+      "failRate": 23.4,
+      "flaky": 28,
+      "retries": 47,
+      "durationMs": 1055787
+    }
+  ],
+  "stability": {
+    "flaky": {
+      "current": 28,
+      "first": 0,
+      "previous": 28,
+      "min": 0,
+      "max": 28,
+      "average": 22.8,
+      "total": 456,
+      "delta": 28,
+      "series": [
+        {
+          "label": "Run 1",
+          "value": 0
+        },
+        {
+          "label": "Run 2",
+          "value": 0
+        },
+        {
+          "label": "Run 3",
+          "value": 25
+        },
+        {
+          "label": "Run 4",
+          "value": 25
+        },
+        {
+          "label": "Run 5",
+          "value": 25
+        },
+        {
+          "label": "Run 6",
+          "value": 25
+        },
+        {
+          "label": "Run 7",
+          "value": 25
+        },
+        {
+          "label": "Run 8",
+          "value": 25
+        },
+        {
+          "label": "Run 9",
+          "value": 25
+        },
+        {
+          "label": "Run 10",
+          "value": 25
+        },
+        {
+          "label": "Run 11",
+          "value": 25
+        },
+        {
+          "label": "Run 12",
+          "value": 25
+        },
+        {
+          "label": "Run 13",
+          "value": 25
+        },
+        {
+          "label": "Run 14",
+          "value": 25
+        },
+        {
+          "label": "Run 15",
+          "value": 25
+        },
+        {
+          "label": "Run 16",
+          "value": 25
+        },
+        {
+          "label": "Run 17",
+          "value": 25
+        },
+        {
+          "label": "Run 18",
+          "value": 25
+        },
+        {
+          "label": "Run 19",
+          "value": 28
+        },
+        {
+          "label": "Run 20",
+          "value": 28
+        }
+      ],
+      "interpretation": "Up 28 since the first run — instability is spreading to more tests."
+    },
+    "retries": {
+      "current": 47,
+      "first": 25,
+      "previous": 25,
+      "min": 25,
+      "max": 56,
+      "average": 41,
+      "total": 819,
+      "delta": 22,
+      "series": [
+        {
+          "label": "Run 1",
+          "value": 25
+        },
+        {
+          "label": "Run 2",
+          "value": 50
+        },
+        {
+          "label": "Run 3",
+          "value": 25
+        },
+        {
+          "label": "Run 4",
+          "value": 47
+        },
+        {
+          "label": "Run 5",
+          "value": 46
+        },
+        {
+          "label": "Run 6",
+          "value": 47
+        },
+        {
+          "label": "Run 7",
+          "value": 46
+        },
+        {
+          "label": "Run 8",
+          "value": 47
+        },
+        {
+          "label": "Run 9",
+          "value": 25
+        },
+        {
+          "label": "Run 10",
+          "value": 50
+        },
+        {
+          "label": "Run 11",
+          "value": 25
+        },
+        {
+          "label": "Run 12",
+          "value": 47
+        },
+        {
+          "label": "Run 13",
+          "value": 46
+        },
+        {
+          "label": "Run 14",
+          "value": 47
+        },
+        {
+          "label": "Run 15",
+          "value": 46
+        },
+        {
+          "label": "Run 16",
+          "value": 47
+        },
+        {
+          "label": "Run 17",
+          "value": 25
+        },
+        {
+          "label": "Run 18",
+          "value": 56
+        },
+        {
+          "label": "Run 19",
+          "value": 25
+        },
+        {
+          "label": "Run 20",
+          "value": 47
+        }
+      ],
+      "interpretation": "Swings between 25 and 56 per run — retry load is uneven, so some runs are recovering far more than others."
+    }
+  },
+  "failureIntelligence": [
+    {
+      "pattern": "Needs manual investigation",
+      "detail": "Could not confidently determine a specific root cause — this failure needs a manual look",
+      "category": "Unknown",
+      "severity": "medium",
+      "tests": 9,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 27,
+      "needsManualInvestigation": true,
+      "requiresHumanReview": true,
+      "classifications": [
+        "newly_failed",
+        "flaky"
+      ],
+      "examples": [
+        {
+          "testName": "persists the selected theme across a reload",
+          "browser": "chromium",
+          "id": "persists-the-selected-theme-across-a-reload--chromium"
+        },
+        {
+          "testName": "renders the header when the profile payload is partial",
+          "browser": "chromium",
+          "id": "renders-the-header-when-the-profile-payload-is-partial--chromium"
+        },
+        {
+          "testName": "persists the selected theme across a reload",
+          "browser": "firefox",
+          "id": "persists-the-selected-theme-across-a-reload--firefox"
+        }
+      ]
+    },
+    {
+      "pattern": "Test is consistently broken — not flaky, genuinely failing",
+      "detail": "Test is consistently broken — not flaky, genuinely failing",
+      "category": "Stability",
+      "severity": "critical",
+      "tests": 6,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 99,
+      "needsManualInvestigation": true,
+      "requiresHumanReview": true,
+      "classifications": [
+        "stable_failure"
+      ],
+      "examples": [
+        {
+          "testName": "loads the subscription summary card",
+          "browser": "chromium",
+          "id": "loads-the-subscription-summary-card--chromium"
+        },
+        {
+          "testName": "loads feature flags from the environment config",
+          "browser": "chromium",
+          "id": "loads-feature-flags-from-the-environment-config--chromium"
+        },
+        {
+          "testName": "loads the subscription summary card",
+          "browser": "firefox",
+          "id": "loads-the-subscription-summary-card--firefox"
+        }
+      ]
+    },
+    {
+      "pattern": "Network request failed at the protocol level — unreachable host, DNS failure, or TLS error",
+      "detail": "Network request failed at the protocol level — unreachable host, DNS failure, or TLS error",
+      "category": "Network",
+      "severity": "high",
+      "tests": 6,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 98,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "stable_failure"
+      ],
+      "examples": [
+        {
+          "testName": "streams the CSV export from the CDN edge",
+          "browser": "chromium",
+          "id": "streams-the-csv-export-from-the-cdn-edge--chromium"
+        },
+        {
+          "testName": "downloads the signed audit report over TLS",
+          "browser": "chromium",
+          "id": "downloads-the-signed-audit-report-over-tls--chromium"
+        },
+        {
+          "testName": "streams the CSV export from the CDN edge",
+          "browser": "firefox",
+          "id": "streams-the-csv-export-from-the-cdn-edge--firefox"
+        }
+      ]
+    },
+    {
+      "pattern": "Authentication required — the request was not authenticated",
+      "detail": "Authentication required — the request was not authenticated",
+      "category": "Authentication",
+      "severity": "high",
+      "tests": 6,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 86,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "flaky"
+      ],
+      "examples": [
+        {
+          "testName": "keeps the session valid across two open tabs",
+          "browser": "chromium",
+          "id": "keeps-the-session-valid-across-two-open-tabs--chromium"
+        },
+        {
+          "testName": "exports the audit log as the workspace owner",
+          "browser": "chromium",
+          "id": "exports-the-audit-log-as-the-workspace-owner--chromium"
+        },
+        {
+          "testName": "keeps the session valid across two open tabs",
+          "browser": "firefox",
+          "id": "keeps-the-session-valid-across-two-open-tabs--firefox"
+        }
+      ]
+    },
+    {
+      "pattern": "A network request failed — API unreachable, timeout, or DNS failure",
+      "detail": "A network request failed — API unreachable, timeout, or DNS failure",
+      "category": "Network",
+      "severity": "medium",
+      "tests": 6,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 78,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "stable_failure",
+        "flaky"
+      ],
+      "examples": [
+        {
+          "testName": "loads the third-party benchmark feed",
+          "browser": "chromium",
+          "id": "loads-the-third-party-benchmark-feed--chromium"
+        },
+        {
+          "testName": "loads the third-party benchmark feed",
+          "browser": "firefox",
+          "id": "loads-the-third-party-benchmark-feed--firefox"
+        },
+        {
+          "testName": "loads the third-party benchmark feed",
+          "browser": "webkit",
+          "id": "loads-the-third-party-benchmark-feed--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "The locator did not match any element in the DOM",
+      "detail": "The locator did not match any element in the DOM",
+      "category": "Locator",
+      "severity": "high",
+      "tests": 4,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 91,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "stable_failure",
+        "newly_failed"
+      ],
+      "examples": [
+        {
+          "testName": "opens the date-range picker in the audit log",
+          "browser": "webkit",
+          "id": "opens-the-date-range-picker-in-the-audit-log--webkit"
+        },
+        {
+          "testName": "opens the invite dialog from the members toolbar",
+          "browser": "chromium",
+          "id": "opens-the-invite-dialog-from-the-members-toolbar--chromium"
+        },
+        {
+          "testName": "opens the invite dialog from the members toolbar",
+          "browser": "firefox",
+          "id": "opens-the-invite-dialog-from-the-members-toolbar--firefox"
+        }
+      ]
+    },
+    {
+      "pattern": "Page or API response too slow",
+      "detail": "Page or API response too slow",
+      "category": "Timeout",
+      "severity": "high",
+      "tests": 4,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 88,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "stable_failure",
+        "flaky"
+      ],
+      "examples": [
+        {
+          "testName": "animates the KPI counters on first paint",
+          "browser": "webkit",
+          "id": "animates-the-kpi-counters-on-first-paint--webkit"
+        },
+        {
+          "testName": "delivers the PDF export within the 30s SLA",
+          "browser": "chromium",
+          "id": "delivers-the-pdf-export-within-the-30s-sla--chromium"
+        },
+        {
+          "testName": "delivers the PDF export within the 30s SLA",
+          "browser": "firefox",
+          "id": "delivers-the-pdf-export-within-the-30s-sla--firefox"
+        }
+      ]
+    },
+    {
+      "pattern": "Element exists in the DOM but is not visible — timing or rendering issue",
+      "detail": "Element exists in the DOM but is not visible — timing or rendering issue",
+      "category": "Locator",
+      "severity": "medium",
+      "tests": 4,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 78,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "stable_failure",
+        "flaky"
+      ],
+      "examples": [
+        {
+          "testName": "keeps the export toolbar pinned while scrolling",
+          "browser": "webkit",
+          "id": "keeps-the-export-toolbar-pinned-while-scrolling--webkit"
+        },
+        {
+          "testName": "shows the archived banner after archiving a project",
+          "browser": "chromium",
+          "id": "shows-the-archived-banner-after-archiving-a-project--chromium"
+        },
+        {
+          "testName": "shows the archived banner after archiving a project",
+          "browser": "firefox",
+          "id": "shows-the-archived-banner-after-archiving-a-project--firefox"
+        }
+      ]
+    },
+    {
+      "pattern": "The locator matched multiple elements — Playwright's strict mode requires a single match",
+      "detail": "The locator matched multiple elements — Playwright's strict mode requires a single match",
+      "category": "Locator",
+      "severity": "medium",
+      "tests": 3,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 99,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "stable_failure"
+      ],
+      "examples": [
+        {
+          "testName": "opens the editor for a single selected row",
+          "browser": "chromium",
+          "id": "opens-the-editor-for-a-single-selected-row--chromium"
+        },
+        {
+          "testName": "opens the editor for a single selected row",
+          "browser": "firefox",
+          "id": "opens-the-editor-for-a-single-selected-row--firefox"
+        },
+        {
+          "testName": "opens the editor for a single selected row",
+          "browser": "webkit",
+          "id": "opens-the-editor-for-a-single-selected-row--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "Authorization denied — the authenticated user lacks required permissions",
+      "detail": "Authorization denied — the authenticated user lacks required permissions",
+      "category": "Authentication",
+      "severity": "high",
+      "tests": 3,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 94,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "stable_failure"
+      ],
+      "examples": [
+        {
+          "testName": "blocks a non-admin from opening the admin console",
+          "browser": "chromium",
+          "id": "blocks-a-non-admin-from-opening-the-admin-console--chromium"
+        },
+        {
+          "testName": "blocks a non-admin from opening the admin console",
+          "browser": "firefox",
+          "id": "blocks-a-non-admin-from-opening-the-admin-console--firefox"
+        },
+        {
+          "testName": "blocks a non-admin from opening the admin console",
+          "browser": "webkit",
+          "id": "blocks-a-non-admin-from-opening-the-admin-console--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "The requested endpoint or page was not found",
+      "detail": "The requested endpoint or page was not found",
+      "category": "Network",
+      "severity": "medium",
+      "tests": 3,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 94,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "stable_failure"
+      ],
+      "examples": [
+        {
+          "testName": "shows a friendly page for a deleted project deep link",
+          "browser": "chromium",
+          "id": "shows-a-friendly-page-for-a-deleted-project-deep-link--chromium"
+        },
+        {
+          "testName": "shows a friendly page for a deleted project deep link",
+          "browser": "firefox",
+          "id": "shows-a-friendly-page-for-a-deleted-project-deep-link--firefox"
+        },
+        {
+          "testName": "shows a friendly page for a deleted project deep link",
+          "browser": "webkit",
+          "id": "shows-a-friendly-page-for-a-deleted-project-deep-link--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "Internal server error — the backend encountered an unexpected condition",
+      "detail": "Internal server error — the backend encountered an unexpected condition",
+      "category": "Network",
+      "severity": "high",
+      "tests": 3,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 94,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "stable_failure"
+      ],
+      "examples": [
+        {
+          "testName": "generates the monthly invoice for an enterprise plan",
+          "browser": "chromium",
+          "id": "generates-the-monthly-invoice-for-an-enterprise-plan--chromium"
+        },
+        {
+          "testName": "generates the monthly invoice for an enterprise plan",
+          "browser": "firefox",
+          "id": "generates-the-monthly-invoice-for-an-enterprise-plan--firefox"
+        },
+        {
+          "testName": "generates the monthly invoice for an enterprise plan",
+          "browser": "webkit",
+          "id": "generates-the-monthly-invoice-for-an-enterprise-plan--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "Expected title does not match actual page title",
+      "detail": "Expected title does not match actual page title",
+      "category": "Assertion",
+      "severity": "medium",
+      "tests": 3,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 92,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "newly_failed"
+      ],
+      "examples": [
+        {
+          "testName": "lands on the workspace after the SSO callback",
+          "browser": "chromium",
+          "id": "lands-on-the-workspace-after-the-sso-callback--chromium"
+        },
+        {
+          "testName": "lands on the workspace after the SSO callback",
+          "browser": "firefox",
+          "id": "lands-on-the-workspace-after-the-sso-callback--firefox"
+        },
+        {
+          "testName": "lands on the workspace after the SSO callback",
+          "browser": "webkit",
+          "id": "lands-on-the-workspace-after-the-sso-callback--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "The browser or page was unexpectedly closed during test execution",
+      "detail": "The browser or page was unexpectedly closed during test execution",
+      "category": "Environment",
+      "severity": "high",
+      "tests": 3,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 89,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "stable_failure"
+      ],
+      "examples": [
+        {
+          "testName": "renders a 50k-row report without crashing the tab",
+          "browser": "chromium",
+          "id": "renders-a-50k-row-report-without-crashing-the-tab--chromium"
+        },
+        {
+          "testName": "renders a 50k-row report without crashing the tab",
+          "browser": "firefox",
+          "id": "renders-a-50k-row-report-without-crashing-the-tab--firefox"
+        },
+        {
+          "testName": "renders a 50k-row report without crashing the tab",
+          "browser": "webkit",
+          "id": "renders-a-50k-row-report-without-crashing-the-tab--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "Expected value did not match actual value — test assertion failed",
+      "detail": "Expected value did not match actual value — test assertion failed",
+      "category": "Assertion",
+      "severity": "medium",
+      "tests": 3,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 87,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "newly_failed"
+      ],
+      "examples": [
+        {
+          "testName": "keeps cohort retention stable after a data backfill",
+          "browser": "chromium",
+          "id": "keeps-cohort-retention-stable-after-a-data-backfill--chromium"
+        },
+        {
+          "testName": "keeps cohort retention stable after a data backfill",
+          "browser": "firefox",
+          "id": "keeps-cohort-retention-stable-after-a-data-backfill--firefox"
+        },
+        {
+          "testName": "keeps cohort retention stable after a data backfill",
+          "browser": "webkit",
+          "id": "keeps-cohort-retention-stable-after-a-data-backfill--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "Element was present but not ready for interaction when clicked",
+      "detail": "Element was present but not ready for interaction when clicked",
+      "category": "Locator",
+      "severity": "high",
+      "tests": 3,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 82,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "flaky"
+      ],
+      "examples": [
+        {
+          "testName": "confirms a declined card after the customer re-enters CVC",
+          "browser": "chromium",
+          "id": "confirms-a-declined-card-after-the-customer-re-enters-cvc--chromium"
+        },
+        {
+          "testName": "confirms a declined card after the customer re-enters CVC",
+          "browser": "firefox",
+          "id": "confirms-a-declined-card-after-the-customer-re-enters-cvc--firefox"
+        },
+        {
+          "testName": "confirms a declined card after the customer re-enters CVC",
+          "browser": "webkit",
+          "id": "confirms-a-declined-card-after-the-customer-re-enters-cvc--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "The network connection was abruptly terminated by the server or network",
+      "detail": "The network connection was abruptly terminated by the server or network",
+      "category": "Network",
+      "severity": "medium",
+      "tests": 3,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 77,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "flaky"
+      ],
+      "examples": [
+        {
+          "testName": "keeps the realtime metrics stream connected",
+          "browser": "chromium",
+          "id": "keeps-the-realtime-metrics-stream-connected--chromium"
+        },
+        {
+          "testName": "keeps the realtime metrics stream connected",
+          "browser": "firefox",
+          "id": "keeps-the-realtime-metrics-stream-connected--firefox"
+        },
+        {
+          "testName": "keeps the realtime metrics stream connected",
+          "browser": "webkit",
+          "id": "keeps-the-realtime-metrics-stream-connected--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "Race condition or async timing issue — the test outcome depends on execution order",
+      "detail": "Race condition or async timing issue — the test outcome depends on execution order",
+      "category": "Stability",
+      "severity": "high",
+      "tests": 3,
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "confidence": 67,
+      "needsManualInvestigation": true,
+      "requiresHumanReview": true,
+      "classifications": [
+        "flaky"
+      ],
+      "examples": [
+        {
+          "testName": "updates the live metrics widget on each tick",
+          "browser": "chromium",
+          "id": "updates-the-live-metrics-widget-on-each-tick--chromium"
+        },
+        {
+          "testName": "updates the live metrics widget on each tick",
+          "browser": "firefox",
+          "id": "updates-the-live-metrics-widget-on-each-tick--firefox"
+        },
+        {
+          "testName": "updates the live metrics widget on each tick",
+          "browser": "webkit",
+          "id": "updates-the-live-metrics-widget-on-each-tick--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "The element was removed from the DOM and re-rendered between location and interaction",
+      "detail": "The element was removed from the DOM and re-rendered between location and interaction",
+      "category": "Locator",
+      "severity": "medium",
+      "tests": 2,
+      "browsers": [
+        "webkit"
+      ],
+      "confidence": 81,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "stable_failure",
+        "flaky"
+      ],
+      "examples": [
+        {
+          "testName": "expands a nested subtask row",
+          "browser": "webkit",
+          "id": "expands-a-nested-subtask-row--webkit"
+        },
+        {
+          "testName": "reorders a task via drag and drop",
+          "browser": "webkit",
+          "id": "reorders-a-task-via-drag-and-drop--webkit"
+        }
+      ]
+    },
+    {
+      "pattern": "Expected text does not match actual text on the page",
+      "detail": "Expected text does not match actual text on the page",
+      "category": "Assertion",
+      "severity": "medium",
+      "tests": 1,
+      "browsers": [
+        "firefox"
+      ],
+      "confidence": 85,
+      "needsManualInvestigation": false,
+      "requiresHumanReview": false,
+      "classifications": [
+        "newly_failed"
+      ],
+      "examples": [
+        {
+          "testName": "formats the revenue tile as localized currency",
+          "browser": "firefox",
+          "id": "formats-the-revenue-tile-as-localized-currency--firefox"
+        }
+      ]
+    }
+  ],
+  "highlights": [
+    {
+      "key": "scope",
+      "label": "Suite scope",
+      "value": "231 tests · 20 runs",
+      "detail": "144 passed in every run.",
+      "tone": "neutral"
+    },
+    {
+      "key": "latest",
+      "label": "Latest run (Run 20)",
+      "value": "74% pass rate",
+      "detail": "171 passed, 54 failed, 6 skipped.",
+      "tone": "warn"
+    },
+    {
+      "key": "flaky",
+      "label": "Flaky tests",
+      "value": "28 detected",
+      "detail": "Outcomes alternate between pass and fail across the window.",
+      "tone": "warn"
+    },
+    {
+      "key": "newly",
+      "label": "Newly failing",
+      "value": "16 tests",
+      "detail": "Passed earlier in the window and are failing now.",
+      "tone": "bad"
+    },
+    {
+      "key": "stablefail",
+      "label": "Consistently failing",
+      "value": "34 tests",
+      "detail": "Failed in every run — reproducible, not intermittent.",
+      "tone": "bad"
+    },
+    {
+      "key": "category",
+      "label": "Dominant failure category",
+      "value": "Network",
+      "detail": "426 of the classified failures (24.1%) — the largest single concentration.",
+      "tone": "warn"
+    },
+    {
+      "key": "retries",
+      "label": "Retry behaviour",
+      "value": "819 retries",
+      "detail": "3 test(s) recovered on retry; the rest failed again.",
+      "tone": "neutral"
+    },
+    {
+      "key": "browser",
+      "label": "Browser spread",
+      "value": "webkit worst at 24.4%",
+      "detail": "chromium is lowest at 18.5% — a 5.9 point spread.",
+      "tone": "neutral"
+    },
+    {
+      "key": "manual",
+      "label": "Awaiting human review",
+      "value": "18 failures",
+      "detail": "The engine declined to name a cause and routed these to a person.",
+      "tone": "warn"
+    }
+  ],
+  "browsers": [
+    {
+      "browser": "webkit",
+      "executions": 1540,
+      "failures": 375,
+      "failRate": 24.4,
+      "flaky": 10,
+      "retries": 333,
+      "latestTests": 77,
+      "latestFailures": 21,
+      "latestFailRate": 27.3
+    },
+    {
+      "browser": "firefox",
+      "executions": 1540,
+      "failures": 286,
+      "failRate": 18.6,
+      "flaky": 9,
+      "retries": 243,
+      "latestTests": 77,
+      "latestFailures": 17,
+      "latestFailRate": 22.1
+    },
+    {
+      "browser": "chromium",
+      "executions": 1540,
+      "failures": 285,
+      "failRate": 18.5,
+      "flaky": 9,
+      "retries": 243,
+      "latestTests": 77,
+      "latestFailures": 16,
+      "latestFailRate": 20.8
+    }
+  ],
+  "categories": [
+    {
+      "key": "network",
+      "label": "Network",
+      "count": 426,
+      "pct": 24.1
+    },
+    {
+      "key": "locator",
+      "label": "Element / selector",
+      "count": 398,
+      "pct": 22.5
+    },
+    {
+      "key": "backend",
+      "label": "Backend / API",
+      "count": 300,
+      "pct": 17
+    },
+    {
+      "key": "unknown",
+      "label": "Unclassified",
+      "count": 222,
+      "pct": 12.6
+    },
+    {
+      "key": "authentication",
+      "label": "Authentication",
+      "count": 186,
+      "pct": 10.5
+    },
+    {
+      "key": "timeout",
+      "label": "Timeout",
+      "count": 103,
+      "pct": 5.8
+    },
+    {
+      "key": "assertion",
+      "label": "Assertion",
+      "count": 67,
+      "pct": 3.8
+    },
+    {
+      "key": "environment",
+      "label": "Environment",
+      "count": 60,
+      "pct": 3.4
+    },
+    {
+      "key": "data",
+      "label": "Test data",
+      "count": 3,
+      "pct": 0.2
+    }
+  ],
+  "categoriesLatest": [
+    {
+      "key": "locator",
+      "label": "Element / selector",
+      "count": 22,
+      "pct": 21.8
+    },
+    {
+      "key": "network",
+      "label": "Network",
+      "count": 21,
+      "pct": 20.8
+    },
+    {
+      "key": "unknown",
+      "label": "Unclassified",
+      "count": 16,
+      "pct": 15.8
+    },
+    {
+      "key": "backend",
+      "label": "Backend / API",
+      "count": 15,
+      "pct": 14.9
+    },
+    {
+      "key": "authentication",
+      "label": "Authentication",
+      "count": 9,
+      "pct": 8.9
+    },
+    {
+      "key": "assertion",
+      "label": "Assertion",
+      "count": 7,
+      "pct": 6.9
+    },
+    {
+      "key": "timeout",
+      "label": "Timeout",
+      "count": 5,
+      "pct": 5
+    },
+    {
+      "key": "environment",
+      "label": "Environment",
+      "count": 3,
+      "pct": 3
+    },
+    {
+      "key": "data",
+      "label": "Test data",
+      "count": 3,
+      "pct": 3
+    }
+  ],
+  "retry": {
+    "totalRetries": 819,
+    "recoveredTests": 3,
+    "runsWithRetries": 20,
+    "totalRuns": 20,
+    "retryRate": 0.18
+  },
+  "rules": {
+    "total": 20,
+    "matched": 20,
+    "humanReview": 18,
+    "investigations": 78,
+    "uniqueFingerprints": 28,
+    "topCategory": "Network"
+  },
+  "recommendations": [
+    {
+      "level": "high",
+      "icon": "🟡",
+      "message": "Warning: Pass rate is below 80%. Review recent changes."
+    },
+    {
+      "level": "high",
+      "icon": "🐛",
+      "message": "34 stable failure(s) consistently failing. Prioritize these."
+    },
+    {
+      "level": "medium",
+      "icon": "⚠️",
+      "message": "28 flaky test(s) found. Review retry configurations and test isolation."
+    }
+  ],
+  "runSummary": [
+    "231 distinct tests tracked across 20 runs.",
+    "Latest run (Run 20): 231 tests — 171 passed, 54 failed (23.4%), 6 skipped.",
+    "144 tests passed consistently across all runs.",
+    "28 flaky tests detected — outcomes alternate between pass and fail (24 currently passing, 4 currently failing). 21 of 28 share the identical passed→failed→passed→passed→failed→passed→failed→passed→passed→failed→passed→passed→failed→passed→failed→passed→passed→failed→passed→passed history (the rest differ) — likely one shared incident, not 28 independently unreliable tests.",
+    "Of the 50 tests currently failing, 16 are newly broken (passed before) and 34 have been consistently failing across all runs.",
+    "Network-related failures were the most common issue (426 of 1765 errors).",
+    "Tests needed a total of 819 retry attempts across 20 runs — ~41 per run on average — some recovered on retry, others still failed after exhausting retries.",
+    "Failures were distributed across all 3 browsers.",
+    "Top root cause across all tracked failures: \"Could not confidently determine a specific root cause — this failure needs a manual look\" — affecting 9 tests (persists the selected theme across a reload, renders the header when the profile payload is partial, persists the selected theme across a reload, +6 more)."
+  ],
+  "topFailing": [
+    {
+      "testName": "opens the editor for a single selected row",
+      "browser": "chromium",
+      "failureCount": 20,
+      "totalRuns": 20,
+      "failureRate": 100,
+      "classification": "stable_failure",
+      "classificationLabel": "Consistently Failing",
+      "category": "Locator",
+      "likelyCause": "The locator matched multiple elements — Playwright's strict mode requires a single match",
+      "confidence": 99,
+      "requiresHumanReview": false
+    },
+    {
+      "testName": "streams the CSV export from the CDN edge",
+      "browser": "chromium",
+      "failureCount": 20,
+      "totalRuns": 20,
+      "failureRate": 100,
+      "classification": "stable_failure",
+      "classificationLabel": "Consistently Failing",
+      "category": "Network",
+      "likelyCause": "Network request failed at the protocol level — unreachable host, DNS failure, or TLS error",
+      "confidence": 98,
+      "requiresHumanReview": false
+    },
+    {
+      "testName": "blocks a non-admin from opening the admin console",
+      "browser": "chromium",
+      "failureCount": 20,
+      "totalRuns": 20,
+      "failureRate": 100,
+      "classification": "stable_failure",
+      "classificationLabel": "Consistently Failing",
+      "category": "Authentication",
+      "likelyCause": "Authorization denied — the authenticated user lacks required permissions",
+      "confidence": 94,
+      "requiresHumanReview": false
+    },
+    {
+      "testName": "shows a friendly page for a deleted project deep link",
+      "browser": "chromium",
+      "failureCount": 20,
+      "totalRuns": 20,
+      "failureRate": 100,
+      "classification": "stable_failure",
+      "classificationLabel": "Consistently Failing",
+      "category": "Network",
+      "likelyCause": "The requested endpoint or page was not found",
+      "confidence": 94,
+      "requiresHumanReview": false
+    },
+    {
+      "testName": "generates the monthly invoice for an enterprise plan",
+      "browser": "chromium",
+      "failureCount": 20,
+      "totalRuns": 20,
+      "failureRate": 100,
+      "classification": "stable_failure",
+      "classificationLabel": "Consistently Failing",
+      "category": "Network",
+      "likelyCause": "Internal server error — the backend encountered an unexpected condition",
+      "confidence": 94,
+      "requiresHumanReview": false
+    },
+    {
+      "testName": "renders a 50k-row report without crashing the tab",
+      "browser": "chromium",
+      "failureCount": 20,
+      "totalRuns": 20,
+      "failureRate": 100,
+      "classification": "stable_failure",
+      "classificationLabel": "Consistently Failing",
+      "category": "Environment",
+      "likelyCause": "The browser or page was unexpectedly closed during test execution",
+      "confidence": 89,
+      "requiresHumanReview": false
+    },
+    {
+      "testName": "loads the subscription summary card",
+      "browser": "chromium",
+      "failureCount": 20,
+      "totalRuns": 20,
+      "failureRate": 100,
+      "classification": "stable_failure",
+      "classificationLabel": "Consistently Failing",
+      "category": "Stability",
+      "likelyCause": "Test is consistently broken — not flaky, genuinely failing",
+      "confidence": 99,
+      "requiresHumanReview": true
+    },
+    {
+      "testName": "downloads the signed audit report over TLS",
+      "browser": "chromium",
+      "failureCount": 20,
+      "totalRuns": 20,
+      "failureRate": 100,
+      "classification": "stable_failure",
+      "classificationLabel": "Consistently Failing",
+      "category": "Network",
+      "likelyCause": "Network request failed at the protocol level — unreachable host, DNS failure, or TLS error",
+      "confidence": 98,
+      "requiresHumanReview": false
+    }
+  ],
+  "featured": [
+    {
+      "id": "flaky-checkout",
+      "title": "Checkout — declined card retry",
+      "description": "A payment confirmation test that fails, then passes when retried.",
+      "classification": "flaky",
+      "category": "Locator",
+      "runCount": 20,
+      "failedCount": 7,
+      "transitions": 14,
+      "history": [
+        "passed",
+        "failed",
+        "passed",
+        "passed",
+        "failed",
+        "passed",
+        "failed",
+        "passed",
+        "passed",
+        "failed",
+        "passed",
+        "passed",
+        "failed",
+        "passed",
+        "failed",
+        "passed",
+        "passed",
+        "failed",
+        "passed",
+        "passed"
+      ],
+      "failureRate": 35
+    },
+    {
+      "id": "product-invoice-500",
+      "title": "Billing — monthly invoice generation",
+      "description": "An invoice test that fails on every run with a server error.",
+      "classification": "stable_failure",
+      "category": "Network",
+      "runCount": 20,
+      "failedCount": 20,
+      "transitions": 0,
+      "history": [
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed",
+        "failed"
+      ],
+      "failureRate": 100
+    },
+    {
+      "id": "insufficient-evidence",
+      "title": "Settings — theme preference",
+      "description": "A test that failed recently, with very little evidence captured.",
+      "classification": "newly_failed",
+      "category": "Unknown",
+      "runCount": 2,
+      "failedCount": 1,
+      "transitions": 1,
+      "history": [
+        "passed",
+        "failed"
+      ],
+      "failureRate": 50
+    }
+  ]
+}

@@ -1,0 +1,407 @@
+{
+  "id": "keeps-the-export-toolbar-pinned-while-scrolling--webkit",
+  "investigation": {
+    "testName": "keeps the export toolbar pinned while scrolling",
+    "file": "tests/reports.spec.js",
+    "browser": "webkit",
+    "classification": "stable_failure",
+    "history": [
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-008",
+    "matchedRule": "element-not-visible",
+    "category": "Locator",
+    "likelyCause": "Element exists in the DOM but is not visible — timing or rendering issue",
+    "explanation": "Playwright located the element in the DOM but it was hidden (display:none, visibility:hidden, zero dimensions, or outside viewport). This is typically a timing issue where the element hasn't finished rendering.",
+    "confidence": 82,
+    "severity": "medium",
+    "fingerprint": "FP-1D87F0",
+    "fingerprintGroupCount": 0,
+    "classificationReasons": [
+      "All 20 runs failed",
+      "Failure reproduced consistently — not flaky"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 80,
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A7",
+          "delta": -3,
+          "reason": "No other test shares this failure fingerprint (isolated)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "adjustmentTotal": 2,
+      "finalConfidence": 82,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at tests/reports.spec.js:341:44",
+      "screenshots": [
+        "/demo-assets/screenshots/export-crash.png"
+      ],
+      "trace": "/demo-assets/screenshots/export-crash.trace.zip",
+      "parsedError": {
+        "header": "expect(locator).toBeVisible() failed: element is not visible",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - locator getByTestId('export-toolbar')\n  - WebKit's position:sticky repaint left the toolbar behind the scroll container"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "keeps the export toolbar pinned while scrolling",
+      "file": "tests/reports.spec.js",
+      "browser": "webkit",
+      "classification": "stable_failure",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 20 of 20 runs, consistently failing",
+        "raw": {
+          "history": [
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "Element exists in the DOM but is not visible — timing or rendering issue. Playwright located the element in the DOM but it was hidden (display:none, visibility:hidden, zero dimensions, or outside viewport). This is typically a timing issue where the element hasn't finished rendering.",
+        "raw": {
+          "matchedRuleCode": "RC-008",
+          "likelyCause": "Element exists in the DOM but is not visible — timing or rendering issue",
+          "explanation": "Playwright located the element in the DOM but it was hidden (display:none, visibility:hidden, zero dimensions, or outside viewport). This is typically a timing issue where the element hasn't finished rendering."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Locator",
+        "raw": {
+          "category": "Locator"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "expect(locator).toBeVisible() failed: element is not visible — Call log:   - locator getByTestId('export-toolbar')\n  - WebKit's position:sticky repaint left the toolbar behind the scroll container",
+        "raw": {
+          "header": "expect(locator).toBeVisible() failed: element is not visible",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - locator getByTestId('export-toolbar')\n  - WebKit's position:sticky repaint left the toolbar behind the scroll container"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at tests/reports.spec.js:341:44",
+        "raw": {
+          "stackTrace": "Error: \n    at tests/reports.spec.js:341:44",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "No other test show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-1D87F0",
+          "fingerprintGroupCount": 0
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": false,
+        "value": "NOT AVAILABLE — only one browser was analysed",
+        "raw": {
+          "browser": "webkit",
+          "siblingBrowsers": []
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 80%. History is fully consistent — every run had the same outcome · Every run failed — no recovery observed · No other test shares this failure fingerprint (isolated) · 20+ runs analyzed with a consistent pattern (strong statistical basis)",
+        "raw": {
+          "baseConfidence": 80,
+          "adjustments": [
+            {
+              "code": "A1",
+              "delta": 5,
+              "reason": "History is fully consistent — every run had the same outcome"
+            },
+            {
+              "code": "A4",
+              "delta": -5,
+              "reason": "Every run failed — no recovery observed"
+            },
+            {
+              "code": "A7",
+              "delta": -3,
+              "reason": "No other test shares this failure fingerprint (isolated)"
+            },
+            {
+              "code": "A9",
+              "delta": 5,
+              "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+            }
+          ],
+          "adjustmentTotal": 2,
+          "finalConfidence": 82,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "All 20 runs failed · Failure reproduced consistently — not flaky",
+        "raw": {
+          "classificationReasons": [
+            "All 20 runs failed",
+            "Failure reproduced consistently — not flaky"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/export-crash.png"
+          ],
+          "trace": "/demo-assets/screenshots/export-crash.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6",
+      "E8"
+    ],
+    "deterministic": {
+      "confidence": 82,
+      "band": "HIGH",
+      "ruleCode": "RC-008",
+      "ruleId": "element-not-visible",
+      "category": "Locator",
+      "classification": "stable_failure",
+      "fingerprint": "FP-1D87F0",
+      "fingerprintGroupCount": 0,
+      "severity": "medium",
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A7",
+          "delta": -3,
+          "reason": "No other test shares this failure fingerprint (isolated)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 80,
+        "adjustments": [
+          {
+            "code": "A1",
+            "delta": 5,
+            "reason": "History is fully consistent — every run had the same outcome"
+          },
+          {
+            "code": "A4",
+            "delta": -5,
+            "reason": "Every run failed — no recovery observed"
+          },
+          {
+            "code": "A7",
+            "delta": -3,
+            "reason": "No other test shares this failure fingerprint (isolated)"
+          },
+          {
+            "code": "A9",
+            "delta": 5,
+            "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+          }
+        ],
+        "adjustmentTotal": 2,
+        "finalConfidence": 82,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

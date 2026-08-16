@@ -1,0 +1,385 @@
+{
+  "id": "completes-checkout-with-a-saved-card--chromium",
+  "investigation": {
+    "testName": "completes checkout with a saved card",
+    "file": "tests/billing.spec.js",
+    "browser": "chromium",
+    "classification": "stable_pass",
+    "history": [
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed"
+    ],
+    "retriesPerRun": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "runCount": 20,
+    "passedOnRetry": true,
+    "retriesToPass": 1,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-009",
+    "matchedRule": "click-timeout",
+    "category": "Locator",
+    "likelyCause": "Element was present but not ready for interaction when clicked",
+    "explanation": "Playwright auto-waits for elements to be stable, visible, enabled, and not covered. The click timed out because one of these conditions was not met within the timeout.",
+    "confidence": 99,
+    "severity": "high",
+    "fingerprint": "FP-CE636E",
+    "fingerprintGroupCount": 2,
+    "classificationReasons": [
+      "All 20 runs passed"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 85,
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "adjustmentTotal": 14,
+      "finalConfidence": 99,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at Object.pay (tests/billing.spec.js:52:29)\n    at tests/billing.spec.js:47:5",
+      "screenshots": [
+        "/demo-assets/screenshots/checkout-decline.png"
+      ],
+      "trace": "/demo-assets/screenshots/checkout-decline.trace.zip",
+      "parsedError": {
+        "header": "locator.click: Timeout 15000ms exceeded.",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - waiting for getByTestId('pay-now')\n  - the Stripe payment iframe had not finished mounting on the first attempt"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "completes checkout with a saved card",
+      "file": "tests/billing.spec.js",
+      "browser": "chromium",
+      "classification": "stable_pass",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Passed in all 20 runs",
+        "raw": {
+          "history": [
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "Element was present but not ready for interaction when clicked. Playwright auto-waits for elements to be stable, visible, enabled, and not covered. The click timed out because one of these conditions was not met within the timeout.",
+        "raw": {
+          "matchedRuleCode": "RC-009",
+          "likelyCause": "Element was present but not ready for interaction when clicked",
+          "explanation": "Playwright auto-waits for elements to be stable, visible, enabled, and not covered. The click timed out because one of these conditions was not met within the timeout."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Locator",
+        "raw": {
+          "category": "Locator"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "locator.click: Timeout 15000ms exceeded. — Call log:   - waiting for getByTestId('pay-now')\n  - the Stripe payment iframe had not finished mounting on the first attempt",
+        "raw": {
+          "header": "locator.click: Timeout 15000ms exceeded.",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - waiting for getByTestId('pay-now')\n  - the Stripe payment iframe had not finished mounting on the first attempt"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at Object.pay (tests/billing.spec.js:52:29)\n    at tests/billing.spec.js:47:5",
+        "raw": {
+          "stackTrace": "Error: \n    at Object.pay (tests/billing.spec.js:52:29)\n    at tests/billing.spec.js:47:5",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": true,
+        "value": "Recovered on retry in 10 of 0 failed runs",
+        "raw": {
+          "retriesPerRun": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "passedOnRetry": true,
+          "retriesToPass": 1
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "2 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-CE636E",
+          "fingerprintGroupCount": 2
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": false,
+        "value": "NOT AVAILABLE — only one browser was analysed",
+        "raw": {
+          "browser": "chromium",
+          "siblingBrowsers": []
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 85%. History is fully consistent — every run had the same outcome · 2 other test(s) share this failure fingerprint (some corroboration) · 20+ runs analyzed with a consistent pattern (strong statistical basis)",
+        "raw": {
+          "baseConfidence": 85,
+          "adjustments": [
+            {
+              "code": "A1",
+              "delta": 5,
+              "reason": "History is fully consistent — every run had the same outcome"
+            },
+            {
+              "code": "A6",
+              "delta": 4,
+              "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+            },
+            {
+              "code": "A9",
+              "delta": 5,
+              "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+            }
+          ],
+          "adjustmentTotal": 14,
+          "finalConfidence": 99,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "All 20 runs passed",
+        "raw": {
+          "classificationReasons": [
+            "All 20 runs passed"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/checkout-decline.png"
+          ],
+          "trace": "/demo-assets/screenshots/checkout-decline.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E8"
+    ],
+    "deterministic": {
+      "confidence": 99,
+      "band": "HIGH",
+      "ruleCode": "RC-009",
+      "ruleId": "click-timeout",
+      "category": "Locator",
+      "classification": "stable_pass",
+      "fingerprint": "FP-CE636E",
+      "fingerprintGroupCount": 2,
+      "severity": "high",
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 85,
+        "adjustments": [
+          {
+            "code": "A1",
+            "delta": 5,
+            "reason": "History is fully consistent — every run had the same outcome"
+          },
+          {
+            "code": "A6",
+            "delta": 4,
+            "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+          },
+          {
+            "code": "A9",
+            "delta": 5,
+            "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+          }
+        ],
+        "adjustmentTotal": 14,
+        "finalConfidence": 99,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

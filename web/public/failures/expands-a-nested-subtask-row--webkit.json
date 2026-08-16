@@ -1,0 +1,407 @@
+{
+  "id": "expands-a-nested-subtask-row--webkit",
+  "investigation": {
+    "testName": "expands a nested subtask row",
+    "file": "tests/tasks.spec.js",
+    "browser": "webkit",
+    "classification": "stable_failure",
+    "history": [
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-010",
+    "matchedRule": "element-detached",
+    "category": "Locator",
+    "likelyCause": "The element was removed from the DOM and re-rendered between location and interaction",
+    "explanation": "The element was found in the DOM but a framework re-render replaced it before Playwright could complete the action. The element reference became stale.",
+    "confidence": 87,
+    "severity": "medium",
+    "fingerprint": "FP-1062D9",
+    "fingerprintGroupCount": 0,
+    "classificationReasons": [
+      "All 20 runs failed",
+      "Failure reproduced consistently — not flaky"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 85,
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A7",
+          "delta": -3,
+          "reason": "No other test shares this failure fingerprint (isolated)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "adjustmentTotal": 2,
+      "finalConfidence": 87,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at tests/tasks.spec.js:126:26",
+      "screenshots": [
+        "/demo-assets/screenshots/drag-detached.png"
+      ],
+      "trace": "/demo-assets/screenshots/drag-detached.trace.zip",
+      "parsedError": {
+        "header": "elementHandle.dispatchEvent: Element is detached from the DOM",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - WebKit re-rendered the virtualized task list mid-expand, detaching the subtask row"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "expands a nested subtask row",
+      "file": "tests/tasks.spec.js",
+      "browser": "webkit",
+      "classification": "stable_failure",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 20 of 20 runs, consistently failing",
+        "raw": {
+          "history": [
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "The element was removed from the DOM and re-rendered between location and interaction. The element was found in the DOM but a framework re-render replaced it before Playwright could complete the action. The element reference became stale.",
+        "raw": {
+          "matchedRuleCode": "RC-010",
+          "likelyCause": "The element was removed from the DOM and re-rendered between location and interaction",
+          "explanation": "The element was found in the DOM but a framework re-render replaced it before Playwright could complete the action. The element reference became stale."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Locator",
+        "raw": {
+          "category": "Locator"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "elementHandle.dispatchEvent: Element is detached from the DOM — Call log:   - WebKit re-rendered the virtualized task list mid-expand, detaching the subtask row",
+        "raw": {
+          "header": "elementHandle.dispatchEvent: Element is detached from the DOM",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - WebKit re-rendered the virtualized task list mid-expand, detaching the subtask row"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at tests/tasks.spec.js:126:26",
+        "raw": {
+          "stackTrace": "Error: \n    at tests/tasks.spec.js:126:26",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "No other test show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-1062D9",
+          "fingerprintGroupCount": 0
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": false,
+        "value": "NOT AVAILABLE — only one browser was analysed",
+        "raw": {
+          "browser": "webkit",
+          "siblingBrowsers": []
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 85%. History is fully consistent — every run had the same outcome · Every run failed — no recovery observed · No other test shares this failure fingerprint (isolated) · 20+ runs analyzed with a consistent pattern (strong statistical basis)",
+        "raw": {
+          "baseConfidence": 85,
+          "adjustments": [
+            {
+              "code": "A1",
+              "delta": 5,
+              "reason": "History is fully consistent — every run had the same outcome"
+            },
+            {
+              "code": "A4",
+              "delta": -5,
+              "reason": "Every run failed — no recovery observed"
+            },
+            {
+              "code": "A7",
+              "delta": -3,
+              "reason": "No other test shares this failure fingerprint (isolated)"
+            },
+            {
+              "code": "A9",
+              "delta": 5,
+              "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+            }
+          ],
+          "adjustmentTotal": 2,
+          "finalConfidence": 87,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "All 20 runs failed · Failure reproduced consistently — not flaky",
+        "raw": {
+          "classificationReasons": [
+            "All 20 runs failed",
+            "Failure reproduced consistently — not flaky"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/drag-detached.png"
+          ],
+          "trace": "/demo-assets/screenshots/drag-detached.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6",
+      "E8"
+    ],
+    "deterministic": {
+      "confidence": 87,
+      "band": "HIGH",
+      "ruleCode": "RC-010",
+      "ruleId": "element-detached",
+      "category": "Locator",
+      "classification": "stable_failure",
+      "fingerprint": "FP-1062D9",
+      "fingerprintGroupCount": 0,
+      "severity": "medium",
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A7",
+          "delta": -3,
+          "reason": "No other test shares this failure fingerprint (isolated)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 85,
+        "adjustments": [
+          {
+            "code": "A1",
+            "delta": 5,
+            "reason": "History is fully consistent — every run had the same outcome"
+          },
+          {
+            "code": "A4",
+            "delta": -5,
+            "reason": "Every run failed — no recovery observed"
+          },
+          {
+            "code": "A7",
+            "delta": -3,
+            "reason": "No other test shares this failure fingerprint (isolated)"
+          },
+          {
+            "code": "A9",
+            "delta": 5,
+            "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+          }
+        ],
+        "adjustmentTotal": 2,
+        "finalConfidence": 87,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

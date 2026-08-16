@@ -1,0 +1,370 @@
+{
+  "id": "persists-the-selected-theme-across-a-reload--chromium",
+  "investigation": {
+    "testName": "persists the selected theme across a reload",
+    "file": "tests/settings.spec.js",
+    "browser": "chromium",
+    "classification": "newly_failed",
+    "history": [
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-007",
+    "matchedRule": "generic-failure",
+    "category": "Unknown",
+    "likelyCause": "Could not confidently determine a specific root cause — this failure needs a manual look",
+    "explanation": "This test failed with an error that doesn't match any known Playwright pattern. Manual investigation with traces and screenshots is the best next step.",
+    "confidence": 27,
+    "severity": "medium",
+    "fingerprint": "FP-353356",
+    "fingerprintGroupCount": 2,
+    "classificationReasons": [
+      "Failed in latest run (Run 20)",
+      "Passed in 19 previous run(s)"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 20,
+      "adjustments": [
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "adjustmentTotal": 7,
+      "finalConfidence": 27,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at tests/settings.spec.js:64:22",
+      "screenshots": [
+        "/demo-assets/screenshots/toast-race.png"
+      ],
+      "trace": "/demo-assets/screenshots/toast-race.trace.zip",
+      "parsedError": {
+        "header": "prefers-color-scheme resolved to 'light' after the user applied 'dark'; the --mode custom property was never committed to :root",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": null
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "persists the selected theme across a reload",
+      "file": "tests/settings.spec.js",
+      "browser": "chromium",
+      "classification": "newly_failed",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 1 of 20 runs, with 1 pass/fail transitions, passing intermittently",
+        "raw": {
+          "history": [
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "Could not confidently determine a specific root cause — this failure needs a manual look. This test failed with an error that doesn't match any known Playwright pattern. Manual investigation with traces and screenshots is the best next step.",
+        "raw": {
+          "matchedRuleCode": "RC-007",
+          "likelyCause": "Could not confidently determine a specific root cause — this failure needs a manual look",
+          "explanation": "This test failed with an error that doesn't match any known Playwright pattern. Manual investigation with traces and screenshots is the best next step."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": false,
+        "value": "NOT AVAILABLE — failure category is unknown",
+        "raw": {
+          "category": "unknown"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "prefers-color-scheme resolved to 'light' after the user applied 'dark'; the --mode custom property was never committed to :root",
+        "raw": {
+          "header": "prefers-color-scheme resolved to 'light' after the user applied 'dark'; the --mode custom property was never committed to :root",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": null
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at tests/settings.spec.js:64:22",
+        "raw": {
+          "stackTrace": "Error: \n    at tests/settings.spec.js:64:22",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "2 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-353356",
+          "fingerprintGroupCount": 2
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": true,
+        "value": "chromium — also analysed on firefox, webkit",
+        "raw": {
+          "browser": "chromium",
+          "siblingBrowsers": [
+            "firefox",
+            "webkit"
+          ]
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 20%. Mixed results — recovered on retry in at least one run · 2 other test(s) share this failure fingerprint (some corroboration)",
+        "raw": {
+          "baseConfidence": 20,
+          "adjustments": [
+            {
+              "code": "A3",
+              "delta": 3,
+              "reason": "Mixed results — recovered on retry in at least one run"
+            },
+            {
+              "code": "A6",
+              "delta": 4,
+              "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+            }
+          ],
+          "adjustmentTotal": 7,
+          "finalConfidence": 27,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "Failed in latest run (Run 20) · Passed in 19 previous run(s)",
+        "raw": {
+          "classificationReasons": [
+            "Failed in latest run (Run 20)",
+            "Passed in 19 previous run(s)"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/toast-race.png"
+          ],
+          "trace": "/demo-assets/screenshots/toast-race.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E4",
+      "E5",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E3",
+      "E6"
+    ],
+    "deterministic": {
+      "confidence": 27,
+      "band": "LOW",
+      "ruleCode": "RC-007",
+      "ruleId": "generic-failure",
+      "category": "Unknown",
+      "classification": "newly_failed",
+      "fingerprint": "FP-353356",
+      "fingerprintGroupCount": 2,
+      "severity": "medium",
+      "adjustments": [
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 20,
+        "adjustments": [
+          {
+            "code": "A3",
+            "delta": 3,
+            "reason": "Mixed results — recovered on retry in at least one run"
+          },
+          {
+            "code": "A6",
+            "delta": 4,
+            "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+          }
+        ],
+        "adjustmentTotal": 7,
+        "finalConfidence": 27,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

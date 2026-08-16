@@ -32,6 +32,25 @@ export function humanizeEvidenceLabel(id) {
 }
 
 /**
+ * Turn one entry of verdict.evidenceGaps into something a QA engineer can read.
+ *
+ * The Guard strips internal identifiers from every prose field, but
+ * evidenceGaps is a free-form list the model fills in itself, so an entry can
+ * arrive as a bare "E8", as "Missing evidence: E8", or as a sentence with an
+ * ID embedded in it. Any evidence ID found is swapped for its human label;
+ * an entry that is nothing but an ID becomes just the label.
+ */
+export function humanizeEvidenceGap(gap) {
+  const text = String(gap || "").replace(/^Missing evidence:\s*/i, "").trim();
+  if (!text) return "";
+
+  const bare = /^E(?:1[01]|[1-9])$/.exec(text);
+  if (bare) return humanizeEvidenceLabel(text);
+
+  return text.replace(/\bE(1[01]|[1-9])\b/g, (match) => humanizeEvidenceLabel(match));
+}
+
+/**
  * Human-safe value for an observed evidence item. Percentages and adjustment
  * codes are stripped from the primary UI.
  */

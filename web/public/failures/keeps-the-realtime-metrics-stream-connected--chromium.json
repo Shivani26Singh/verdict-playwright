@@ -1,0 +1,389 @@
+{
+  "id": "keeps-the-realtime-metrics-stream-connected--chromium",
+  "investigation": {
+    "testName": "keeps the realtime metrics stream connected",
+    "file": "tests/analytics.spec.js",
+    "browser": "chromium",
+    "classification": "flaky",
+    "history": [
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "passed"
+    ],
+    "retriesPerRun": [
+      0,
+      null,
+      0,
+      1,
+      null,
+      1,
+      null,
+      1,
+      0,
+      null,
+      0,
+      1,
+      null,
+      1,
+      null,
+      1,
+      0,
+      null,
+      0,
+      1
+    ],
+    "runCount": 20,
+    "passedOnRetry": true,
+    "retriesToPass": 1,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-019",
+    "matchedRule": "econnreset",
+    "category": "Network",
+    "likelyCause": "The network connection was abruptly terminated by the server or network",
+    "explanation": "The TCP connection was forcibly closed by the remote host. This is usually a transient network issue or the server terminating the connection unexpectedly.",
+    "confidence": 77,
+    "severity": "medium",
+    "fingerprint": "FP-DD7483",
+    "fingerprintGroupCount": 2,
+    "classificationReasons": [
+      "14 transitions between pass and fail across 20 runs",
+      "Outcome alternates across runs — no stable pattern detected"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 80,
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "14 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "adjustmentTotal": -3,
+      "finalConfidence": 77,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at TLSSocket.onConnectEnd (node:_tls_wrap:1704:8)\n    at tests/analytics.spec.js:145:22",
+      "screenshots": [
+        "/demo-assets/screenshots/stream-reset.png"
+      ],
+      "trace": "/demo-assets/screenshots/stream-reset.trace.zip",
+      "parsedError": {
+        "header": "request to https://stream.meridian.io/v2/metrics failed, reason: read ECONNRESET",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - the edge terminated the keep-alive connection after 60s idle"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "keeps the realtime metrics stream connected",
+      "file": "tests/analytics.spec.js",
+      "browser": "chromium",
+      "classification": "flaky",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 7 of 20 runs, with 14 pass/fail transitions, passing intermittently",
+        "raw": {
+          "history": [
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "passed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "The network connection was abruptly terminated by the server or network. The TCP connection was forcibly closed by the remote host. This is usually a transient network issue or the server terminating the connection unexpectedly.",
+        "raw": {
+          "matchedRuleCode": "RC-019",
+          "likelyCause": "The network connection was abruptly terminated by the server or network",
+          "explanation": "The TCP connection was forcibly closed by the remote host. This is usually a transient network issue or the server terminating the connection unexpectedly."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Network",
+        "raw": {
+          "category": "Network"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "request to https://stream.meridian.io/v2/metrics failed, reason: read ECONNRESET — Call log:   - the edge terminated the keep-alive connection after 60s idle",
+        "raw": {
+          "header": "request to https://stream.meridian.io/v2/metrics failed, reason: read ECONNRESET",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - the edge terminated the keep-alive connection after 60s idle"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at TLSSocket.onConnectEnd (node:_tls_wrap:1704:8)\n    at tests/analytics.spec.js:145:22",
+        "raw": {
+          "stackTrace": "Error: \n    at TLSSocket.onConnectEnd (node:_tls_wrap:1704:8)\n    at tests/analytics.spec.js:145:22",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": true,
+        "value": "Recovered on retry in 7 of 7 failed runs",
+        "raw": {
+          "retriesPerRun": [
+            0,
+            null,
+            0,
+            1,
+            null,
+            1,
+            null,
+            1,
+            0,
+            null,
+            0,
+            1,
+            null,
+            1,
+            null,
+            1,
+            0,
+            null,
+            0,
+            1
+          ],
+          "passedOnRetry": true,
+          "retriesToPass": 1
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "2 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-DD7483",
+          "fingerprintGroupCount": 2
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": true,
+        "value": "chromium — also analysed on firefox, webkit",
+        "raw": {
+          "browser": "chromium",
+          "siblingBrowsers": [
+            "firefox",
+            "webkit"
+          ]
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 80%. 14 pass/fail transitions in history (high noise) · Mixed results — recovered on retry in at least one run · 2 other test(s) share this failure fingerprint (some corroboration)",
+        "raw": {
+          "baseConfidence": 80,
+          "adjustments": [
+            {
+              "code": "A2",
+              "delta": -10,
+              "reason": "14 pass/fail transitions in history (high noise)"
+            },
+            {
+              "code": "A3",
+              "delta": 3,
+              "reason": "Mixed results — recovered on retry in at least one run"
+            },
+            {
+              "code": "A6",
+              "delta": 4,
+              "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+            }
+          ],
+          "adjustmentTotal": -3,
+          "finalConfidence": 77,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "14 transitions between pass and fail across 20 runs · Outcome alternates across runs — no stable pattern detected",
+        "raw": {
+          "classificationReasons": [
+            "14 transitions between pass and fail across 20 runs",
+            "Outcome alternates across runs — no stable pattern detected"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/stream-reset.png"
+          ],
+          "trace": "/demo-assets/screenshots/stream-reset.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [],
+    "deterministic": {
+      "confidence": 77,
+      "band": "MEDIUM",
+      "ruleCode": "RC-019",
+      "ruleId": "econnreset",
+      "category": "Network",
+      "classification": "flaky",
+      "fingerprint": "FP-DD7483",
+      "fingerprintGroupCount": 2,
+      "severity": "medium",
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "14 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 80,
+        "adjustments": [
+          {
+            "code": "A2",
+            "delta": -10,
+            "reason": "14 pass/fail transitions in history (high noise)"
+          },
+          {
+            "code": "A3",
+            "delta": 3,
+            "reason": "Mixed results — recovered on retry in at least one run"
+          },
+          {
+            "code": "A6",
+            "delta": 4,
+            "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+          }
+        ],
+        "adjustmentTotal": -3,
+        "finalConfidence": 77,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

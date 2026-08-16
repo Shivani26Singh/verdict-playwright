@@ -11,6 +11,32 @@
   --assessment-border: #ddd6fe;
   --ink: #1e293b;
   --muted: #64748b;
+
+  /*
+   * Visualization palette — health states, not arbitrary series.
+   *
+   * Validated against the white chart surface with the data-viz validator:
+   * the four chromatic slots clear the lightness band, chroma floor, 3:1
+   * contrast, the normal-vision floor, AND all-pairs CVD separation
+   * (worst pair fail↔pass ΔE 8.3 deutan).
+   *
+   * The green is deliberately a deep green-teal rather than a pure green:
+   * pure green against this red measures ΔE 1.7 under deuteranopia, i.e.
+   * indistinguishable — and pass/fail is the most important distinction in
+   * the product. --viz-skip is intentionally achromatic: "skipped" is the
+   * absence of a signal, so it must not wear a hue that implies one.
+   */
+  --viz-pass: #12866b;
+  --viz-fixed: #2a78d6;
+  --viz-flaky: #b87a00;
+  --viz-fail: #c23434;
+  --viz-fail-soft: #d9736b;
+  --viz-skip: #8a8a84;
+
+  --viz-surface: #ffffff;
+  --viz-grid: #e2e8f0;
+  --viz-axis: #94a3b8;
+  --viz-ink-muted: #64748b;
 }
 
 body {
@@ -21,5 +47,49 @@ body {
 .highlight-evidence {
   outline: 3px solid #f59e0b;
   background: #fffbeb;
-  transition: outline-color 0.3s ease, background 0.3s ease;
+  transition:
+    outline-color 0.3s ease,
+    background 0.3s ease;
+}
+
+/*
+ * A quiet scrollbar for panels that scroll inside a card, so the affordance
+ * is visible without drawing the eye away from the data.
+ */
+.subtle-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.subtle-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.subtle-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.subtle-scroll::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+}
+
+.subtle-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/*
+ * Secondary encoding for the pass/fail run strip. Colour alone cannot carry
+ * this distinction for a deuteranope, so failed cells also get a diagonal
+ * texture and every strip states its counts in text alongside.
+ */
+.run-cell-failed {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.62) 0,
+    rgba(255, 255, 255, 0.62) 2px,
+    transparent 2px,
+    transparent 5px
+  );
 }

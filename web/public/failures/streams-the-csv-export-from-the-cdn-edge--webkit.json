@@ -1,0 +1,410 @@
+{
+  "id": "streams-the-csv-export-from-the-cdn-edge--webkit",
+  "investigation": {
+    "testName": "streams the CSV export from the CDN edge",
+    "file": "tests/reports.spec.js",
+    "browser": "webkit",
+    "classification": "stable_failure",
+    "history": [
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-014",
+    "matchedRule": "net-err",
+    "category": "Network",
+    "likelyCause": "Network request failed at the protocol level — unreachable host, DNS failure, or TLS error",
+    "explanation": "net::ERR_ errors indicate the browser could not establish or complete a network connection. This is typically an infrastructure issue rather than an application bug.",
+    "confidence": 98,
+    "severity": "high",
+    "fingerprint": "FP-9B7258",
+    "fingerprintGroupCount": 5,
+    "classificationReasons": [
+      "All 20 runs failed",
+      "Failure reproduced consistently — not flaky"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 85,
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A5",
+          "delta": 8,
+          "reason": "5 other tests share this exact failure fingerprint (corroborated)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "adjustmentTotal": 13,
+      "finalConfidence": 98,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at tests/reports.spec.js:164:16",
+      "screenshots": [
+        "/demo-assets/screenshots/export-crash.png"
+      ],
+      "trace": "/demo-assets/screenshots/export-crash.trace.zip",
+      "parsedError": {
+        "header": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://cdn.meridian.io/exports/stream",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - navigating to the signed CDN URL returned by POST /api/v2/reports/export"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "streams the CSV export from the CDN edge",
+      "file": "tests/reports.spec.js",
+      "browser": "webkit",
+      "classification": "stable_failure",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 20 of 20 runs, consistently failing",
+        "raw": {
+          "history": [
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "Network request failed at the protocol level — unreachable host, DNS failure, or TLS error. net::ERR_ errors indicate the browser could not establish or complete a network connection. This is typically an infrastructure issue rather than an application bug.",
+        "raw": {
+          "matchedRuleCode": "RC-014",
+          "likelyCause": "Network request failed at the protocol level — unreachable host, DNS failure, or TLS error",
+          "explanation": "net::ERR_ errors indicate the browser could not establish or complete a network connection. This is typically an infrastructure issue rather than an application bug."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Network",
+        "raw": {
+          "category": "Network"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://cdn.meridian.io/exports/stream — Call log:   - navigating to the signed CDN URL returned by POST /api/v2/reports/export",
+        "raw": {
+          "header": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://cdn.meridian.io/exports/stream",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - navigating to the signed CDN URL returned by POST /api/v2/reports/export"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at tests/reports.spec.js:164:16",
+        "raw": {
+          "stackTrace": "Error: \n    at tests/reports.spec.js:164:16",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "5 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-9B7258",
+          "fingerprintGroupCount": 5
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": true,
+        "value": "webkit — also analysed on chromium, firefox",
+        "raw": {
+          "browser": "webkit",
+          "siblingBrowsers": [
+            "chromium",
+            "firefox"
+          ]
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 85%. History is fully consistent — every run had the same outcome · Every run failed — no recovery observed · 5 other tests share this exact failure fingerprint (corroborated) · 20+ runs analyzed with a consistent pattern (strong statistical basis)",
+        "raw": {
+          "baseConfidence": 85,
+          "adjustments": [
+            {
+              "code": "A1",
+              "delta": 5,
+              "reason": "History is fully consistent — every run had the same outcome"
+            },
+            {
+              "code": "A4",
+              "delta": -5,
+              "reason": "Every run failed — no recovery observed"
+            },
+            {
+              "code": "A5",
+              "delta": 8,
+              "reason": "5 other tests share this exact failure fingerprint (corroborated)"
+            },
+            {
+              "code": "A9",
+              "delta": 5,
+              "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+            }
+          ],
+          "adjustmentTotal": 13,
+          "finalConfidence": 98,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "All 20 runs failed · Failure reproduced consistently — not flaky",
+        "raw": {
+          "classificationReasons": [
+            "All 20 runs failed",
+            "Failure reproduced consistently — not flaky"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/export-crash.png"
+          ],
+          "trace": "/demo-assets/screenshots/export-crash.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6"
+    ],
+    "deterministic": {
+      "confidence": 98,
+      "band": "HIGH",
+      "ruleCode": "RC-014",
+      "ruleId": "net-err",
+      "category": "Network",
+      "classification": "stable_failure",
+      "fingerprint": "FP-9B7258",
+      "fingerprintGroupCount": 5,
+      "severity": "high",
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A5",
+          "delta": 8,
+          "reason": "5 other tests share this exact failure fingerprint (corroborated)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 85,
+        "adjustments": [
+          {
+            "code": "A1",
+            "delta": 5,
+            "reason": "History is fully consistent — every run had the same outcome"
+          },
+          {
+            "code": "A4",
+            "delta": -5,
+            "reason": "Every run failed — no recovery observed"
+          },
+          {
+            "code": "A5",
+            "delta": 8,
+            "reason": "5 other tests share this exact failure fingerprint (corroborated)"
+          },
+          {
+            "code": "A9",
+            "delta": 5,
+            "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+          }
+        ],
+        "adjustmentTotal": 13,
+        "finalConfidence": 98,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

@@ -1,0 +1,390 @@
+{
+  "id": "confirms-a-declined-card-after-the-customer-re-enters-cvc--webkit",
+  "investigation": {
+    "testName": "confirms a declined card after the customer re-enters CVC",
+    "file": "tests/billing.spec.js",
+    "browser": "webkit",
+    "classification": "flaky",
+    "history": [
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "passed",
+      "failed",
+      "passed",
+      "passed"
+    ],
+    "retriesPerRun": [
+      0,
+      null,
+      0,
+      1,
+      null,
+      1,
+      null,
+      1,
+      0,
+      null,
+      0,
+      1,
+      null,
+      1,
+      null,
+      1,
+      0,
+      null,
+      0,
+      1
+    ],
+    "runCount": 20,
+    "passedOnRetry": true,
+    "retriesToPass": 1,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-009",
+    "matchedRule": "click-timeout",
+    "category": "Locator",
+    "likelyCause": "Element was present but not ready for interaction when clicked",
+    "explanation": "Playwright auto-waits for elements to be stable, visible, enabled, and not covered. The click timed out because one of these conditions was not met within the timeout.",
+    "confidence": 82,
+    "severity": "high",
+    "fingerprint": "FP-470332",
+    "fingerprintGroupCount": 2,
+    "classificationReasons": [
+      "14 transitions between pass and fail across 20 runs",
+      "Outcome alternates across runs — no stable pattern detected"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 85,
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "14 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "adjustmentTotal": -3,
+      "finalConfidence": 82,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at Object.confirmPayment (tests/billing.spec.js:74:32)\n    at tests/billing.spec.js:69:5",
+      "screenshots": [
+        "/demo-assets/screenshots/checkout-decline.png"
+      ],
+      "trace": "/demo-assets/screenshots/checkout-decline.trace.zip",
+      "video": "/demo-assets/screenshots/checkout-decline.webm",
+      "parsedError": {
+        "header": "locator.click: Timeout 15000ms exceeded.",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - waiting for getByTestId('confirm-payment')\n  - locator resolved to <button data-testid=\"confirm-payment\" disabled>…</button>\n  - element is not enabled - waiting…"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "confirms a declined card after the customer re-enters CVC",
+      "file": "tests/billing.spec.js",
+      "browser": "webkit",
+      "classification": "flaky",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 7 of 20 runs, with 14 pass/fail transitions, passing intermittently",
+        "raw": {
+          "history": [
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "passed",
+            "failed",
+            "passed",
+            "passed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "Element was present but not ready for interaction when clicked. Playwright auto-waits for elements to be stable, visible, enabled, and not covered. The click timed out because one of these conditions was not met within the timeout.",
+        "raw": {
+          "matchedRuleCode": "RC-009",
+          "likelyCause": "Element was present but not ready for interaction when clicked",
+          "explanation": "Playwright auto-waits for elements to be stable, visible, enabled, and not covered. The click timed out because one of these conditions was not met within the timeout."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Locator",
+        "raw": {
+          "category": "Locator"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "locator.click: Timeout 15000ms exceeded. — Call log:   - waiting for getByTestId('confirm-payment')\n  - locator resolved to <button data-testid=\"confirm-payment\" disabled>…</button>\n  - element is not enabled - waiting…",
+        "raw": {
+          "header": "locator.click: Timeout 15000ms exceeded.",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - waiting for getByTestId('confirm-payment')\n  - locator resolved to <button data-testid=\"confirm-payment\" disabled>…</button>\n  - element is not enabled - waiting…"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at Object.confirmPayment (tests/billing.spec.js:74:32)\n    at tests/billing.spec.js:69:5",
+        "raw": {
+          "stackTrace": "Error: \n    at Object.confirmPayment (tests/billing.spec.js:74:32)\n    at tests/billing.spec.js:69:5",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": true,
+        "value": "Recovered on retry in 7 of 7 failed runs",
+        "raw": {
+          "retriesPerRun": [
+            0,
+            null,
+            0,
+            1,
+            null,
+            1,
+            null,
+            1,
+            0,
+            null,
+            0,
+            1,
+            null,
+            1,
+            null,
+            1,
+            0,
+            null,
+            0,
+            1
+          ],
+          "passedOnRetry": true,
+          "retriesToPass": 1
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "2 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-470332",
+          "fingerprintGroupCount": 2
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": true,
+        "value": "webkit — also analysed on chromium, firefox",
+        "raw": {
+          "browser": "webkit",
+          "siblingBrowsers": [
+            "chromium",
+            "firefox"
+          ]
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 85%. 14 pass/fail transitions in history (high noise) · Mixed results — recovered on retry in at least one run · 2 other test(s) share this failure fingerprint (some corroboration)",
+        "raw": {
+          "baseConfidence": 85,
+          "adjustments": [
+            {
+              "code": "A2",
+              "delta": -10,
+              "reason": "14 pass/fail transitions in history (high noise)"
+            },
+            {
+              "code": "A3",
+              "delta": 3,
+              "reason": "Mixed results — recovered on retry in at least one run"
+            },
+            {
+              "code": "A6",
+              "delta": 4,
+              "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+            }
+          ],
+          "adjustmentTotal": -3,
+          "finalConfidence": 82,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "14 transitions between pass and fail across 20 runs · Outcome alternates across runs — no stable pattern detected",
+        "raw": {
+          "classificationReasons": [
+            "14 transitions between pass and fail across 20 runs",
+            "Outcome alternates across runs — no stable pattern detected"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/checkout-decline.png"
+          ],
+          "trace": "/demo-assets/screenshots/checkout-decline.trace.zip",
+          "video": "/demo-assets/screenshots/checkout-decline.webm"
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [],
+    "deterministic": {
+      "confidence": 82,
+      "band": "HIGH",
+      "ruleCode": "RC-009",
+      "ruleId": "click-timeout",
+      "category": "Locator",
+      "classification": "flaky",
+      "fingerprint": "FP-470332",
+      "fingerprintGroupCount": 2,
+      "severity": "high",
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "14 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 85,
+        "adjustments": [
+          {
+            "code": "A2",
+            "delta": -10,
+            "reason": "14 pass/fail transitions in history (high noise)"
+          },
+          {
+            "code": "A3",
+            "delta": 3,
+            "reason": "Mixed results — recovered on retry in at least one run"
+          },
+          {
+            "code": "A6",
+            "delta": 4,
+            "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+          }
+        ],
+        "adjustmentTotal": -3,
+        "finalConfidence": 82,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

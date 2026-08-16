@@ -1,0 +1,367 @@
+{
+  "id": "formats-the-revenue-tile-as-localized-currency--firefox",
+  "investigation": {
+    "testName": "formats the revenue tile as localized currency",
+    "file": "tests/dashboard.spec.js",
+    "browser": "firefox",
+    "classification": "newly_failed",
+    "history": [
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-012",
+    "matchedRule": "to-have-text",
+    "category": "Assertion",
+    "likelyCause": "Expected text does not match actual text on the page",
+    "explanation": "The test expected specific text content but the element contained different text. This is often a UI update that wasn't reflected in the test.",
+    "confidence": 85,
+    "severity": "medium",
+    "fingerprint": "FP-5B8541",
+    "fingerprintGroupCount": 0,
+    "classificationReasons": [
+      "Failed in latest run (Run 20)",
+      "Passed in 19 previous run(s)"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 85,
+      "adjustments": [
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A7",
+          "delta": -3,
+          "reason": "No other test shares this failure fingerprint (isolated)"
+        }
+      ],
+      "adjustmentTotal": 0,
+      "finalConfidence": 85,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at tests/dashboard.spec.js:96:39",
+      "screenshots": [
+        "/demo-assets/screenshots/kpi-mismatch.png"
+      ],
+      "trace": "/demo-assets/screenshots/kpi-mismatch.trace.zip",
+      "parsedError": {
+        "header": "expect(received).toHaveText(expected) failed",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - getByTestId('kpi-revenue') on the dashboard header\n  - Intl.NumberFormat grouped with a narrow no-break space under the fr-CA locale"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "formats the revenue tile as localized currency",
+      "file": "tests/dashboard.spec.js",
+      "browser": "firefox",
+      "classification": "newly_failed",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 1 of 20 runs, with 1 pass/fail transitions, passing intermittently",
+        "raw": {
+          "history": [
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "Expected text does not match actual text on the page. The test expected specific text content but the element contained different text. This is often a UI update that wasn't reflected in the test.",
+        "raw": {
+          "matchedRuleCode": "RC-012",
+          "likelyCause": "Expected text does not match actual text on the page",
+          "explanation": "The test expected specific text content but the element contained different text. This is often a UI update that wasn't reflected in the test."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Assertion",
+        "raw": {
+          "category": "Assertion"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "expect(received).toHaveText(expected) failed — Call log:   - getByTestId('kpi-revenue') on the dashboard header\n  - Intl.NumberFormat grouped with a narrow no-break space under the fr-CA locale",
+        "raw": {
+          "header": "expect(received).toHaveText(expected) failed",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - getByTestId('kpi-revenue') on the dashboard header\n  - Intl.NumberFormat grouped with a narrow no-break space under the fr-CA locale"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at tests/dashboard.spec.js:96:39",
+        "raw": {
+          "stackTrace": "Error: \n    at tests/dashboard.spec.js:96:39",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "No other test show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-5B8541",
+          "fingerprintGroupCount": 0
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": false,
+        "value": "NOT AVAILABLE — only one browser was analysed",
+        "raw": {
+          "browser": "firefox",
+          "siblingBrowsers": []
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 85%. Mixed results — recovered on retry in at least one run · No other test shares this failure fingerprint (isolated)",
+        "raw": {
+          "baseConfidence": 85,
+          "adjustments": [
+            {
+              "code": "A3",
+              "delta": 3,
+              "reason": "Mixed results — recovered on retry in at least one run"
+            },
+            {
+              "code": "A7",
+              "delta": -3,
+              "reason": "No other test shares this failure fingerprint (isolated)"
+            }
+          ],
+          "adjustmentTotal": 0,
+          "finalConfidence": 85,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "Failed in latest run (Run 20) · Passed in 19 previous run(s)",
+        "raw": {
+          "classificationReasons": [
+            "Failed in latest run (Run 20)",
+            "Passed in 19 previous run(s)"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/kpi-mismatch.png"
+          ],
+          "trace": "/demo-assets/screenshots/kpi-mismatch.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6",
+      "E8"
+    ],
+    "deterministic": {
+      "confidence": 85,
+      "band": "HIGH",
+      "ruleCode": "RC-012",
+      "ruleId": "to-have-text",
+      "category": "Assertion",
+      "classification": "newly_failed",
+      "fingerprint": "FP-5B8541",
+      "fingerprintGroupCount": 0,
+      "severity": "medium",
+      "adjustments": [
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A7",
+          "delta": -3,
+          "reason": "No other test shares this failure fingerprint (isolated)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 85,
+        "adjustments": [
+          {
+            "code": "A3",
+            "delta": 3,
+            "reason": "Mixed results — recovered on retry in at least one run"
+          },
+          {
+            "code": "A7",
+            "delta": -3,
+            "reason": "No other test shares this failure fingerprint (isolated)"
+          }
+        ],
+        "adjustmentTotal": 0,
+        "finalConfidence": 85,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

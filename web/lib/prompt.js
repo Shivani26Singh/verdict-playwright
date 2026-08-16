@@ -59,9 +59,16 @@ this system's internals.
 
 - Four or more evidence items marked absent, OR the matched rule is the generic
   fallback with fewer than three analysed runs, makes INSUFFICIENT_EVIDENCE very
-  likely correct.
+  likely correct. Check the stated evidence coverage before anything else: when
+  it says four or more items are absent, INSUFFICIENT_EVIDENCE is your default and
+  you need a specific, cited reason to choose anything else.
 - A pass/fail alternation in the execution history, or recovery on retry, is strong
   evidence for FLAKY_TIMING even when the error text looks like a product bug.
+  "Alternation" means repeated flipping — at least two transitions across four or
+  more runs. A single pass→fail change, or a history only two or three runs long,
+  is NOT alternation: one test that passed once and then failed once is equally
+  consistent with a regression that has just landed, and you cannot tell which
+  from that history alone.
 - An HTTP 5xx with a consistent failure history is strong evidence for
   PRODUCT_DEFECT — unless the evidence indicates the service is entirely
   unavailable, which is ENVIRONMENT_INFRA.
@@ -88,10 +95,17 @@ Respond only in the required structured format.`;
  */
 export function buildUserMessage(pack) {
   const subject = pack.subject || {};
+  const items = pack.items || [];
+  const absent = items.filter((item) => item && item.present === false).length;
+  const present = items.length - absent;
+
   const lines = [
     `Test: ${subject.testName || ""}`,
     `File: ${subject.file || "unknown"}   Browser: ${subject.browser || "unknown"}`,
     `Deterministic classification: ${subject.classification || "unknown"}   Runs analysed: ${subject.runCount || 0}`,
+    // Stated outright because the calibration rules key off these two counts.
+    // Leaving the model to tally them from the list below is unreliable.
+    `Evidence coverage: ${present} of ${items.length} items captured, ${absent} absent.`,
     "",
     "<evidence>",
   ];

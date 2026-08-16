@@ -4,7 +4,7 @@
  */
 
 export const PACK_VERSION = "1.0.0";
-export const PROMPT_VERSION = "1.0.0";
+export const PROMPT_VERSION = "1.1.0";
 
 export const EVIDENCE_IDS = [
   "E1",

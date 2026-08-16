@@ -1,0 +1,390 @@
+{
+  "id": "updates-the-live-metrics-widget-on-each-tick--chromium",
+  "investigation": {
+    "testName": "updates the live metrics widget on each tick",
+    "file": "tests/dashboard.spec.js",
+    "browser": "chromium",
+    "classification": "flaky",
+    "history": [
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-006",
+    "matchedRule": "rapid-alternation",
+    "category": "Stability",
+    "likelyCause": "Race condition or async timing issue — the test outcome depends on execution order",
+    "explanation": "When a test flips between PASS and FAIL with no discernible pattern, the most common cause is a race condition between the test's actions and the application's async behavior.",
+    "confidence": 67,
+    "severity": "high",
+    "fingerprint": "FP-E4B12B",
+    "fingerprintGroupCount": 2,
+    "classificationReasons": [
+      "19 transitions between pass and fail across 20 runs",
+      "Outcome alternates across runs — no stable pattern detected"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 70,
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "19 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "adjustmentTotal": -3,
+      "finalConfidence": 67,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at Object.onFrame (tests/dashboard.spec.js:158:17)\n    at tests/dashboard.spec.js:150:5",
+      "screenshots": [
+        "/demo-assets/screenshots/toast-race.png"
+      ],
+      "trace": "/demo-assets/screenshots/toast-race.trace.zip",
+      "parsedError": {
+        "header": "metrics socket delivered frame 7 before frame 6; the widget reconciled stale state and the sparkline diverged from the store",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": null
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "updates the live metrics widget on each tick",
+      "file": "tests/dashboard.spec.js",
+      "browser": "chromium",
+      "classification": "flaky",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 10 of 20 runs, with 19 pass/fail transitions, passing intermittently",
+        "raw": {
+          "history": [
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "Race condition or async timing issue — the test outcome depends on execution order. When a test flips between PASS and FAIL with no discernible pattern, the most common cause is a race condition between the test's actions and the application's async behavior.",
+        "raw": {
+          "matchedRuleCode": "RC-006",
+          "likelyCause": "Race condition or async timing issue — the test outcome depends on execution order",
+          "explanation": "When a test flips between PASS and FAIL with no discernible pattern, the most common cause is a race condition between the test's actions and the application's async behavior."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Stability",
+        "raw": {
+          "category": "Stability"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "metrics socket delivered frame 7 before frame 6; the widget reconciled stale state and the sparkline diverged from the store",
+        "raw": {
+          "header": "metrics socket delivered frame 7 before frame 6; the widget reconciled stale state and the sparkline diverged from the store",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": null
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at Object.onFrame (tests/dashboard.spec.js:158:17)\n    at tests/dashboard.spec.js:150:5",
+        "raw": {
+          "stackTrace": "Error: \n    at Object.onFrame (tests/dashboard.spec.js:158:17)\n    at tests/dashboard.spec.js:150:5",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "2 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-E4B12B",
+          "fingerprintGroupCount": 2
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": true,
+        "value": "chromium — also analysed on firefox, webkit",
+        "raw": {
+          "browser": "chromium",
+          "siblingBrowsers": [
+            "firefox",
+            "webkit"
+          ]
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 70%. 19 pass/fail transitions in history (high noise) · Mixed results — recovered on retry in at least one run · 2 other test(s) share this failure fingerprint (some corroboration)",
+        "raw": {
+          "baseConfidence": 70,
+          "adjustments": [
+            {
+              "code": "A2",
+              "delta": -10,
+              "reason": "19 pass/fail transitions in history (high noise)"
+            },
+            {
+              "code": "A3",
+              "delta": 3,
+              "reason": "Mixed results — recovered on retry in at least one run"
+            },
+            {
+              "code": "A6",
+              "delta": 4,
+              "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+            }
+          ],
+          "adjustmentTotal": -3,
+          "finalConfidence": 67,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "19 transitions between pass and fail across 20 runs · Outcome alternates across runs — no stable pattern detected",
+        "raw": {
+          "classificationReasons": [
+            "19 transitions between pass and fail across 20 runs",
+            "Outcome alternates across runs — no stable pattern detected"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/toast-race.png"
+          ],
+          "trace": "/demo-assets/screenshots/toast-race.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6"
+    ],
+    "deterministic": {
+      "confidence": 67,
+      "band": "MEDIUM",
+      "ruleCode": "RC-006",
+      "ruleId": "rapid-alternation",
+      "category": "Stability",
+      "classification": "flaky",
+      "fingerprint": "FP-E4B12B",
+      "fingerprintGroupCount": 2,
+      "severity": "high",
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "19 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 70,
+        "adjustments": [
+          {
+            "code": "A2",
+            "delta": -10,
+            "reason": "19 pass/fail transitions in history (high noise)"
+          },
+          {
+            "code": "A3",
+            "delta": 3,
+            "reason": "Mixed results — recovered on retry in at least one run"
+          },
+          {
+            "code": "A6",
+            "delta": 4,
+            "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+          }
+        ],
+        "adjustmentTotal": -3,
+        "finalConfidence": 67,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

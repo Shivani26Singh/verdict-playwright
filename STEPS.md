@@ -1,8 +1,79 @@
-# STEPS.md — Execution Guide
+# STEPS.md — Execution Guide (deterministic CLI)
 
-How to run the Playwright Flaky Test Analyzer on any machine (fresh clone or daily use).
+> **Scope.** This guide covers the **deterministic command-line analysis** only —
+> running the engine over Playwright JSON and producing HTML/JSON/Markdown
+> reports. It does **not** cover the VERDICT web application, its AI
+> investigation, or the Verdict Guard.
+>
+> For VERDICT — the dashboard, the 20-rule Detection Rules page, evidence-driven
+> investigation, AI verdicts and grounding checks — start at
+> **[README.md](./README.md)**.
+>
+> The same deterministic analysis is also available as a standalone offline tool
+> at [playwright-flaky-analyzer.vercel.app](https://playwright-flaky-analyzer.vercel.app),
+> for when no AI provider is available or wanted.
 
-**Website:** [playwright-flaky-analyzer.vercel.app](https://playwright-flaky-analyzer.vercel.app) · **Overview/features:** see the README.
+---
+
+## Part 0 — Running VERDICT (the web application)
+
+This is the part most people want. Requires **Node.js >= 18**.
+
+```bash
+git clone https://github.com/Shivani26Singh/verdict-playwright.git
+cd verdict-playwright
+npm install
+
+# 1. Generate the analysis data from the bundled Playwright runs.
+#    Both scripts run the deterministic engine — no AI, no network.
+node scripts/build-suite-data.js    # suite health, 20-rule catalogue, 78 failure packs
+node scripts/build-scenarios.js     # evidence packs for the three curated investigations
+
+# 2. Start the app.
+cd web
+npm install
+npm run dev                          # http://localhost:3000
+```
+
+Open `http://localhost:3000` and you get the full deterministic product —
+Overview, Flaky Analysis, Detection Rules, evidence, and the rules that fired —
+**with no API key at all**. The three curated investigations also render their
+committed verdicts, labelled *"Cached — live call unavailable"*.
+
+### Enabling live AI investigation locally
+
+To run a live investigation on any of the analysed failures, supply your own
+provider key:
+
+```bash
+cd web
+cp .env.example .env.local
+# then edit .env.local and set:
+#   GROQ_API_KEY=<your own key>
+```
+
+`.env.local` is gitignored and the key is read **server-side only**, inside the
+`/api/investigate` route. It is never sent to the browser.
+
+Optional — regenerate the committed verdicts from a real model run:
+
+```bash
+node scripts/refresh-ai-cache.mjs    # from the repository root
+```
+
+That script refuses to run without a key rather than writing a fake verdict.
+
+### Using your own Playwright runs
+
+The bundled `demo-project/ci-runs/` is just a populated sample. Point the
+scripts at your own Playwright JSON result files to analyse a real suite — see
+the CLI sections below for the input format and options.
+
+---
+
+## Part 1 — The deterministic CLI
+
+How to run the deterministic analysis on any machine (fresh clone or daily use).
 
 ## Prerequisites
 

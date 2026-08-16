@@ -22,6 +22,7 @@ export default {
       },
       fontFamily: {
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
       },
     },
   },

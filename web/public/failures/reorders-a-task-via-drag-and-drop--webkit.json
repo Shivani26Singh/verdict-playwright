@@ -1,0 +1,387 @@
+{
+  "id": "reorders-a-task-via-drag-and-drop--webkit",
+  "investigation": {
+    "testName": "reorders a task via drag and drop",
+    "file": "tests/tasks.spec.js",
+    "browser": "webkit",
+    "classification": "flaky",
+    "history": [
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed",
+      "passed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null,
+      0,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-010",
+    "matchedRule": "element-detached",
+    "category": "Locator",
+    "likelyCause": "The element was removed from the DOM and re-rendered between location and interaction",
+    "explanation": "The element was found in the DOM but a framework re-render replaced it before Playwright could complete the action. The element reference became stale.",
+    "confidence": 75,
+    "severity": "medium",
+    "fingerprint": "FP-24CB40",
+    "fingerprintGroupCount": 0,
+    "classificationReasons": [
+      "19 transitions between pass and fail across 20 runs",
+      "Outcome alternates across runs — no stable pattern detected"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 85,
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "19 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A7",
+          "delta": -3,
+          "reason": "No other test shares this failure fingerprint (isolated)"
+        }
+      ],
+      "adjustmentTotal": -10,
+      "finalConfidence": 75,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at Object.dragCard (tests/tasks.spec.js:88:26)\n    at tests/tasks.spec.js:83:5",
+      "screenshots": [
+        "/demo-assets/screenshots/drag-detached.png"
+      ],
+      "trace": "/demo-assets/screenshots/drag-detached.trace.zip",
+      "parsedError": {
+        "header": "elementHandle.dispatchEvent: Element is detached from the DOM",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - the drag source was re-rendered by a list virtualization pass mid-gesture"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "reorders a task via drag and drop",
+      "file": "tests/tasks.spec.js",
+      "browser": "webkit",
+      "classification": "flaky",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 10 of 20 runs, with 19 pass/fail transitions, passing intermittently",
+        "raw": {
+          "history": [
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed",
+            "passed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "The element was removed from the DOM and re-rendered between location and interaction. The element was found in the DOM but a framework re-render replaced it before Playwright could complete the action. The element reference became stale.",
+        "raw": {
+          "matchedRuleCode": "RC-010",
+          "likelyCause": "The element was removed from the DOM and re-rendered between location and interaction",
+          "explanation": "The element was found in the DOM but a framework re-render replaced it before Playwright could complete the action. The element reference became stale."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Locator",
+        "raw": {
+          "category": "Locator"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "elementHandle.dispatchEvent: Element is detached from the DOM — Call log:   - the drag source was re-rendered by a list virtualization pass mid-gesture",
+        "raw": {
+          "header": "elementHandle.dispatchEvent: Element is detached from the DOM",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - the drag source was re-rendered by a list virtualization pass mid-gesture"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at Object.dragCard (tests/tasks.spec.js:88:26)\n    at tests/tasks.spec.js:83:5",
+        "raw": {
+          "stackTrace": "Error: \n    at Object.dragCard (tests/tasks.spec.js:88:26)\n    at tests/tasks.spec.js:83:5",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "No other test show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-24CB40",
+          "fingerprintGroupCount": 0
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": false,
+        "value": "NOT AVAILABLE — only one browser was analysed",
+        "raw": {
+          "browser": "webkit",
+          "siblingBrowsers": []
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 85%. 19 pass/fail transitions in history (high noise) · Mixed results — recovered on retry in at least one run · No other test shares this failure fingerprint (isolated)",
+        "raw": {
+          "baseConfidence": 85,
+          "adjustments": [
+            {
+              "code": "A2",
+              "delta": -10,
+              "reason": "19 pass/fail transitions in history (high noise)"
+            },
+            {
+              "code": "A3",
+              "delta": 3,
+              "reason": "Mixed results — recovered on retry in at least one run"
+            },
+            {
+              "code": "A7",
+              "delta": -3,
+              "reason": "No other test shares this failure fingerprint (isolated)"
+            }
+          ],
+          "adjustmentTotal": -10,
+          "finalConfidence": 75,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "19 transitions between pass and fail across 20 runs · Outcome alternates across runs — no stable pattern detected",
+        "raw": {
+          "classificationReasons": [
+            "19 transitions between pass and fail across 20 runs",
+            "Outcome alternates across runs — no stable pattern detected"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/drag-detached.png"
+          ],
+          "trace": "/demo-assets/screenshots/drag-detached.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6",
+      "E8"
+    ],
+    "deterministic": {
+      "confidence": 75,
+      "band": "MEDIUM",
+      "ruleCode": "RC-010",
+      "ruleId": "element-detached",
+      "category": "Locator",
+      "classification": "flaky",
+      "fingerprint": "FP-24CB40",
+      "fingerprintGroupCount": 0,
+      "severity": "medium",
+      "adjustments": [
+        {
+          "code": "A2",
+          "delta": -10,
+          "reason": "19 pass/fail transitions in history (high noise)"
+        },
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A7",
+          "delta": -3,
+          "reason": "No other test shares this failure fingerprint (isolated)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 85,
+        "adjustments": [
+          {
+            "code": "A2",
+            "delta": -10,
+            "reason": "19 pass/fail transitions in history (high noise)"
+          },
+          {
+            "code": "A3",
+            "delta": 3,
+            "reason": "Mixed results — recovered on retry in at least one run"
+          },
+          {
+            "code": "A7",
+            "delta": -3,
+            "reason": "No other test shares this failure fingerprint (isolated)"
+          }
+        ],
+        "adjustmentTotal": -10,
+        "finalConfidence": 75,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

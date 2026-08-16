@@ -1,0 +1,410 @@
+{
+  "id": "opens-the-editor-for-a-single-selected-row--chromium",
+  "investigation": {
+    "testName": "opens the editor for a single selected row",
+    "file": "tests/projects.spec.js",
+    "browser": "chromium",
+    "classification": "stable_failure",
+    "history": [
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-011",
+    "matchedRule": "strict-mode-violation",
+    "category": "Locator",
+    "likelyCause": "The locator matched multiple elements — Playwright's strict mode requires a single match",
+    "explanation": "Playwright's strict mode requires locators to resolve to exactly one element. When multiple elements match, it throws this error to prevent accidental interaction with the wrong element.",
+    "confidence": 99,
+    "severity": "medium",
+    "fingerprint": "FP-D8F853",
+    "fingerprintGroupCount": 2,
+    "classificationReasons": [
+      "All 20 runs failed",
+      "Failure reproduced consistently — not flaky"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 90,
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "adjustmentTotal": 9,
+      "finalConfidence": 99,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at tests/projects.spec.js:142:38",
+      "screenshots": [
+        "/demo-assets/screenshots/duplicate-strict.png"
+      ],
+      "trace": "/demo-assets/screenshots/duplicate-strict.trace.zip",
+      "parsedError": {
+        "header": "locator.click: Error: strict mode violation: getByRole('row', { name: /Acme/ }) resolved to 3 elements:",
+        "locator": null,
+        "expected": null,
+        "received": null,
+        "timeout": null,
+        "callLog": "  - 1) <tr class=\"project-row\">Acme — Prod</tr>\n  - 2) <tr class=\"project-row\">Acme — Staging</tr>\n  - 3) <tr class=\"project-row\">Acme — Sandbox</tr>"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "opens the editor for a single selected row",
+      "file": "tests/projects.spec.js",
+      "browser": "chromium",
+      "classification": "stable_failure",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 20 of 20 runs, consistently failing",
+        "raw": {
+          "history": [
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "The locator matched multiple elements — Playwright's strict mode requires a single match. Playwright's strict mode requires locators to resolve to exactly one element. When multiple elements match, it throws this error to prevent accidental interaction with the wrong element.",
+        "raw": {
+          "matchedRuleCode": "RC-011",
+          "likelyCause": "The locator matched multiple elements — Playwright's strict mode requires a single match",
+          "explanation": "Playwright's strict mode requires locators to resolve to exactly one element. When multiple elements match, it throws this error to prevent accidental interaction with the wrong element."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Locator",
+        "raw": {
+          "category": "Locator"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "locator.click: Error: strict mode violation: getByRole('row', { name: /Acme/ }) resolved to 3 elements: — Call log:   - 1) <tr class=\"project-row\">Acme — Prod</tr>\n  - 2) <tr class=\"project-row\">Acme — Staging</tr>\n  - 3) <tr class=\"project-row\">Acme — Sandbox</tr>",
+        "raw": {
+          "header": "locator.click: Error: strict mode violation: getByRole('row', { name: /Acme/ }) resolved to 3 elements:",
+          "locator": null,
+          "expected": null,
+          "received": null,
+          "timeout": null,
+          "callLog": "  - 1) <tr class=\"project-row\">Acme — Prod</tr>\n  - 2) <tr class=\"project-row\">Acme — Staging</tr>\n  - 3) <tr class=\"project-row\">Acme — Sandbox</tr>"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at tests/projects.spec.js:142:38",
+        "raw": {
+          "stackTrace": "Error: \n    at tests/projects.spec.js:142:38",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "2 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-D8F853",
+          "fingerprintGroupCount": 2
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": true,
+        "value": "chromium — also analysed on firefox, webkit",
+        "raw": {
+          "browser": "chromium",
+          "siblingBrowsers": [
+            "firefox",
+            "webkit"
+          ]
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 90%. History is fully consistent — every run had the same outcome · Every run failed — no recovery observed · 2 other test(s) share this failure fingerprint (some corroboration) · 20+ runs analyzed with a consistent pattern (strong statistical basis)",
+        "raw": {
+          "baseConfidence": 90,
+          "adjustments": [
+            {
+              "code": "A1",
+              "delta": 5,
+              "reason": "History is fully consistent — every run had the same outcome"
+            },
+            {
+              "code": "A4",
+              "delta": -5,
+              "reason": "Every run failed — no recovery observed"
+            },
+            {
+              "code": "A6",
+              "delta": 4,
+              "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+            },
+            {
+              "code": "A9",
+              "delta": 5,
+              "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+            }
+          ],
+          "adjustmentTotal": 9,
+          "finalConfidence": 99,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "All 20 runs failed · Failure reproduced consistently — not flaky",
+        "raw": {
+          "classificationReasons": [
+            "All 20 runs failed",
+            "Failure reproduced consistently — not flaky"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/duplicate-strict.png"
+          ],
+          "trace": "/demo-assets/screenshots/duplicate-strict.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6"
+    ],
+    "deterministic": {
+      "confidence": 99,
+      "band": "HIGH",
+      "ruleCode": "RC-011",
+      "ruleId": "strict-mode-violation",
+      "category": "Locator",
+      "classification": "stable_failure",
+      "fingerprint": "FP-D8F853",
+      "fingerprintGroupCount": 2,
+      "severity": "medium",
+      "adjustments": [
+        {
+          "code": "A1",
+          "delta": 5,
+          "reason": "History is fully consistent — every run had the same outcome"
+        },
+        {
+          "code": "A4",
+          "delta": -5,
+          "reason": "Every run failed — no recovery observed"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        },
+        {
+          "code": "A9",
+          "delta": 5,
+          "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 90,
+        "adjustments": [
+          {
+            "code": "A1",
+            "delta": 5,
+            "reason": "History is fully consistent — every run had the same outcome"
+          },
+          {
+            "code": "A4",
+            "delta": -5,
+            "reason": "Every run failed — no recovery observed"
+          },
+          {
+            "code": "A6",
+            "delta": 4,
+            "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+          },
+          {
+            "code": "A9",
+            "delta": 5,
+            "reason": "20+ runs analyzed with a consistent pattern (strong statistical basis)"
+          }
+        ],
+        "adjustmentTotal": 9,
+        "finalConfidence": 99,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

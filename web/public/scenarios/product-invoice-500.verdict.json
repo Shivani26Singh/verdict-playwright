@@ -1,88 +1,106 @@
 {
   "verdict": {
     "category": "PRODUCT_DEFECT",
-    "headline": "The invoice generation fails consistently with a server error.",
+    "headline": "Monthly invoice generation for enterprise plan fails with internal server error",
     "rootCause": {
-      "statement": "The billing API returns HTTP 500 on every run, pointing to a backend defect in the invoice endpoint.",
+      "statement": "The application under test encountered an internal server error when generating the monthly invoice for an enterprise plan",
       "citedEvidence": [
         "E1",
-        "E4",
-        "E2"
+        "E2",
+        "E4"
       ]
     },
     "reasoning": [
       {
-        "step": "Every analyzed run failed, so this is a consistent defect rather than intermittent flakiness.",
+        "step": "The test failed consistently across 20 runs, indicating a stable failure",
         "citedEvidence": [
           "E1"
         ]
       },
       {
-        "step": "The error reports an HTTP 500 from the invoice endpoint.",
-        "citedEvidence": [
-          "E4"
-        ]
-      },
-      {
-        "step": "The deterministic rule identifies a backend/API failure.",
+        "step": "The matched deterministic rule points to an internal server error, which is a server-side issue",
         "citedEvidence": [
           "E2"
         ]
+      },
+      {
+        "step": "The parsed primary error indicates a 500 Internal Server Error response from the billing invoices endpoint, which suggests a server-side issue",
+        "citedEvidence": [
+          "E4"
+        ]
       }
     ],
-    "contradictingEvidence": [],
+    "contradictingEvidence": [
+      {
+        "point": "The failure category is network, which could suggest an environment or infrastructure issue",
+        "citedEvidence": [
+          "E3"
+        ]
+      }
+    ],
     "confidenceBand": "HIGH",
-    "confidenceRationale": "A consistent failure history and an explicit server error agree.",
+    "confidenceRationale": "The consistent failure history, the matched deterministic rule, and the parsed primary error all point to a product defect, with a strong statistical basis and some corroboration from other tests",
     "recommendedAction": {
       "owner": "DEV_TEAM",
-      "action": "Investigate the invoice endpoint for the HTTP 500 response and fix the underlying backend error.",
+      "action": "Investigate the backend logs and service health to identify the root cause of the internal server error",
       "urgency": "P1",
-      "ticketDraft": "Investigate and fix the HTTP 500 returned by the monthly invoice endpoint."
+      "ticketDraft": "Investigate internal server error in monthly invoice generation for enterprise plan"
     },
-    "evidenceGaps": []
+    "evidenceGaps": [
+      "E6"
+    ]
   },
   "guard": {
     "verdict": {
       "category": "PRODUCT_DEFECT",
-      "headline": "The invoice generation fails consistently with a server error.",
+      "headline": "Monthly invoice generation for enterprise plan fails with internal server error",
       "rootCause": {
-        "statement": "The billing API returns HTTP 500 on every run, pointing to a backend defect in the invoice endpoint.",
+        "statement": "The application under test encountered an internal server error when generating the monthly invoice for an enterprise plan",
         "citedEvidence": [
           "E1",
-          "E4",
-          "E2"
+          "E2",
+          "E4"
         ]
       },
       "reasoning": [
         {
-          "step": "Every analyzed run failed, so this is a consistent defect rather than intermittent flakiness.",
+          "step": "The test failed consistently across 20 runs, indicating a stable failure",
           "citedEvidence": [
             "E1"
           ]
         },
         {
-          "step": "The error reports an HTTP 500 from the invoice endpoint.",
-          "citedEvidence": [
-            "E4"
-          ]
-        },
-        {
-          "step": "The deterministic rule identifies a backend/API failure.",
+          "step": "The matched deterministic rule points to an internal server error, which is a server-side issue",
           "citedEvidence": [
             "E2"
           ]
+        },
+        {
+          "step": "The parsed primary error indicates a 500 Internal Server Error response from the billing invoices endpoint, which suggests a server-side issue",
+          "citedEvidence": [
+            "E4"
+          ]
         }
       ],
-      "contradictingEvidence": [],
+      "contradictingEvidence": [
+        {
+          "point": "The failure category is network, which could suggest an environment or infrastructure issue",
+          "citedEvidence": [
+            "E3"
+          ]
+        }
+      ],
       "confidenceBand": "HIGH",
-      "confidenceRationale": "A consistent failure history and an explicit server error agree.",
+      "confidenceRationale": "The consistent failure history, the matched deterministic rule, and the parsed primary error all point to a product defect, with a strong statistical basis and some corroboration from other tests",
       "recommendedAction": {
         "owner": "DEV_TEAM",
-        "action": "Investigate the invoice endpoint for the HTTP 500 response and fix the underlying backend error.",
+        "action": "Investigate the backend logs and service health to identify the root cause of the internal server error",
         "urgency": "P1",
-        "ticketDraft": "Investigate and fix the HTTP 500 returned by the monthly invoice endpoint."
+        "ticketDraft": "Investigate internal server error in monthly invoice generation for enterprise plan"
       },
-      "evidenceGaps": []
+      "evidenceGaps": [
+        "E6"
+      ]
     },
     "passed": true,
     "forcedInsufficient": false,
@@ -99,7 +117,12 @@
   },
   "provenance": {
     "mode": "cached",
-    "reason": "Deterministic build-time verdict",
-    "generatedAt": "2026-08-16T09:00:56.874Z"
+    "reason": "Real model output captured by scripts/refresh-ai-cache.mjs",
+    "provider": "groq",
+    "model": "llama-3.3-70b-versatile",
+    "promptVersion": "1.1.0",
+    "packVersion": "1.0.0",
+    "generatedAt": "2026-08-16T11:24:13.002Z",
+    "latencyMs": 1769
   }
 }

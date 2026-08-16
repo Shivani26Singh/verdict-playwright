@@ -1,0 +1,374 @@
+{
+  "id": "keeps-cohort-retention-stable-after-a-data-backfill--chromium",
+  "investigation": {
+    "testName": "keeps cohort retention stable after a data backfill",
+    "file": "tests/analytics.spec.js",
+    "browser": "chromium",
+    "classification": "newly_failed",
+    "history": [
+      "failed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "passed",
+      "failed"
+    ],
+    "retriesPerRun": [
+      null,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      null
+    ],
+    "runCount": 20,
+    "passedOnRetry": false,
+    "retriesToPass": 0,
+    "firstSeenRun": 0,
+    "lastSeenRun": 19,
+    "matchedRuleCode": "RC-003",
+    "matchedRule": "assertion-failure",
+    "category": "Assertion",
+    "likelyCause": "Expected value did not match actual value — test assertion failed",
+    "explanation": "The test assertion failed. The application produced different output than expected — this could be a real application change or a timing issue where the value wasn't settled yet.",
+    "confidence": 87,
+    "severity": "medium",
+    "fingerprint": "FP-756FBE",
+    "fingerprintGroupCount": 2,
+    "classificationReasons": [
+      "Failed in latest run (Run 20)",
+      "Passed in previous run (Run 19)",
+      "Was previously fixed — had transitioned from fail to pass",
+      "Pattern matches regression: fixed test failed again"
+    ],
+    "confidenceExplain": {
+      "baseConfidence": 80,
+      "adjustments": [
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "adjustmentTotal": 7,
+      "finalConfidence": 87,
+      "clamped": false
+    },
+    "evidence": {
+      "stackTrace": "Error: \n    at tests/analytics.spec.js:98:52",
+      "screenshots": [
+        "/demo-assets/screenshots/kpi-mismatch.png"
+      ],
+      "trace": "/demo-assets/screenshots/kpi-mismatch.trace.zip",
+      "parsedError": {
+        "header": "expect(received).toBeCloseTo(expected, 2)",
+        "locator": null,
+        "expected": "0.74",
+        "received": "0.71",
+        "timeout": null,
+        "callLog": "  - the sprint-16 backfill re-bucketed week-0 cohorts and retention drifted again"
+      }
+    }
+  },
+  "pack": {
+    "packVersion": "1.0.0",
+    "subject": {
+      "testName": "keeps cohort retention stable after a data backfill",
+      "file": "tests/analytics.spec.js",
+      "browser": "chromium",
+      "classification": "newly_failed",
+      "runCount": 20
+    },
+    "items": [
+      {
+        "id": "E1",
+        "label": "Execution history",
+        "kind": "history",
+        "present": true,
+        "value": "Failed in 2 of 20 runs, with 2 pass/fail transitions, passing intermittently",
+        "raw": {
+          "history": [
+            "failed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "passed",
+            "failed"
+          ],
+          "runCount": 20
+        }
+      },
+      {
+        "id": "E2",
+        "label": "Matched deterministic rule",
+        "kind": "rule",
+        "present": true,
+        "value": "Expected value did not match actual value — test assertion failed. The test assertion failed. The application produced different output than expected — this could be a real application change or a timing issue where the value wasn't settled yet.",
+        "raw": {
+          "matchedRuleCode": "RC-003",
+          "likelyCause": "Expected value did not match actual value — test assertion failed",
+          "explanation": "The test assertion failed. The application produced different output than expected — this could be a real application change or a timing issue where the value wasn't settled yet."
+        }
+      },
+      {
+        "id": "E3",
+        "label": "Failure category",
+        "kind": "category",
+        "present": true,
+        "value": "Assertion",
+        "raw": {
+          "category": "Assertion"
+        }
+      },
+      {
+        "id": "E4",
+        "label": "Parsed primary error",
+        "kind": "error",
+        "present": true,
+        "value": "expect(received).toBeCloseTo(expected, 2) — Expected: 0.74 — Received: 0.71 — Call log:   - the sprint-16 backfill re-bucketed week-0 cohorts and retention drifted again",
+        "raw": {
+          "header": "expect(received).toBeCloseTo(expected, 2)",
+          "locator": null,
+          "expected": "0.74",
+          "received": "0.71",
+          "timeout": null,
+          "callLog": "  - the sprint-16 backfill re-bucketed week-0 cohorts and retention drifted again"
+        }
+      },
+      {
+        "id": "E5",
+        "label": "Stack trace & code frame",
+        "kind": "code",
+        "present": true,
+        "value": "Error: \n    at tests/analytics.spec.js:98:52",
+        "raw": {
+          "stackTrace": "Error: \n    at tests/analytics.spec.js:98:52",
+          "codeFrame": null,
+          "codeFrameLocation": null
+        }
+      },
+      {
+        "id": "E6",
+        "label": "Retry behaviour",
+        "kind": "retry",
+        "present": false,
+        "value": "NOT AVAILABLE — no retry recovery was observed for this failure",
+        "raw": {
+          "retriesPerRun": [
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            null
+          ],
+          "passedOnRetry": false,
+          "retriesToPass": 0
+        }
+      },
+      {
+        "id": "E7",
+        "label": "Fingerprint corroboration",
+        "kind": "fingerprint",
+        "present": true,
+        "value": "2 other tests show a similar failure pattern",
+        "raw": {
+          "fingerprint": "FP-756FBE",
+          "fingerprintGroupCount": 2
+        }
+      },
+      {
+        "id": "E8",
+        "label": "Browser scope",
+        "kind": "browser",
+        "present": true,
+        "value": "chromium — also analysed on firefox, webkit",
+        "raw": {
+          "browser": "chromium",
+          "siblingBrowsers": [
+            "firefox",
+            "webkit"
+          ]
+        }
+      },
+      {
+        "id": "E9",
+        "label": "Confidence explanation",
+        "kind": "confidence",
+        "present": true,
+        "value": "Base confidence 80%. Mixed results — recovered on retry in at least one run · 2 other test(s) share this failure fingerprint (some corroboration)",
+        "raw": {
+          "baseConfidence": 80,
+          "adjustments": [
+            {
+              "code": "A3",
+              "delta": 3,
+              "reason": "Mixed results — recovered on retry in at least one run"
+            },
+            {
+              "code": "A6",
+              "delta": 4,
+              "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+            }
+          ],
+          "adjustmentTotal": 7,
+          "finalConfidence": 87,
+          "clamped": false
+        }
+      },
+      {
+        "id": "E10",
+        "label": "Regression boundary",
+        "kind": "boundary",
+        "present": true,
+        "value": "Failed in latest run (Run 20) · Passed in previous run (Run 19) · Was previously fixed — had transitioned from fail to pass · Pattern matches regression: fixed test failed again",
+        "raw": {
+          "classificationReasons": [
+            "Failed in latest run (Run 20)",
+            "Passed in previous run (Run 19)",
+            "Was previously fixed — had transitioned from fail to pass",
+            "Pattern matches regression: fixed test failed again"
+          ],
+          "firstSeenRun": 0,
+          "lastSeenRun": 19
+        }
+      },
+      {
+        "id": "E11",
+        "label": "Available artifacts",
+        "kind": "artifacts",
+        "present": true,
+        "value": "Screenshot: captured | Trace: captured | Video: not captured",
+        "raw": {
+          "screenshots": [
+            "/demo-assets/screenshots/kpi-mismatch.png"
+          ],
+          "trace": "/demo-assets/screenshots/kpi-mismatch.trace.zip",
+          "video": null
+        }
+      }
+    ],
+    "presentIds": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11"
+    ],
+    "absentIds": [
+      "E6"
+    ],
+    "deterministic": {
+      "confidence": 87,
+      "band": "HIGH",
+      "ruleCode": "RC-003",
+      "ruleId": "assertion-failure",
+      "category": "Assertion",
+      "classification": "newly_failed",
+      "fingerprint": "FP-756FBE",
+      "fingerprintGroupCount": 2,
+      "severity": "medium",
+      "adjustments": [
+        {
+          "code": "A3",
+          "delta": 3,
+          "reason": "Mixed results — recovered on retry in at least one run"
+        },
+        {
+          "code": "A6",
+          "delta": 4,
+          "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+        }
+      ],
+      "confidenceExplain": {
+        "baseConfidence": 80,
+        "adjustments": [
+          {
+            "code": "A3",
+            "delta": 3,
+            "reason": "Mixed results — recovered on retry in at least one run"
+          },
+          {
+            "code": "A6",
+            "delta": 4,
+            "reason": "2 other test(s) share this failure fingerprint (some corroboration)"
+          }
+        ],
+        "adjustmentTotal": 7,
+        "finalConfidence": 87,
+        "clamped": false
+      }
+    },
+    "redaction": {
+      "applied": false,
+      "count": 0,
+      "stage": "build"
+    }
+  }
+}

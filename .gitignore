@@ -27,6 +27,8 @@ coverage/
 .idea/
 *.tgz
 package-lock.json
+# ...except the web app's — Vercel needs it for a reproducible install.
+!web/package-lock.json
 .commandcode/
 
 # Personal / private — never commit or publish
