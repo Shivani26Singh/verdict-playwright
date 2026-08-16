@@ -1,0 +1,334 @@
+{
+  "config": {
+    "configFile": "playwright.config.js",
+    "rootDir": "C:\\projects\\web-app\\tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalTimeout": 60000,
+    "grep": {},
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "reporter": [["json", { "outputFile": "results.json" }]],
+    "reportSlowTests": { "max": 5, "threshold": 15000 },
+    "quiet": false,
+    "projects": [
+      {
+        "name": "chromium",
+        "outputDir": "C:\\projects\\web-app\\test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {},
+        "id": "chromium",
+        "testDir": "C:\\projects\\web-app\\tests",
+        "testIgnore": [],
+        "testMatch": ["**/*.spec.js"],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "version": "1.47.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "login.spec.js",
+      "file": "login.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Login Page › should login with valid credentials",
+          "ok": true,
+          "tags": ["@smoke", "@login"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2457,
+                  "errors": [],
+                  "retry": 0,
+                  "startTime": "2025-08-15T10:00:00.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "Login Page › should show error for invalid credentials",
+          "ok": false,
+          "tags": ["@smoke", "@login"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 3201,
+                  "errors": [
+                    {
+                      "message": "Error: expect(received).toBe(expected) — Timed out waiting for element",
+                      "stack": "at LoginPage.login (C:\\projects\\web-app\\tests\\login.spec.js:24:30)"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2025-08-15T10:00:05.000Z",
+                  "attachments": []
+                },
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 2894,
+                  "errors": [
+                    {
+                      "message": "Error: expect(received).toBe(expected) — Timed out waiting for element",
+                      "stack": "at LoginPage.login (C:\\projects\\web-app\\tests\\login.spec.js:24:30)"
+                    }
+                  ],
+                  "retry": 1,
+                  "startTime": "2025-08-15T10:00:10.000Z",
+                  "attachments": []
+                },
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 3456,
+                  "errors": [
+                    {
+                      "message": "Error: expect(received).toBe(expected) — Timed out waiting for element",
+                      "stack": "at LoginPage.login (C:\\projects\\web-app\\tests\\login.spec.js:24:30)"
+                    }
+                  ],
+                  "retry": 2,
+                  "startTime": "2025-08-15T10:00:15.000Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\projects\\web-app\\test-results\\login-error.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ]
+        },
+        {
+          "title": "Login Page › should redirect to dashboard after login",
+          "ok": true,
+          "tags": ["@smoke", "@login"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1890,
+                  "errors": [],
+                  "retry": 0,
+                  "startTime": "2025-08-15T10:00:02.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        }
+      ],
+      "suites": []
+    },
+    {
+      "title": "checkout.spec.js",
+      "file": "checkout.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Checkout Flow › should complete purchase with credit card",
+          "ok": false,
+          "tags": ["@checkout", "@payment"],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12000,
+                  "errors": [
+                    {
+                      "message": "Error: page.click: Timeout 30000ms exceeded. — selector button#submit-payment not found",
+                      "stack": "at CheckoutPage.submitPayment (C:\\projects\\web-app\\tests\\checkout.spec.js:67:14)"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2025-08-15T10:01:00.000Z",
+                  "attachments": []
+                },
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4500,
+                  "errors": [],
+                  "retry": 1,
+                  "startTime": "2025-08-15T10:01:15.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "flaky"
+            }
+          ]
+        },
+        {
+          "title": "Checkout Flow › should apply discount code",
+          "ok": true,
+          "tags": ["@checkout"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5600,
+                  "errors": [],
+                  "retry": 0,
+                  "startTime": "2025-08-15T10:01:02.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        }
+      ],
+      "suites": []
+    },
+    {
+      "title": "search.spec.js",
+      "file": "search.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Search › should return results for valid query",
+          "ok": false,
+          "tags": ["@search"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 7800,
+                  "errors": [
+                    {
+                      "message": "Error: expect(received).toBeGreaterThan(0) — Timeout waiting for API response",
+                      "stack": "at SearchPage.search (C:\\projects\\web-app\\tests\\search.spec.js:45:18)"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2025-08-15T10:00:30.000Z",
+                  "attachments": []
+                },
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2100,
+                  "errors": [],
+                  "retry": 1,
+                  "startTime": "2025-08-15T10:00:40.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "flaky"
+            }
+          ]
+        },
+        {
+          "title": "Search › should show empty state for no results",
+          "ok": true,
+          "tags": ["@search"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1340,
+                  "errors": [],
+                  "retry": 0,
+                  "startTime": "2025-08-15T10:00:31.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        }
+      ],
+      "suites": []
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-08-15T10:00:00.000Z",
+    "duration": 58672,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 2
+  }
+}

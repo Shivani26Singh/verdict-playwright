@@ -1,0 +1,24 @@
+node_modules/
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+logs/
+
+# The ci-runs/ history, evidence/ assets, and the generated flaky-report/
+# dashboard bundle ARE committed, so the report can be opened directly on a
+# fresh clone with no install/build step.
+flaky-report.html
+flaky-report.json
+flaky-report.md
+investigation-prompt.md
+investigation-json-prompt.md
+
+# Optional AI-investigation demo output — not part of this repo's committed
+# demo; skip it here the same way the analyzer package itself does.
+analysis.md
+AI_PROMPTS.md
+AI_PROMPT.md
+AI_INPUT.json
+ai-investigation.json
+ai-analyze.ps1

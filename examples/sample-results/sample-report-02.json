@@ -1,0 +1,187 @@
+{
+  "config": {
+    "configFile": "playwright.config.js",
+    "rootDir": "C:\\projects\\web-app\\tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalTimeout": 60000,
+    "grep": {},
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "reporter": [["json", { "outputFile": "results.json" }]],
+    "reportSlowTests": { "max": 5, "threshold": 15000 },
+    "quiet": false,
+    "projects": [
+      {
+        "name": "firefox",
+        "outputDir": "C:\\projects\\web-app\\test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {},
+        "id": "firefox",
+        "testDir": "C:\\projects\\web-app\\tests",
+        "testIgnore": [],
+        "testMatch": ["**/*.spec.js"],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "version": "1.47.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "login.spec.js",
+      "file": "login.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Login Page › should login with valid credentials",
+          "ok": true,
+          "tags": ["@smoke", "@login"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3100,
+                  "errors": [],
+                  "retry": 0,
+                  "startTime": "2025-08-16T14:00:00.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "Login Page › should show error for invalid credentials",
+          "ok": false,
+          "tags": ["@smoke", "@login"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2800,
+                  "errors": [],
+                  "retry": 0,
+                  "startTime": "2025-08-16T14:00:05.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        }
+      ],
+      "suites": []
+    },
+    {
+      "title": "checkout.spec.js",
+      "file": "checkout.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Checkout Flow › should complete purchase with credit card",
+          "ok": false,
+          "tags": ["@checkout", "@payment"],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 30000,
+                  "errors": [
+                    {
+                      "message": "Error: page.click: Timeout 30000ms exceeded — selector button#submit-payment not visible",
+                      "stack": "at CheckoutPage.submitPayment (C:\\projects\\web-app\\tests\\checkout.spec.js:67:14)"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2025-08-16T14:01:00.000Z",
+                  "attachments": []
+                },
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 29800,
+                  "errors": [
+                    {
+                      "message": "Error: page.click: Timeout 30000ms exceeded — selector button#submit-payment not found",
+                      "stack": "at CheckoutPage.submitPayment (C:\\projects\\web-app\\tests\\checkout.spec.js:67:14)"
+                    }
+                  ],
+                  "retry": 1,
+                  "startTime": "2025-08-16T14:01:32.000Z",
+                  "attachments": []
+                },
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 30120,
+                  "errors": [
+                    {
+                      "message": "Error: page.click: Timeout 30000ms exceeded — selector button#submit-payment not found",
+                      "stack": "at CheckoutPage.submitPayment (C:\\projects\\web-app\\tests\\checkout.spec.js:67:14)"
+                    }
+                  ],
+                  "retry": 2,
+                  "startTime": "2025-08-16T14:02:04.000Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\projects\\web-app\\test-results\\checkout-firefox-timeout.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ]
+        }
+      ],
+      "suites": []
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-08-16T14:00:00.000Z",
+    "duration": 185200,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

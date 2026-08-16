@@ -1,0 +1,73 @@
+{
+  "name": "playwright-flaky-analyzer",
+  "version": "1.0.3",
+  "description": "Analyze Playwright test reports across multiple runs to detect flaky tests, track flaky-test and retry trends over time, and enforce a CI quality gate — deterministic, offline, no AI required. Generates interactive HTML dashboards, JSON, and Markdown reports.",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./reporter": "./src/reporter/PlaywrightReporter.js"
+  },
+  "bin": {
+    "playwright-flaky-analyzer": "src/cli/run-analysis.js"
+  },
+  "scripts": {
+    "start": "node src/cli/run-analysis.js analyze",
+    "lint": "eslint src/ --fix",
+    "format": "prettier --write \"src/**/*.js\" \"examples/**/*.json\"",
+    "format:check": "prettier --check \"src/**/*.js\" \"examples/**/*.json\"",
+    "test": "node --test src/analyzer/*.test.js src/cli/*.test.js src/evidence/*.test.js src/investigation/interface.test.js src/investigation/investigate-engine.test.js src/investigation/rule-engine.test.js src/providers/*.test.js src/reporter/dashboard-json.test.js src/reporter/dashboard-json-fingerprint.test.js src/reporter/error-parser.test.js src/reporter/html.test.js src/reporter/markdown.test.js src/reporter/reporter.test.js src/utils/*.test.js",
+    "build": "node -e \"console.log('Build: nothing to compile (pure JS project)')\"",
+    "prepack": "npm test"
+  },
+  "keywords": [
+    "playwright",
+    "flaky-test",
+    "test-analyzer",
+    "test-automation",
+    "qa",
+    "testing",
+    "flaky-detection",
+    "test-reporter",
+    "playwright-reporter",
+    "test-health",
+    "ci-cd",
+    "dashboard",
+    "flaky-trend",
+    "quality-gate"
+  ],
+  "author": "Shivani Singh <shivani26singh@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivani26singh/playwright-flaky-analyzer.git"
+  },
+  "homepage": "https://playwright-flaky-analyzer.vercel.app",
+  "bugs": {
+    "url": "https://github.com/shivani26singh/playwright-flaky-analyzer/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "winston": "^3.17.0"
+  },
+  "files": [
+    "src/**/*.js",
+    "!src/**/*.test.js",
+    "!src/investigation/ai-*.js",
+    "!src/investigation/ai-providers/**",
+    "!src/reporter/ai-assistant.js",
+    "!src/utils/redact.js",
+    "examples/",
+    "README.md",
+    "LICENSE",
+    "STEPS.md"
+  ],
+  "devDependencies": {
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.1.1",
+    "prettier": "^3.5.3"
+  }
+}

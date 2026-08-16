@@ -1,0 +1,21 @@
+{
+  "analyzer": {
+    "minFailures": 2,
+    "lookbackRuns": 10
+  },
+  "input": {
+    "resultsDir": "./examples/sample-results",
+    "globPattern": "**/*.json"
+  },
+  "output": {
+    "format": "html",
+    "outputFile": "./flaky-analysis.html",
+    "includeCharts": false,
+    "verbose": false
+  },
+  "logging": {
+    "level": "info",
+    "file": "./logs/analyzer.log",
+    "console": true
+  }
+}

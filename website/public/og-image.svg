@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0c0e10"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#grid)" opacity="0.5"/>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a2f22" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="80" y="80" width="1040" height="470" rx="16" fill="#101316" stroke="#23272c" stroke-width="1"/>
+  <circle cx="130" cy="130" r="7" fill="#e0654f"/>
+  <circle cx="155" cy="130" r="7" fill="#e0b84f"/>
+  <circle cx="180" cy="130" r="7" fill="#3ddc84"/>
+  <text x="120" y="230" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="34" fill="#3ddc84">$ playwright-flaky-analyzer analyze</text>
+  <text x="120" y="290" font-family="ui-sans-serif, system-ui" font-weight="700" font-size="56" fill="#e9ebee">Playwright Flaky Analyzer</text>
+  <text x="120" y="345" font-family="ui-sans-serif, system-ui" font-size="26" fill="#a6adb5">Understand flaky tests across your Playwright runs.</text>
+  <text x="120" y="480" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#6d747c">Run 1 ✓   Run 2 ✕   Run 3 ✓   Run 4 ✕   Run 5 ✓</text>
+</svg>

@@ -1,0 +1,54 @@
+# Development files
+.github/
+.eslintrc*
+.prettierrc
+eslint.config.js
+node_modules/
+package-lock.json
+
+# Documentation (shipped: README.md, LICENSE, STEPS.md)
+CHANGELOG.md
+
+# Logs
+logs/
+*.log
+
+# Generated reports (user output, not source)
+flaky-analysis.html
+flaky-analysis.md
+flaky-analysis.json
+results/
+
+# Tests (excluded from npm package)
+*.test.js
+src/**/*.test.js
+
+# Scratch/temp / internal audit
+.commandcode/
+docs/
+
+# Config (user must provide their own)
+flaky.config.json
+
+# Generated output (user output, not source)
+investigation-prompt.md
+investigation-json-prompt.md
+ai-investigation.json
+
+# Playwright artifacts (never ship)
+test-results/
+playwright-report/
+screenshots/
+videos/
+traces/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+dist/
+coverage/
+.idea/
+.vscode/
+*.tgz

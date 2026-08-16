@@ -1,0 +1,114 @@
+# Azure DevOps example: Playwright + playwright-flaky-analyzer, with
+# historical-run persistence across separate pipeline executions
+#
+# Flow demonstrated:
+#   checkout (clean) -> restore prior results-run<N>.json files from cache
+#     -> Playwright tests (reporter appends the next results-run<N>.json)
+#     -> analyze --lookback 20 -> flaky-count CI gate -> cache the updated
+#     history for the next run -> publish the report as a build artifact
+#     (even when the gate fails)
+#
+# This is a reference example, not a reusable template — copy the steps you
+# need into your own azure-pipelines.yml. No secrets, tokens, internal URLs,
+# or project-specific values are used; only generic Azure Pipelines variables.
+#
+# WHY A CACHE STEP IS NEEDED (and why this is NOT --history-file):
+# `checkout: clean: true` wipes the workspace every run, so without
+# persistence the analyzer would only ever see the one report produced by
+# THIS execution — never enough runs for a real trend. This does NOT
+# reintroduce a second, analyzer-managed history mechanism (the old
+# --history-file design was tried and deliberately reversed — see
+# DESIGN_DECISIONS.md § Local Flaky Tests Trend). It simply keeps the
+# SAME results-run<N>.json files the reporter already writes on disk
+# between builds, so a later `analyze --lookback 20` has more than one
+# run's worth of its own ordinary input to compare. The Flaky Tests Trend
+# and Retries Per Run Trend charts are still built entirely from
+# `statistics.perRun` at analysis time — this cache step only changes how
+# many of the reporter's own result files exist on disk when that happens.
+#
+# The cache key deliberately includes Build.BuildId, which guarantees a
+# cache MISS every run. Cache@2 responds to a miss by (a) restoring the
+# most recent prior save via `restoreKeys`, then (b) unconditionally saving
+# a fresh entry under the new key at the end of the job. That's the
+# intended behavior here — a folder that should keep accumulating
+# indefinitely, not a content-hash build cache that should stay put until
+# something changes.
+
+trigger:
+  branches:
+    include: [main]
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "20.x"
+    displayName: "Use Node.js 20.x"
+
+  - script: npm ci
+    displayName: "Install dependencies"
+
+  - script: npx playwright install --with-deps
+    displayName: "Install Playwright browsers"
+
+  # Restores whatever results-run<N>.json files a previous run of this
+  # pipeline saved, into the same directory the reporter (configured below)
+  # will write this run's new results-run<N>.json into. First run on a new
+  # pipeline simply starts with an empty cache — no error.
+  - task: Cache@2
+    inputs:
+      key: 'flaky-analyzer-history | "$(Build.Repository.Name)" | $(Build.BuildId)'
+      restoreKeys: 'flaky-analyzer-history | "$(Build.Repository.Name)"'
+      path: "$(Build.SourcesDirectory)/flaky-results"
+    displayName: "Restore Flaky Analyzer history"
+
+  # continueOnError so a failing test doesn't abort the pipeline before the
+  # analyzer gets a chance to see (and classify) the results. The
+  # PlaywrightReporter here is configured (in playwright.config.js) with
+  # outputFile: './flaky-results/results.json' — the reporter derives the
+  # directory from that path and writes the next results-run<N>.json into it
+  # by scanning for what's already there (including whatever the cache step
+  # just restored). This directory is deliberately named differently from
+  # Playwright's own outputDir (default: test-results) — Playwright cleans
+  # its outputDir before every run, which would otherwise wipe this history
+  # before the analyzer ever saw it.
+  - script: npx playwright test
+    displayName: "Run Playwright tests"
+    continueOnError: true
+
+  # Classification (including the flaky-test count) and the Flaky Tests
+  # Trend/Retries Per Run Trend charts are always computed (core,
+  # deterministic, no AI, no flag). The gate (--max-flaky) is opt-in — omit
+  # it and this step behaves exactly like a plain `analyze` call.
+  # --format html with evidence copying on (the default) writes a PORTABLE
+  # BUNDLE DIRECTORY, not a single file: given an --output path of
+  # ".../report.html", the report actually lands at ".../report/index.html"
+  # alongside a sibling "assets/" folder — verified directly against the
+  # CLI before writing this example. --max-flaky is used rather than a
+  # newly-failing/consistently-failing threshold because those already fail
+  # Playwright's own exit code; a flaky test typically passes on retry and
+  # slips through that signal.
+  - script: |
+      npx playwright-flaky-analyzer analyze ./flaky-results \
+        --lookback 20 \
+        --format html \
+        --also-json \
+        --output "$(Build.ArtifactStagingDirectory)/flaky-analysis/report.html" \
+        --max-flaky 5
+    displayName: "Analyze flaky tests & enforce quality gate"
+    condition: always()
+
+  # Publish the whole bundle directory (index.html + flaky-analysis.json +
+  # assets/) whether the gate above passed or failed — a failing gate
+  # should surface the report for triage, not hide it. This is a separate
+  # artifact from Cache@2 above: the cache step persists the analyzer's raw
+  # INPUT (results-run<N>.json) between builds; this publishes the
+  # OUTPUT report from this specific build for a human to open.
+  - task: PublishPipelineArtifact@1
+    condition: always()
+    inputs:
+      pathToPublish: "$(Build.ArtifactStagingDirectory)/flaky-analysis"
+      artifactName: "flaky-analysis-report"
+    displayName: "Publish flaky-analysis report"

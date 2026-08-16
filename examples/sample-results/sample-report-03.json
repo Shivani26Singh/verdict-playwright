@@ -1,0 +1,365 @@
+{
+  "config": {
+    "configFile": "playwright.config.js",
+    "rootDir": "C:\\projects\\web-app\\tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalTimeout": 60000,
+    "grep": {},
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "reporter": [["json", { "outputFile": "results.json" }]],
+    "reportSlowTests": { "max": 5, "threshold": 15000 },
+    "quiet": false,
+    "projects": [
+      {
+        "name": "chromium",
+        "outputDir": "C:\\projects\\web-app\\test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {},
+        "id": "chromium",
+        "testDir": "C:\\projects\\web-app\\tests",
+        "testIgnore": [],
+        "testMatch": ["**/*.spec.js"],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "version": "1.47.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "login.spec.js",
+      "file": "login.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Login Page › should login with valid credentials",
+          "ok": true,
+          "tags": ["@smoke", "@login"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2300,
+                  "errors": [],
+                  "retry": 0,
+                  "startTime": "2025-08-17T09:00:00.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "Login Page › should show error for invalid credentials",
+          "ok": false,
+          "tags": ["@smoke", "@login"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 3500,
+                  "errors": [
+                    {
+                      "message": "Error: expect(received).toBe(expected) — CSS class mismatch after design update",
+                      "stack": "at LoginPage.login (C:\\projects\\web-app\\tests\\login.spec.js:28:30)"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2025-08-17T09:00:05.000Z",
+                  "attachments": []
+                },
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 3100,
+                  "errors": [
+                    {
+                      "message": "Error: expect(received).toBe(expected) — CSS class mismatch after design update",
+                      "stack": "at LoginPage.login (C:\\projects\\web-app\\tests\\login.spec.js:28:30)"
+                    }
+                  ],
+                  "retry": 1,
+                  "startTime": "2025-08-17T09:00:10.000Z",
+                  "attachments": []
+                },
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 3400,
+                  "errors": [
+                    {
+                      "message": "Error: expect(received).toBe(expected) — CSS class mismatch after design update",
+                      "stack": "at LoginPage.login (C:\\projects\\web-app\\tests\\login.spec.js:28:30)"
+                    }
+                  ],
+                  "retry": 2,
+                  "startTime": "2025-08-17T09:00:15.000Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\projects\\web-app\\test-results\\login-error-v3.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ]
+        },
+        {
+          "title": "Login Page › should redirect to dashboard after login",
+          "ok": false,
+          "tags": ["@smoke", "@login"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 5000,
+                  "errors": [
+                    {
+                      "message": "Error: page.goto: Timeout 30000ms exceeded — navigation timeout on redirect",
+                      "stack": "at LoginPage.redirect (C:\\projects\\web-app\\tests\\login.spec.js:42:12)"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2025-08-17T09:00:02.000Z",
+                  "attachments": []
+                },
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 4800,
+                  "errors": [
+                    {
+                      "message": "Error: page.goto: Timeout 30000ms exceeded — navigation timeout on redirect",
+                      "stack": "at LoginPage.redirect (C:\\projects\\web-app\\tests\\login.spec.js:42:12)"
+                    }
+                  ],
+                  "retry": 1,
+                  "startTime": "2025-08-17T09:00:10.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "unexpected"
+            }
+          ]
+        }
+      ],
+      "suites": []
+    },
+    {
+      "title": "checkout.spec.js",
+      "file": "checkout.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Checkout Flow › should complete purchase with credit card",
+          "ok": true,
+          "tags": ["@checkout", "@payment"],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3800,
+                  "errors": [],
+                  "retry": 0,
+                  "startTime": "2025-08-17T09:01:00.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "Checkout Flow › should apply discount code",
+          "ok": true,
+          "tags": ["@checkout"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5100,
+                  "errors": [],
+                  "retry": 0,
+                  "startTime": "2025-08-17T09:01:02.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        }
+      ],
+      "suites": []
+    },
+    {
+      "title": "search.spec.js",
+      "file": "search.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Search › should return results for valid query",
+          "ok": true,
+          "tags": ["@search"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1900,
+                  "errors": [],
+                  "retry": 0,
+                  "startTime": "2025-08-17T09:00:30.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "Search › should show empty state for no results",
+          "ok": false,
+          "tags": ["@search"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2800,
+                  "errors": [
+                    {
+                      "message": "Error: expect(received).toContain('No results') — empty state text not found after UI update",
+                      "stack": "at SearchPage.emptyState (C:\\projects\\web-app\\tests\\search.spec.js:72:18)"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2025-08-17T09:00:31.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "unexpected"
+            }
+          ]
+        }
+      ],
+      "suites": []
+    },
+    {
+      "title": "profile.spec.js",
+      "file": "profile.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Profile Page › should update user avatar",
+          "ok": false,
+          "tags": ["@profile", "@new-feature"],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2200,
+                  "errors": [],
+                  "retry": 0,
+                  "startTime": "2025-08-17T09:02:00.000Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ]
+        }
+      ],
+      "suites": []
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-08-17T09:00:00.000Z",
+    "duration": 65400,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

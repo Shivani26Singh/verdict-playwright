@@ -1,0 +1,24 @@
+{
+  "analyzer": {
+    "minFailures": 2,
+    "lookbackRuns": 20
+  },
+  "input": {
+    "resultsDir": "./ci-runs",
+    "globPattern": "**/*.json"
+  },
+  "output": {
+    "format": "html",
+    "outputFile": "./flaky-report/index.html",
+    "includeCharts": false,
+    "verbose": false
+  },
+  "logging": {
+    "level": "info",
+    "file": "./logs/analyzer.log",
+    "console": true
+  },
+  "ci": {
+    "maxFlaky": null
+  }
+}

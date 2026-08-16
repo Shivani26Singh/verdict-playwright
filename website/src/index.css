@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-950 text-paper font-sans antialiased;
+  background-image: radial-gradient(
+      ellipse 900px 500px at 15% -10%,
+      rgba(21, 122, 61, 0.05),
+      transparent 60%
+    ),
+    radial-gradient(ellipse 700px 400px at 100% 0%, rgba(21, 122, 61, 0.035), transparent 55%);
+  background-attachment: fixed;
+}
+
+section[id] {
+  scroll-margin-top: 76px;
+}
+
+::selection {
+  background: rgba(21, 122, 61, 0.18);
+  color: #0c2e18;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+}
+
+.eyebrow {
+  @apply font-mono text-xs tracking-[0.18em] text-signal uppercase;
+}
+
+.card {
+  @apply rounded-lg border border-line bg-ink-800/70 shadow-soft;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-md bg-signal px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-signal-bright active:translate-y-px;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-md border border-line bg-ink-800/60 px-4 py-2.5 text-sm font-medium text-paper transition hover:border-signal/40 hover:text-signal active:translate-y-px;
+}
+
+.section-pad {
+  @apply py-16 sm:py-24;
+}
+
+.prompt-dot::before {
+  content: "$ ";
+  color: #3ddc84;
+}
